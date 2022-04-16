@@ -2,57 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: Moderat;
-    src: url("./font/Moderat-Regular.otf") format("opentype");
+.welcome {
+  margin: 128px 0 0;
 }
 
-@font-face {
-    font-family: Moderat;
-    font-weight: bold;
-    src: url("./font/Moderat-Bold.otf") format("opentype");
+.welcome .headingWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.btn {
-    @apply px-4 py-2 inline-block tracking-wide text-center border-2 bg-wvblue-600 border-wvblue-600 hover:bg-wvblue-800 hover:border-wvblue-800 text-wvblue-50;
+.welcome h1 {
+  display: inline-block;
+  margin: 0;
 }
 
-.btn.btn-alt {
-    @apply bg-wvcyan-600 border-wvcyan-600 hover:bg-wvcyan-700 hover:border-wvcyan-700 text-wvcyan-50 hover:text-wvcyan-50;
+.welcome .profilePicture {
+  width: 96px;
+  box-shadow: var(--shadow-inner-3);
+  border-radius: 100%;
+}
+@media (min-width: 640px) {
+  .welcome .profilePicture {
+    width: 128px;
+  }
+}
+@media (min-width: 992px) {
+  .welcome .profilePicture {
+    width: 192px;
+  }
+}
+@media (min-width: 1280px) {
+  .welcome .profilePicture {
+    width: 256px;
+  }
 }
 
-.btn.btn-ghost {
-    @apply bg-transparent border-wvblue-800 text-wvblue-800 hover:bg-wvblue-800 hover:text-wvblue-50;
+.welcome .profilePicture img {
+  z-index: -1;
 }
 
-.btn.btn-xl {
-    @apply px-6 py-3 text-lg sm:text-xl;
+.welcome .intro {
+  margin: 32px 0 0;
+  max-width: 384px;
+  font: var(--font-5);
+  color: var(--gray-600);
+}
+@media (min-width: 640px) {
+  .welcome .intro {
+    font: var(--font-6);
+  }
+}
+@media (min-width: 1280px) {
+  .welcome .intro {
+    margin-top: 48px;
+    max-width: 512px;
+  }
 }
 
-.btn.btn-2xl {
-    @apply px-6 sm:px-8 py-3 sm:py-4 text-xl sm:text-2xl;
+section.projects {
+  margin: 64px 0 0;
+  padding: 64px 0 0;
+}
+@media (min-width: 1280px) {
+  section.projects {
+    margin: 128px 0 0;
+    padding: 128px 0 0;
+  }
 }
 
-.link {
-    @apply underline underline-offset-2 decoration-solid decoration-2 hover:text-wvcyan-500 active:text-wvcyan-600
+.projects h2 {
+  max-width: 512px;
+}
+@media (min-width: 640px) {
+  .projects h2 {
+    max-width: 640px
+  }
 }
 
-p > a {
-    @apply text-wvblue-500 link
+.projects ul {
+  margin: 64px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+@media (min-width: 992px) {
+  .projects ul {
+    margin: 96px -16px 0;
+    flex-direction: row;
+  }
+}
+@media (min-width: 1280px) {
+  .projects ul {
+    margin: 128px -32px -64px;
+  }
 }
 
-.link.link-lg {
-    @apply text-base sm:text-lg
+.projects ul li {
+  display: block;
+  margin: 0;
+  padding: 0 0 64px;
+  flex-shrink: 0;
+}
+@media (min-width: 992px) {
+  .projects ul li {
+    padding: 0 16px 64px;
+  }
+}
+@media (min-width: 1280px) {
+  .projects ul li {
+    padding: 0 32px 64px;
+  }
 }
 
-.link.link-xl {
-    @apply text-lg sm:text-xl
+section.contact {
+  margin: 64px 0 128px;
+  padding-top: 64px;
 }
-
-.link.link-2xl {
-    @apply text-xl sm:text-2xl sm:decoration-3
-}
-
-.link.link-3xl {
-    @apply text-2xl sm:text-3xl underline-offset-3 decoration-3
+@media (min-width: 1280px) {
+  section.contact {
+    margin: 128px 0 128px;
+    padding-top: 128px;
+  }
 }
