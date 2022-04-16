@@ -1,0 +1,20 @@
+services:
+  web:
+    image: lpld_web
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgres://lpld:lpld@db:5432/lpld # pragma: allowlist secret
+      SECRET_KEY: thisisnotasecrectkey
+    command: ["tail", "-f", "/dev/null"]
+    depends_on:
+      - db
+
+  db:
+    image: "postgres:13"
+    expose:
+      - 5432
+    environment:
+      POSTGRES_USER: lpld
+      POSTGRES_PASSWORD: lpld

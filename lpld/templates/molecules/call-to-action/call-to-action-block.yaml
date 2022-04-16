@@ -1,0 +1,9 @@
+context:
+  value:
+    supertitle: "Block supertitle"
+    title: "Block title"
+    action_links:
+      - text: "You should do this block"
+        url: "tel://12345678900"
+      - text: "This is also cool block"
+        url: "https://example.com/action-block/"

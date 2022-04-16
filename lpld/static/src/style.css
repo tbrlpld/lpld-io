@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Moderat;
+    src: url("./font/Moderat-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Moderat;
+    font-weight: bold;
+    src: url("./font/Moderat-Bold.otf") format("opentype");
+}
+
+.btn {
+    @apply px-4 py-2 inline-block tracking-wide text-center border-2 bg-wvblue-600 border-wvblue-600 hover:bg-wvblue-800 hover:border-wvblue-800 text-wvblue-50;
+}
+
+.btn.btn-alt {
+    @apply bg-wvcyan-600 border-wvcyan-600 hover:bg-wvcyan-700 hover:border-wvcyan-700 text-wvcyan-50 hover:text-wvcyan-50;
+}
+
+.btn.btn-ghost {
+    @apply bg-transparent border-wvblue-800 text-wvblue-800 hover:bg-wvblue-800 hover:text-wvblue-50;
+}
+
+.btn.btn-xl {
+    @apply px-6 py-3 text-lg sm:text-xl;
+}
+
+.btn.btn-2xl {
+    @apply px-6 sm:px-8 py-3 sm:py-4 text-xl sm:text-2xl;
+}
+
+.link {
+    @apply underline underline-offset-2 decoration-solid decoration-2 hover:text-wvcyan-500 active:text-wvcyan-600
+}
+
+p > a {
+    @apply text-wvblue-500 link
+}
+
+.link.link-lg {
+    @apply text-base sm:text-lg
+}
+
+.link.link-xl {
+    @apply text-lg sm:text-xl
+}
+
+.link.link-2xl {
+    @apply text-xl sm:text-2xl sm:decoration-3
+}
+
+.link.link-3xl {
+    @apply text-2xl sm:text-3xl underline-offset-3 decoration-3
+}

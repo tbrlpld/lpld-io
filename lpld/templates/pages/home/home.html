@@ -1,0 +1,28 @@
+{% extends "base-page.html" %}
+{% load static wagtailcore_tags slippers %}
+
+{% block content %}
+    <main class="max-w-screen-2xl m-auto px-4 sm:px-12 lg:px-24 pb-56">
+        <h1 class="sr-only">{{ site_name }}</h1>
+        <section class="mt-8 sm:mt-20">
+            {% if page.hero_action_link_page %}
+                {% pageurl page.hero_action_link_page as action_link_url %}
+            {% endif %}
+            {% include "molecules/image-feature-heading/image-feature-heading.html" with  top_heading_level="2" size="large" reverse=True title=page.hero_title  supertitle=page.hero_supertitle subtitle=page.hero_subtitle action_link_text=page.hero_action_link_text action_link_url=action_link_url image=page.hero_image %}
+            {% if page.hero_category_teaser_links %}
+                <ul class="mt-16 sm:mt-24 sm:mx-6 md:mx-16 xl:mx-24 flex flex-col items-center">
+                    {% for ctl in page.hero_category_teaser_links %}
+                        <li class="w-full px-4 py-12 first:border-t-4 border-b-4 border-wvcyan-300">
+                            {% include_block ctl with top_heading_level="3" only %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+        {% for body_block in page.body %}
+            <section class="mt-32 sm:mt-56">
+                {% include_block body_block only %}
+            </section>
+        {% endfor %}
+    </main>
+{% endblock content  %}

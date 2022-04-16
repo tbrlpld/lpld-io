@@ -1,0 +1,26 @@
+{% load slippers %}
+<div class="border-8 border-wvcyan-500 px-6 sm:px-20 py-6 sm:py-16 flex flex-col lg:flex-row gap-12 sm:gap-12 justify-between items-center">
+    <div>
+        {% if supertitle %}
+            <div class="text-wvcyan-500 text-4xl sm:text-5xl font-bold tracking-tight">
+                {{ supertitle }}
+            </div>
+        {% endif %}
+        {% if title %}
+            <h2 class="mt-1 text-4xl sm:text-5xl font-bold tracking-tight">
+                {{ title }}
+            </h2>
+        {% endif %}
+    </div>
+    <div class="shrink-0 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-6">
+        {% for al in action_links  %}
+            {% if forloop.counter == 1 %}
+                {% var variant="alt" %}
+            {% else %}
+                {% var variant="ghost" %}
+            {% endif %}
+            {% include "atoms/action-link/action-link.html" with variant=variant size="xl" text=al.text url=al.url only %}
+        {% endfor %}
+    </div>
+</div>
+

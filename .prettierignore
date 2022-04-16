@@ -1,0 +1,6 @@
+static_compiled
+*.html
+coverage
+venv
+env
+bc/static_src/vendor

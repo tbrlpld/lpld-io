@@ -1,0 +1,17 @@
+{% load slippers %}
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-16 sm:gap-20">
+    <div class="basis-1/2 flex flex-col gap-12 justify-center items-start">
+        {% heading_sub_super heading_level="2" title=title supertitle=supertitle subtitle=subtitle %}
+        {% action_link size="2xl" variant="ghost" text=action_link_text url=action_link_url %}
+    </div>
+
+    <div class="basis-1/2">
+        <ul class="flex flex-col">
+            {% for teaser_link in teaser_links  %}
+                <li class="px-4 py-8 first:border-t-4 border-b-4 border-wvcyan-300">
+                    {% teaser_link size="2xl" heading_level="3" chevron=True heading=teaser_link.heading tagline=teaser_link.tagline %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

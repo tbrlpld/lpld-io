@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="box-border bg-wvcyan-100 text-wvblue-700">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1">
+        <title>Western Valve</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
+        <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
+    </head>
+    <body class="flex flex-col">
+        {% block body %}
+            {{ pattern_library_rendered_pattern }}
+        {% endblock body %}
+    </body>
+</html>

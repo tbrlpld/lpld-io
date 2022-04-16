@@ -1,0 +1,5 @@
+{% load slippers %}
+<a
+    href="{{ url }}"
+    class="btn {{ variant|match:'alt:btn-alt, ghost:btn-ghost' }} {{ size|match:'2xl: btn-2xl , xl: btn-xl ' }} whitespace-normal"
+>{{ text }}</a>

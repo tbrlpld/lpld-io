@@ -1,0 +1,3 @@
+{% load wagtailcore_tags %}
+{% pageurl value.action_link_page as action_link_url  %}
+{% include "./teaser-links-feature.html" with supertitle=value.supertitle title=value.title subtitle=value.subtitle action_link_text=value.action_link_text action_link_url=action_link_url teaser_links=value.teaser_links %}

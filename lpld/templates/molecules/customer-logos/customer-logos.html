@@ -1,0 +1,16 @@
+<div class="flex flex-col items-center">
+    {% if heading %}
+        <h2 class="mb-6 text-xl sm:text-3xl uppercase font-bold tracking-widest text-wvcyan-600">{{ heading }}</h2>
+    {% endif %}
+    <div class="max-w-screen-xl w-full flex flex-row items-center justify-center flex-wrap gap-12 sm:gap-20 px-8 sm:px-28">
+        {% include "./customer-logo.html" with logo="img/customers/chevron.svg" name="Chevron" %}
+        {% include "./customer-logo.html" with logo="img/customers/enbridge.svg" name="Enbridge" %}
+        {% include "./customer-logo.html" with logo="img/customers/exxon-mobile.svg" name="Exxon Mobile" %}
+        {% include "./customer-logo.html" with logo="img/customers/inter-pipeline.svg" name="Inter Pipeline" %}
+        {% include "./customer-logo.html" with logo="img/customers/kinder-morgan.svg" name="Kinder Morgan" %}
+        {% include "./customer-logo.html" with logo="img/customers/magellan.svg" name="Magellan" %}
+        {% include "./customer-logo.html" with logo="img/customers/phillips-66.svg" name="Phillips 66" %}
+        {% include "./customer-logo.html" with logo="img/customers/shell.svg" name="Shell" %}
+        {% include "./customer-logo.html" with logo="img/customers/vopak.svg" name="Vopak" %}
+    </div>
+</div>

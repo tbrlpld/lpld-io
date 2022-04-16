@@ -1,0 +1,17 @@
+{% load slippers wagtailcore_tags wagtailimages_tags %}
+{% var heading_level=heading_level|default:"2" %}
+{% var size=size|default:"" %}
+{% var reverse=reverse|default:False %}
+{% var button_size=size|match:"large: 2xl"|default:"xl" %}
+
+<div class="flex flex-col-reverse {{ reverse|yesno:'md:flex-row-reverse , md:flex-row' }} gap-12 lg:gap-20 items-start md:items-center">
+    <div class="basis-1/2 flex flex-col gap-12 sm:gap-20 items-start justify-center">
+        {% include "atoms/heading-sub-super/heading-sub-super.html" with heading_level=heading_level size=size supertitle=supertitle title=title subtitle=subtitle %}
+        {% if action_link_url and action_link_text %}
+            {% include "atoms/action-link/action-link.html" with size="2xl" variant="ghost" text=action_link_text url=action_link_url %}
+        {% endif %}
+    </div>
+    <div class="basis-1/2">
+        {% image image max-1200x1200 %}
+    </div>
+</div>

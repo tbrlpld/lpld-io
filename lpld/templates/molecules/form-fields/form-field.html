@@ -1,0 +1,12 @@
+{% load widget_tweaks %}
+<div>
+    <label class="block font-semibold text-primary-900" for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {% if field.help_text %}
+        <p class="text-sm text-gray-500">
+            {{ field.help_text }}
+        </p>
+    {% endif %}
+    {{ field.errors }}
+    <div class="h-1"></div>
+    {{ field|add_error_class:"bg-red-100" }}
+</div>

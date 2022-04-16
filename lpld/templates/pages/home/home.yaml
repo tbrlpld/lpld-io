@@ -1,0 +1,65 @@
+context:
+  page:
+    hero_supertitle: "We manufacture"
+    hero_title: DAN-EX
+    hero_subtitle: "America's leading double block and bleed valve"
+    hero_action_link_text: "Request pricing"
+    hero_action_link_url: "https://example.com/action-url/"
+    hero_category_teaser_links:
+      - "dummy"
+      - "dummy"
+    body:
+      - "dummy"
+    # body:
+    #   secondary:
+    #     supertitle: "Our services"
+    #     title: Aftermarket
+    #     subtitle: Valve customization, parts and maintenance services
+    #     action_link:
+    #       url: https://example.com
+    #       title: More service
+    #     teaser_links:
+    #       - heading: Repair and remanufacture
+    #         tagline: Increased slip retraction for less maintenance and longer lifetime.
+    #         url: https://example.com
+    #       - heading: Parts and accessories
+    #         tagline: Larger trunion diameter and quality controlled slip-bonding for superior strength.
+    #         url: https://example.com
+    #       - heading: Slip bonding and repair
+    #         tagline: Designed to fit  a wide range of applications.
+    #         url: https://example.com
+    #   customers:
+    #     title: Trusted by
+    #   about:
+    #     supertitle: "This is Western Vavle"
+    #     title: Sales through service
+    #     action_link:
+    #       title: About Western Vavle
+    #     teaser_links:
+    #       - heading: Family owned and operated
+    #         tagline: As a family owned and operated business, we stand by our products and services.
+    #       - heading: 30 years of experience
+    #         tagline: We serve our customers with prodcuts and services for pipeline valves since 1991.
+    #       - heading: Worldwide support
+    #         tagline: Our international representives around the world are here to help you with your vavle needs.
+    #   contact:
+    #     supertitle: Need pricing or support?
+    #     title: Get in touch now.
+    #     primary_action:
+    #       title: Call (661) 327-7660
+    #       url: tel://16613277660
+    #     secondary_action:
+    #       title: Send a message
+    #       url: https://example.com/contact
+
+tags:
+  pageurl:
+    page.hero_action_link_page as action_link_url:
+      target_var: action_link_url
+      raw: >
+        "https://example.com/action-link/
+  include_block:
+    ctl with top_heading_level="3" only:
+      template_name: "molecules/category-teaser-links/category-teaser-links.html"
+    body_block only:
+      template_name: "organisms/image-feature/image-feature-with-teaser-links-block.html"

@@ -1,0 +1,16 @@
+{% load slippers %}
+<div class="p-12 max-w-xl">
+    {% include "./teaser-link.html" %}
+    <div class="h-8"></div>
+    {% include "./teaser-link.html" with chevron=True %}
+    <div class="h-8"></div>
+    {% include "./teaser-link.html" with size="2xl" %}
+    <div class="h-8"></div>
+    {% include "./teaser-link.html" with size="2xl" chevron=True %}
+    <div class="h-8"></div>
+    {% include "./teaser-link.html" with size="3xl" %}
+    <div class="h-8"></div>
+    {% include "./teaser-link.html" with size="3xl" chevron=True %}
+    <div class="h-8"></div>
+    {% include "./teaser-link.html" with size="3xl" chevron=True heading_level="3" heading="This is H3" tagline="The default is H2." %}
+</div>

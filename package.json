@@ -1,0 +1,29 @@
+{
+  "name": "lpld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "NODE_ENV=production npx tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --minify",
+    "watch:css": "npx tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbrlpld/lpld.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tbrlpld/lpld/issues"
+  },
+  "homepage": "https://github.com/tbrlpld/lpld#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.8",
+    "tailwindcss": "^3.0.23"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.3.4"
+  }
+}

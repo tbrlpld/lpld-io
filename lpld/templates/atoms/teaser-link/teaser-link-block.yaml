@@ -1,0 +1,11 @@
+context:
+  value:
+    heading: "Something interesting"
+    tagline: "Pellentesque laoreet nulla justo. Fusce eleifend libero sed purus efficitur tristique."
+
+tags:
+  pageurl:
+    value.page as url:
+      target_var: url
+      raw: >
+        https://example.com/teaser-link-block/

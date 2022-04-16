@@ -1,0 +1,13 @@
+context:
+  supertitle: "This is Western Valve"
+  title: "Sales through service"
+  subtitle: "Some more about this awesome feature"
+  action_link_text: "Feature action"
+  action_link_url: "https://example.com/teaser-links-feature/"
+  teaser_links:
+    - heading: "Some feature detail"
+      tagline: Describe the detail in a bit more detail
+    - heading: "Another feature detail"
+      tagline: Describe the detail in a bit more detail
+    - heading: "Make it three for comedy"
+      tagline: Describe the detail in a bit more detail
