@@ -1,0 +1,17 @@
+.contact h2 {
+  max-width: 512px;
+}
+@media (min-width: 1280px) {
+  .contact h2 {
+    max-width: 640px;
+  }
+}
+
+.contactButton {
+  margin: 96px auto;
+}
+@media (min-width: 1280px) {
+  .contactButton {
+    margin: 128px auto;
+  }
+}
