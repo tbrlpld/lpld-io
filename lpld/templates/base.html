@@ -12,9 +12,10 @@
     <body>
       <div class='headerAndMainWrapper'>
         {% include "organisms/header/header.html" %}
-        {% block content %}
-            <main>{children}</main>
-        {% endblock content %}
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
       </div>
       <Footer />
     </body>
