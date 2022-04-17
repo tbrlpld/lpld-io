@@ -1,17 +1,12 @@
+{% load static %}
 <header>
-    <div class="m-auto max-w-screen-xl flex flex-row px-4 py-5 items-center justify-between">
-        <div class="flex flex-row items-center">
-            <div class="w-16">
-                {% include "atoms/logo/logo.html" %}
-            </div>
-            <div class="ml-2 text-xl  md:text-3xl">Western Valve</div>
-        </div>
-        <nav class="hidden sm:flex flex-row items-baseline gap-5">
-            {% for link in links %}
-                <a href="{{ link.url }}">{{ link.title }}</a>
-            {% endfor %}
-            {% include "atoms/action-link/action-link.html" with variant="ghost" text=secondary_link.text url=secondary_link.url %}
-            {% include "atoms/action-link/action-link.html" with variant="alt" text=primary_link.text url=primary_link.url %}
-        </nav>
-    </div>
+  <a href="/">
+    <img class="logo" src="{% static 'img/lpld-logo.svg' %}" alt="LPLD logo" />
+  </a>
+  <nav>
+    <ul>
+      <li><a class="navLink" href="">Projects</a></li>
+      <li><a class="navLink" href="">Contact</a></li>
+    </ul>
+  </nav>
 </header>

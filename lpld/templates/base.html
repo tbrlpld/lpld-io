@@ -11,7 +11,7 @@
     </head>
     <body>
       <div class='headerAndMainWrapper'>
-        <Header />
+        {% include "organisms/header/header.html" %}
         {% block content %}
             <main>{children}</main>
         {% endblock content %}
