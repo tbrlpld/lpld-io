@@ -6,7 +6,7 @@ const wvLogoCyan = 'hsl(170, 41%, 43%)'
 
 module.exports = {
     content: [
-        './wv/**/*.{html, js}',
+        './lpld/**/*.{html, js, css}',
     ],
     theme: {
         fontFamily: {
