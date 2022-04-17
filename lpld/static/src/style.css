@@ -3,9 +3,11 @@
 @import "tailwindcss/utilities";
 
 @import "./layout";
+
 @import "./header";
 @import "./footer";
-@import "./home";
 @import "./contact";
 @import "./button-link";
 
+@import "./home";
+@import "./project-page";

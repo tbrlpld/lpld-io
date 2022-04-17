@@ -1,5 +1,5 @@
 {% load slippers %}
 {% var large=large|default:False %}
-<a class="buttonLink {% if large %}large{% endif %}" {% attrs href target %}>
+<a class="buttonLink {% if large %}large{% endif %} {{ extra_class }}" {% attrs href target %}>
     {{ children }}
 </a>

@@ -1,5 +1,42 @@
 {% extends "base-page.html" %}
+{% load wagtailcore_tags wagtailimages_tags slippers %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
+    <section class="project">
+        <h1>{{ page.title }}</h1>
+        <p class="description">{{ page.introduction }}</p>
+        <div class="dataWrapper">
+            <div class="imageWrapper">
+                {% image page.image width-768 as project_image %}
+                <img
+                    src="{{ project_image.url }}"
+                    alt="Screenshot of {{ page.title }}"
+                    class="projectImage {% if page.image_shadow %}notMacScreenshot{% endif %}"
+                />
+            </div>
+            <div class="linksAndExtendedDescriptionWrapper">
+                <div class="links {% if page.repo_url and page.demo_url %}multipleLinks{% else %}singleLink{% endif %}">
+                    {% if page.repo_url %}
+                        <div class="projectLinkWrapper">
+                            {% #button_link href=page.repo_url extra_class="projectLink" %}See the code{% /button_link %}
+                        </div>
+                    {% endif %}
+                    {% if page.demo_url %}
+                        <div class="projectLinkWrapper">
+                            {% #button_link href=page.demo_url extra_class="projectLink" %}See it live{% /button_link %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="extendedDescription">
+                    {{ page.description|richtext }}
+                </div>
+            </div>
+        </div>
+        <div class="style.techPillsContainer">
+            {techPills}
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        {% include "organisms/contact/contact.html" %}
+    </section>
 {% endblock content %}
