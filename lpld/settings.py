@@ -49,6 +49,7 @@ if DEBUG:
 INSTALLED_APPS = [
     "lpld.core",
     "lpld.home",
+    "lpld.projects",
     "lpld.utils",
     "django.contrib.admin",
     "django.contrib.auth",
