@@ -10,13 +10,8 @@
         <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
     </head>
     <body>
-      <div class='headerAndMainWrapper'>
-        {% include "organisms/header/header.html" %}
-        <main>
-            {% block content %}
-            {% endblock content %}
-        </main>
-      </div>
-      <Footer />
+        {% block body %}
+            {{ pattern_library_rendered_pattern }}
+        {% endblock body %}
     </body>
 </html>

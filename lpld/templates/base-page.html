@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% block body %}
-    {% block header %}
-        {% include "organisms/header/header.html" %}
-    {% endblock header %}
-    {% block content %}
-    {% endblock %}
+    <div class='headerAndMainWrapper'>
+        {% block header %}
+            {% include "organisms/header/header.html" %}
+        {% endblock header %}
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+    </div>
     {% block footer  %}
+        <Footer />
     {% endblock footer %}
 {% endblock body %}
