@@ -1,9 +1,31 @@
 from django.db import models
+from modelcluster import fields as cluster_fields
 from wagtail import images as wagtail_images
 from wagtail.admin import edit_handlers as panels
 from wagtail.core import fields as wagtail_fields
 from wagtail.core import models as wagtail_models
 from wagtail.images import edit_handlers as image_panels
+from wagtail.snippets import edit_handlers as snippet_panels
+
+
+class ProjectTechnologyRelation(wagtail_models.Orderable):
+    project_page = cluster_fields.ParentalKey(
+        "projects.ProjectPage",
+        on_delete=models.CASCADE,
+        related_name="related_technologies",
+    )
+    technology = models.ForeignKey(
+        "core.Technology",
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        related_name="related_projects",
+    )
+
+    panels = [
+        snippet_panels.SnippetChooserPanel("technology")
+    ]
+
 
 
 
@@ -46,5 +68,10 @@ class ProjectPage(wagtail_models.Page):
                 panels.FieldPanel("demo_url"),
             ],
             heading="Links",
-        )
+        ),
+        panels.InlinePanel(
+            "related_technologies",
+            heading="Used technologies",
+            label="Technology"
+        ),
     ]
