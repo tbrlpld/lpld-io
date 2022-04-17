@@ -1,6 +1,7 @@
 components:
   # Atoms
   action_link: "atoms/action-link/action-link.html"
+  button_link: "atoms/button-link/button-link.html"
   chevron_link: "atoms/chevron-link/chevron-link.html"
   heading_sub_super: "atoms/heading-sub-super/heading-sub-super.html"
   teaser_link: "atoms/teaser-link/teaser-link.html"

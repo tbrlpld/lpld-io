@@ -1,0 +1,5 @@
+{% load slippers %}
+{% var large=large|default:False %}
+<a class="buttonLink {% if large %}large{% endif %}" {% attrs href target %}>
+    {{ children }}
+</a>
