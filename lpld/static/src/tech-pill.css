@@ -1,0 +1,11 @@
+.techPill {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border: 1px solid var(--gray-300);
+
+  border-radius: 3px;
+  font: var(--font-1-bold);
+  color: var(--gray-600);
+}

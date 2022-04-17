@@ -6,6 +6,7 @@ components:
   heading_sub_super: "atoms/heading-sub-super/heading-sub-super.html"
   social_link: "atoms/social-link/social-link.html"
   teaser_link: "atoms/teaser-link/teaser-link.html"
+  tech_pill: "atoms/tech-pill/tech-pill.html"
   # Molecules
   call_to_action: "molecules/call-to-action/call-to-action.html"
   category_teaser_links: "molecules/category-teaser-links/category-teaser-links.html"

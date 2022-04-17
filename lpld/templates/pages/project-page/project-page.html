@@ -32,8 +32,10 @@
                 </div>
             </div>
         </div>
-        <div class="style.techPillsContainer">
-            {techPills}
+        <div class="techPillsContainer">
+            {% for tech in page.related_technologies.all %}
+                {% tech_pill label=tech.technology.name %}
+            {% endfor %}
         </div>
     </section>
     <section id="contact" class="contact">
