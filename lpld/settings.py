@@ -272,8 +272,9 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
 
     # Custom S3 URL to use when connecting to S3, including scheme.
     # Overrides AWS_S3_REGION_NAME and AWS_S3_USE_SSL.
-    # To avoid AuthorizationQueryParametersError error, AWS_S3_REGION_NAME should also be set.
-    # See also: https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    # To avoid AuthorizationQueryParametersError error, AWS_S3_REGION_NAME should also be set.  # noqa: E501
+    # See also:
+    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
     if "AWS_S3_ENDPOINT_URL" in os.environ:
         AWS_S3_ENDPOINT_URL = os.environ["AWS_S3_ENDPOINT_URL"]
 
