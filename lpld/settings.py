@@ -270,6 +270,12 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     # https://github.com/jschneier/django-storages/blob/10d1929de5e0318dbd63d715db4bebc9a42257b5/storages/backends/s3boto3.py#L217
     AWS_S3_URL_PROTOCOL = os.environ.get("AWS_S3_URL_PROTOCOL", "https:")
 
+    # Custom S3 URL to use when connecting to S3, including scheme.
+    # Overrides AWS_S3_REGION_NAME and AWS_S3_USE_SSL.
+    # To avoid AuthorizationQueryParametersError error, AWS_S3_REGION_NAME should also be set.
+    # See also: https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+    if "AWS_S3_ENDPOINT_URL" in os.environ:
+        AWS_S3_ENDPOINT_URL = os.environ["AWS_S3_ENDPOINT_URL"]
 
 # SECURITY
 
