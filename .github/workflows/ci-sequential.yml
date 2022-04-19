@@ -27,7 +27,7 @@ jobs:
           context: .
           push: false
           load: true
-          tags: wv_web:latest
+          tags: lpld_web:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
@@ -45,7 +45,7 @@ jobs:
         run: docker images
 
       - name: Start docker stack
-        run: docker-compose -f docker-compose.ci.yaml up --no-build --detach
+        run: docker-compose -f docker-compose.ci.yaml up --detach
 
       - name: Run black
         run: docker-compose -f docker-compose.ci.yaml exec -T web black . --check

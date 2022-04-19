@@ -27,10 +27,10 @@ jobs:
           context: .
           push: false
           load: true
-          tags: wv_web:latest
+          tags: lpld_web:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
-          outputs: type=docker,dest=/tmp/wv-image.tar
+          outputs: type=docker,dest=/tmp/lpld-image.tar
 
       - name: List images
         run: docker images
@@ -48,8 +48,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: wv-image
-          path: /tmp/wv-image.tar
+          name: lpld-image
+          path: /tmp/lpld-image.tar
 
   test:
     runs-on: ubuntu-latest
@@ -65,12 +65,12 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: wv-image
+          name: lpld-image
           path: /tmp
 
       - name: Load image
         run: |
-          docker load --input /tmp/wv-image.tar
+          docker load --input /tmp/lpld-image.tar
           docker image ls -a
 
       - name: Start docker stack
@@ -97,12 +97,12 @@ jobs:
       - name: download artifact
         uses: actions/download-artifact@v2
         with:
-          name: wv-image
+          name: lpld-image
           path: /tmp
 
       - name: load image
         run: |
-          docker load --input /tmp/wv-image.tar
+          docker load --input /tmp/lpld-image.tar
           docker image ls -a
 
       - name: start docker stack
@@ -129,12 +129,12 @@ jobs:
       - name: download artifact
         uses: actions/download-artifact@v2
         with:
-          name: wv-image
+          name: lpld-image
           path: /tmp
 
       - name: load image
         run: |
-          docker load --input /tmp/wv-image.tar
+          docker load --input /tmp/lpld-image.tar
           docker image ls -a
 
       - name: start docker stack
@@ -160,12 +160,12 @@ jobs:
       - name: download artifact
         uses: actions/download-artifact@v2
         with:
-          name: wv-image
+          name: lpld-image
           path: /tmp
 
       - name: load image
         run: |
-          docker load --input /tmp/wv-image.tar
+          docker load --input /tmp/lpld-image.tar
           docker image ls -a
 
       - name: start docker stack
@@ -191,12 +191,12 @@ jobs:
       - name: download artifact
         uses: actions/download-artifact@v2
         with:
-          name: wv-image
+          name: lpld-image
           path: /tmp
 
       - name: load image
         run: |
-          docker load --input /tmp/wv-image.tar
+          docker load --input /tmp/lpld-image.tar
           docker image ls -a
 
       - name: start docker stack
@@ -216,4 +216,4 @@ jobs:
       - name: Delete artifacts
         uses: geekyeggo/delete-artifact@v1
         with:
-          name: wv-image
+          name: lpld-image
