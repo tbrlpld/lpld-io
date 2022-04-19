@@ -1,6 +1,6 @@
-# Westernvalve Website
+# [lpld.io](https://www.lpld.io)
 
-Website for the Valve company Western Valve
+My personal portfolio website.
 
 ## Local Setup
 
