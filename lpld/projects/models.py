@@ -1,4 +1,5 @@
 from django.db import models
+
 from modelcluster import fields as cluster_fields
 from wagtail import images as wagtail_images
 from wagtail.admin import edit_handlers as panels
@@ -22,11 +23,7 @@ class ProjectTechnologyRelation(wagtail_models.Orderable):
         related_name="related_projects",
     )
 
-    panels = [
-        snippet_panels.SnippetChooserPanel("technology")
-    ]
-
-
+    panels = [snippet_panels.SnippetChooserPanel("technology")]
 
 
 class ProjectPage(wagtail_models.Page):
@@ -51,7 +48,6 @@ class ProjectPage(wagtail_models.Page):
     repo_url = models.URLField(null=False, blank=True)
     demo_url = models.URLField(null=False, blank=True)
 
-
     content_panels = wagtail_models.Page.content_panels + [
         panels.MultiFieldPanel(
             children=[
@@ -70,8 +66,6 @@ class ProjectPage(wagtail_models.Page):
             heading="Links",
         ),
         panels.InlinePanel(
-            "related_technologies",
-            heading="Used technologies",
-            label="Technology"
+            "related_technologies", heading="Used technologies", label="Technology"
         ),
     ]
