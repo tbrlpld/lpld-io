@@ -7,6 +7,7 @@
             src="{{ project_image.url }}"
             alt="Screenshot of {{ project.title }}"
             class="projectImage {% if project.image_shadow %}notMacScreenshot{% endif %} thumbnail"
+            loading="lazy"
         />
     {% endif %}
   <div class="projectData">
