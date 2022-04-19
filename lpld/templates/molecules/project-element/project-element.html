@@ -1,0 +1,18 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="projectElement">
+    {% if project.image %}
+        {% image project.image width-384 as project_image %}
+        <img
+            src="{{ project_image.url }}"
+            alt="Screenshot of {{ project.title }}"
+            class="projectImage {% if project.image_shadow %}notMacScreenshot{% endif %} thumbnail"
+        />
+    {% endif %}
+  <div class="projectData">
+    <a class="projectLink" href="{% pageurl project %}">
+        <h3 class="projectName">{{ project.title }}</h3>
+    </a>
+    <p class="projectDescription">{{ project.introduction }}</p>
+  </div>
+</div>

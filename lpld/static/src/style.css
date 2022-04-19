@@ -4,11 +4,12 @@
 
 @import "./layout";
 
-@import "./header";
-@import "./footer";
-@import "./contact";
 @import "./button-link";
+@import "./contact";
+@import "./footer";
+@import "./header";
 @import "./tech-pill";
+@import "./project-element";
 
 @import "./home";
 @import "./project-page";

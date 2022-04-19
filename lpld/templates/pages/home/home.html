@@ -12,7 +12,11 @@
     <section id='projects' class="projects">
         <h2>These are things I have built before</h2>
         <ul>
-            {projectElements}
+            {% for project in projects  %}
+                <li>
+                    {% include "molecules/project-element/project-element.html" with project=project %}
+                </li>
+            {% endfor %}
         </ul>
     </section>
     <section id='contact' class="contact">
