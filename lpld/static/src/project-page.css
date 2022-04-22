@@ -92,11 +92,11 @@ section.project {
   }
 }
 
-.projectLink {
+.projectLinkWrapper .buttonLink {
   width: 128px;
 }
 @media (min-width: 1024px) {
-  .projectLink {
+  .projectLinkWrapper .buttonLink {
     width: 192px;
     padding: 20px 0;
     font: var(--font-3-bold);
