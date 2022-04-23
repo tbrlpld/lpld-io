@@ -1008,18 +1008,6 @@ Wagtail = ">=2,<3"
 testing = ["coverage (==5.0.3)", "factory-boy (==2.12.0)", "moto (==1.3.14)", "black (==19.10b0)", "isort", "flake8"]
 
 [[package]]
-name = "wand"
-version = "0.6.7"
-description = "Ctypes-based simple MagickWand API binding for Python"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.extras]
-doc = ["Sphinx (>=2.4.1)"]
-test = ["pytest (>=5.3.5)"]
-
-[[package]]
 name = "webencodings"
 version = "0.5.1"
 description = "Character encoding aliases for legacy web content"
@@ -1093,7 +1081,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "91b2aa86f37bacf2cb7e77b21b4b92593dd9a2528b27e5f224100bff58d98a9f"
+content-hash = "5cccf08da9961989b56804414b43c326b8e22c2a6bf910965eb78967cac53746"
 
 [metadata.files]
 anyascii = [
@@ -1527,10 +1515,6 @@ wagtail-factories = [
 wagtail-storages = [
     {file = "wagtail-storages-0.0.6.tar.gz", hash = "sha256:e9204d148713357c997713dd6cdd3a3f7891c8009daaaee5e988cb2c12a3a46d"},
     {file = "wagtail_storages-0.0.6-py3-none-any.whl", hash = "sha256:867f040b058320906a5de1d576d37660dedeb977910362cce3fa9f5d2258de3a"},
-]
-wand = [
-    {file = "Wand-0.6.7-py2.py3-none-any.whl", hash = "sha256:5ba497e90741a05ebce4603b04ee843150c566482a753554da54dc57d8503bba"},
-    {file = "Wand-0.6.7.tar.gz", hash = "sha256:ebc01bccc25dba68414ab55b482341f9ad2b197d7f49d5e724f339bbf63fb6db"},
 ]
 webencodings = [
     {file = "webencodings-0.5.1-py2.py3-none-any.whl", hash = "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"},
