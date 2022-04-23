@@ -252,17 +252,12 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     # public. Images should be made available to public via the bucket policy,
     # where the documents should use wagtail-storages.
     ## I have removed Wagtail storages for now, because it is not compatible with
-    ## Django 4.0.  And honestly, I don't quite understand what it's good for. Do I
-    ## need the combinations of S3 and CDN? I think one might be fine.
-    ## The access control is still the same. If you want "truly private" documents,
-    ## you can not use the default redirect document serving. This means the documents
-    ## are served directly through Django. To keep those responses private, they can
-    ## not be on CDN and I do not expost the S3 URL.
-    ## I think default public read is also in line with how Wagtail works, because
-    ## documents are only marked private once they are moved to a private collection.
-    ## This should mean that they are initially uploaded with the public ACL anyhow.
-    ## I don't think this is a feature that will be used much... private docs. So
-    ## sticking with the default of redirect view after permission check should be fine.
+    ## Django 4.0. The CDN features are not really for me anyhow. It seems overkill
+    ## to combine the S3 and a CDN. I guess the nice thing it adds is that is uses
+    ## per-object-ACL that correspond to that is defined in Wagtail. Meaning that
+    ## it uses redirects to signed URLs for private documents.
+    ## I don't think that I will need this for my personal project. I guess this might
+    ## be interesting for intranets or something... but that is not what I am building.
     AWS_DEFAULT_ACL = "public-read"
 
     # We generally use this setting in the production to put the S3 bucket
@@ -289,6 +284,7 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
     if "AWS_S3_ENDPOINT_URL" in os.environ:
         AWS_S3_ENDPOINT_URL = os.environ["AWS_S3_ENDPOINT_URL"]
+
 
 # SECURITY
 
