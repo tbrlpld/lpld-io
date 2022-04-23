@@ -306,7 +306,7 @@ if not DEBUG:
     # This tell browsers to only try SSL for some number of seconds (if it's long
     # and SSL is not available, they won't be able to reach you... for that time).
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-seconds
-    SECURE_HSTS_SECONDS = int(os.environ.get("SECURE_HSTS_SECONDS", 0)
+    SECURE_HSTS_SECONDS = int(os.environ.get("SECURE_HSTS_SECONDS", 0))
 
 
 # WAGTAIL
