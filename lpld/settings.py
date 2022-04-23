@@ -311,9 +311,11 @@ if not DEBUG:
 SILENCED_SYSTEM_CHECKS = [
     # SECURE_HSTS_INCLUDE_SUBDOMAINS. Not using that, because there might be other
     # sites on subdomains for which I don't want HSTS.
+    # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-include-subdomains
     "security.W005",
     # SECURE_HSTS_PRELOAD. Not using this because it's not official.
     # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security#preloading_strict_transport_security
+    # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-preload
     "security.W021",
 ]
 
