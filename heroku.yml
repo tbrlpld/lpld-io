@@ -4,4 +4,4 @@ build:
 release:
   image: web
   command:
-    - ./manage.py createcachetable && ./manage.py migrate --noinput
+    - ./manage.py check --deploy --fail-level WARNING && ./manage.py createcachetable && ./manage.py migrate --noinput
