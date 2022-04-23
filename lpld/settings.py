@@ -303,6 +303,13 @@ if not DEBUG:
     # This should already happen at the DNS and host level, but to be sure.
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-ssl-redirect
     SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
+    if SECURE_SSL_REDIRECT:
+        # When running the app behind a proxy (e.g. on Heroku) then the app server
+        # won't see the if the request came with SSL. But, usually proxies add that
+        # information to a request header. This setting defines that.
+        # https://devcenter.heroku.com/articles/http-routing#heroku-headers
+        # https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-SECURE_PROXY_SSL_HEADER
+        SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     # This tell browsers to only try SSL for some number of seconds (if it's long
     # and SSL is not available, they won't be able to reach you... for that time).
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-seconds
