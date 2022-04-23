@@ -302,7 +302,7 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = True
     # This should already happen at the DNS and host level, but to be sure.
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-ssl-redirect
-    SECURE_SSL_REDIRECT = True
+    SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
     # This tell browsers to only try SSL for some number of seconds (if it's long
     # and SSL is not available, they won't be able to reach you... for that time).
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-seconds
