@@ -211,12 +211,12 @@ STATICFILES_DIRS = [
     BASE_DIR / "lpld/static/public",
 ]
 STATIC_ROOT = BASE_DIR / "lpld/static/dist"
-STATIC_URL = "/static/"
+STATIC_URL = "static/"
 
 
 # Media files (user uploaded content)
 MEDIA_ROOT = BASE_DIR / "media"
-MEDIA_URL = "/media/"
+MEDIA_URL = "media/"
 # AWS S3 buckets configuration
 # This is media files storage backend configuration. S3 is our preferred file
 # storage solution.
