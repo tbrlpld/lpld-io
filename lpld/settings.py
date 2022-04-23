@@ -300,6 +300,8 @@ if BASIC_AUTH_LOGIN and BASIC_AUTH_PASSWORD:
 if not DEBUG:
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
+    # This should already happen at the DNS and host level, but to be sure.
+    SECURE_SSL_REDIRECT = True
 
 
 # WAGTAIL
