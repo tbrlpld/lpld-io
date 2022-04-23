@@ -308,6 +308,15 @@ if not DEBUG:
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-seconds
     SECURE_HSTS_SECONDS = int(os.environ.get("SECURE_HSTS_SECONDS", 0))
 
+SILENCED_SYSTEM_CHECKS = [
+    # SECURE_HSTS_INCLUDE_SUBDOMAINS. Not using that, because there might be other
+    # sites on subdomains for which I don't want HSTS.
+    "security.W005",
+    # SECURE_HSTS_PRELOAD. Not using this because it's not official.
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security#preloading_strict_transport_security
+    "security.W021",
+]
+
 
 # WAGTAIL
 
