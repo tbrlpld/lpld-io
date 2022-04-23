@@ -254,13 +254,14 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     # Default ACL for new files should be "private" - not accessible to the
     # public. Images should be made available to public via the bucket policy,
     # where the documents should use wagtail-storages.
-    ## I have removed Wagtail storages for now, because it is not compatible with
-    ## Django 4.0. The CDN features are not really for me anyhow. It seems overkill
-    ## to combine the S3 and a CDN. I guess the nice thing it adds is that is uses
-    ## per-object-ACL that correspond to that is defined in Wagtail. Meaning that
-    ## it uses redirects to signed URLs for private documents.
-    ## I don't think that I will need this for my personal project. I guess this might
-    ## be interesting for intranets or something... but that is not what I am building.
+    # ***
+    # I have removed Wagtail storages for now, because it is not compatible with
+    # Django 4.0. The CDN features are not really for me anyhow. It seems overkill
+    # to combine the S3 and a CDN. I guess the nice thing it adds is that is uses
+    # per-object-ACL that correspond to that is defined in Wagtail. Meaning that
+    # it uses redirects to signed URLs for private documents.
+    # I don't think that I will need this for my personal project. I guess this might
+    # be interesting for intranets or something... but that is not what I am building.
     AWS_DEFAULT_ACL = "public-read"
 
     # We generally use this setting in the production to put the S3 bucket
