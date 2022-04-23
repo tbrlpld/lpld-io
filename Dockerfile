@@ -15,6 +15,9 @@ WORKDIR /app
 RUN useradd -m lpld -s /bin/bash && \
     chown -R lpld /app
 
+# Install system dependencies
+RUN apt-get install libmagickwand-dev
+
 ENV POETRY_HOME=/home/lpld/poetry
 ENV PATH=${POETRY_HOME}/bin:$PATH \
     # Ensure dependencies are available globally (without having to mess with the poetry's venvs)
@@ -26,9 +29,9 @@ RUN env
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 RUN chown -R lpld:lpld ${POETRY_HOME}
 
+# Install Python dependencies
 COPY pyproject.toml .
 COPY poetry.lock .
-
 RUN poetry install --no-root --no-interaction --no-ansi
 
 USER lpld
