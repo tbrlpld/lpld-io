@@ -300,9 +300,6 @@ if BASIC_AUTH_LOGIN and BASIC_AUTH_PASSWORD:
 if not DEBUG:
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    # This should already happen at the DNS and host level, but to be sure.
-    # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-ssl-redirect
-    SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
     # This tell browsers to only try SSL for some number of seconds (if it's long
     # and SSL is not available, they won't be able to reach you... for that time).
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-seconds
@@ -313,6 +310,11 @@ SILENCED_SYSTEM_CHECKS = [
     # sites on subdomains for which I don't want HSTS.
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-include-subdomains
     "security.W005",
+    # SECURE_SSL_REDIRECT. This is happening on the DNS and host level.
+    # The internal communication to the app server will not have SSL. Therefore,
+    # I should not set this in Django, because that would lead to an infinite loop.
+    # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-ssl-redirect
+    "security.W008",
     # SECURE_HSTS_PRELOAD. Not using this because it's not official.
     # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security#preloading_strict_transport_security
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-hsts-preload
