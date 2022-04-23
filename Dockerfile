@@ -16,7 +16,21 @@ RUN useradd -m lpld -s /bin/bash && \
     chown -R lpld /app
 
 # Install system dependencies
-RUN apt-get install libmagickwand-dev
+RUN apt-get update
+RUN apt-get install build-essential
+RUN wget https://www.imagemagick.org/download/ImageMagick-7.1.0-31.tar.gz
+RUN tar xvzf ImageMagick-7.1.0-31.tar.gz
+WORKDIR /app/ImageMagick-7.1.0-31/
+RUN ./configure
+RUN make
+RUN make install
+RUN ldconfig /usr/local/lib
+RUN whereis magick
+RUN magick -version
+WORKDIR /app
+RUN rm -rf ImageMagick-7.1.0-31/
+
+# RUN apt-get install libmagickwand-dev
 
 ENV POETRY_HOME=/home/lpld/poetry
 ENV PATH=${POETRY_HOME}/bin:$PATH \
