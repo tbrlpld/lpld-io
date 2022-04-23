@@ -306,7 +306,7 @@ if not DEBUG:
 
 # WAGTAIL
 
-WAGTAIL_SITE_NAME = "Western Valve"
+WAGTAIL_SITE_NAME = "lpld.io"
 
 WAGTAIL_SEARCH_BACKENDS = {
     "default": {
