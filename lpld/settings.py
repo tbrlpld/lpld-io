@@ -232,7 +232,7 @@ MEDIA_URL = "media/"
 # The last two are picked up by boto3:
 # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#environment-variables
 if "AWS_STORAGE_BUCKET_NAME" in os.environ:
-    INSTALLED_APPS = INSTALLED_APPS + ["storages", "wagtail_storages"]
+    INSTALLED_APPS = INSTALLED_APPS + ["storages"]
 
     # https://docs.djangoproject.com/en/stable/ref/settings/#default-file-storage
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
@@ -251,7 +251,19 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     # Default ACL for new files should be "private" - not accessible to the
     # public. Images should be made available to public via the bucket policy,
     # where the documents should use wagtail-storages.
-    AWS_DEFAULT_ACL = "private"
+    ## I have removed Wagtail storages for now, because it is not compatible with
+    ## Django 4.0.  And honestly, I don't quite understand what it's good for. Do I
+    ## need the combinations of S3 and CDN? I think one might be fine.
+    ## The access control is still the same. If you want "truly private" documents,
+    ## you can not use the default redirect document serving. This means the documents
+    ## are served directly through Django. To keep those responses private, they can
+    ## not be on CDN and I do not expost the S3 URL.
+    ## I think default public read is also in line with how Wagtail works, because
+    ## documents are only marked private once they are moved to a private collection.
+    ## This should mean that they are initially uploaded with the public ACL anyhow.
+    ## I don't think this is a feature that will be used much... private docs. So
+    ## sticking with the default of redirect view after permission check should be fine.
+    AWS_DEFAULT_ACL = "public-read"
 
     # We generally use this setting in the production to put the S3 bucket
     # behind a CDN using a custom domain, e.g. media.llamasavers.com.
