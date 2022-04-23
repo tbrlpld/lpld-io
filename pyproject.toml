@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "lpld"
 version = "0.1.0"
-description = "Website for the valve company Western Valve."
+description = "My personal portfolio website"
 authors = ["Tibor Leupold <tibor@lpld.io>"]
-license = "Proprietary"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
