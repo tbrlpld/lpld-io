@@ -1,4 +1,5 @@
 from django.db import models
+
 from wagtail.images import models as image_models
 
 
@@ -15,6 +16,4 @@ class CustomRendition(image_models.AbstractRendition):
     )
 
     class Meta:
-        unique_together = (
-            ("image", "filter_spec", "focal_point_key"),
-        )
+        unique_together = (("image", "filter_spec", "focal_point_key"),)
