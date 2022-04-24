@@ -49,6 +49,7 @@ if DEBUG:
 INSTALLED_APPS = [
     "lpld.core",
     "lpld.home",
+    "lpld.images",
     "lpld.projects",
     "lpld.utils",
     "django.contrib.admin",
@@ -338,6 +339,8 @@ WAGTAIL_SEARCH_BACKENDS = {
 }
 
 WAGTAIL_ENABLE_UPDATE_CHECK = False
+
+WAGTAILIMAGES_IMAGE_MODEL = "images.CustomImage"
 
 
 # DEBUG TOOLBAR
