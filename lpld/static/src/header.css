@@ -66,8 +66,10 @@ nav > ul > li {
 }
 
 .navLink:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px; 
+  text-decoration: 2px solid underline;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
 }
 
 .navLink:active {
