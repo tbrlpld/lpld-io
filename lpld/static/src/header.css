@@ -66,6 +66,7 @@ nav > ul > li {
 }
 
 .navLink:hover {
+  color: var(--gray-700);
   text-decoration: 2px solid underline;
   text-decoration-line: underline;
   text-decoration-style: solid;
