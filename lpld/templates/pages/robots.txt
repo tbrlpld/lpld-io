@@ -1,1 +1,1 @@
-HELLO
+User-agent: *
