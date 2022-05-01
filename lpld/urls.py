@@ -15,17 +15,17 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import static as static_urls
-from django.contrib import admin
 from django.urls import include, path
 
 from wagtail.admin import urls as wagtail_admin_urls
+from wagtail.contrib.sitemaps import views as sitemap_views
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtail_docs_urls
 
 urlpatterns = [
-    path("dj-admin/", admin.site.urls),
     path("lpld-admin/", include(wagtail_admin_urls)),
     path("docs/", include(wagtail_docs_urls)),
+    path("sitemap.xml", sitemap_views.sitemap),
 ]
 
 
