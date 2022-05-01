@@ -6,7 +6,28 @@
         <div class="headingWrapper">
             <h1>{{ page.title }}</h1>
             {% if page.profile_image %}
-                {% image page.profile_image fill-512x512 class="profilePicture" loading="eager" %}
+                {% image page.profile_image fill-192x192 as profile_192 %}
+                {% image page.profile_image fill-256x256 as profile_256 %}
+                {% image page.profile_image fill-384x384 as profile_384 %}
+                {% image page.profile_image fill-512x512 as profile_512 %}
+                <img
+                    class="profilePicture"
+                    alt="{{ page.profile_image.title }}"
+                    srcset="
+                        {{ profile_192.url }} 192w,
+                        {{ profile_256.url }} 256w,
+                        {{ profile_384.url }} 384w,
+                        {{ profile_512.url }} 512w
+                    "
+                    sizes="
+                        (min-width: 640px) 256px,
+                        (min-width: 992px) 384px,
+                        (min-width: 1280px) 512px,
+                        192px
+                    "
+                    src="{{ profile_512.url }}"
+                    loading="eager"
+                >
             {% else %}
                 <img class="profilePicture" alt="Headshot of Tibor" src="{% static 'img/profile.jpg' %}" loading="eager">
             {% endif %}
