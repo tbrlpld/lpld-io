@@ -24,7 +24,6 @@ from wagtail.documents import urls as wagtail_docs_urls
 
 from lpld.core import views as core_views
 
-
 urlpatterns = [
     path("docs/", include(wagtail_docs_urls)),
     path("lpld-admin/", include(wagtail_admin_urls)),
