@@ -20,12 +20,14 @@ from django.urls import include, path
 
 from wagtail.admin import urls as wagtail_admin_urls
 from wagtail.core import urls as wagtail_urls
+from wagtail.contrib.sitemaps import views as sitemap_views
 from wagtail.documents import urls as wagtail_docs_urls
 
 urlpatterns = [
-    path("dj-admin/", admin.site.urls),
+    # path("dj-admin/", admin.site.urls),
     path("lpld-admin/", include(wagtail_admin_urls)),
     path("docs/", include(wagtail_docs_urls)),
+    path("sitemap.xml", sitemap_views.sitemap),
 ]
 
 
