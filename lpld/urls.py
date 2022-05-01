@@ -22,9 +22,13 @@ from wagtail.contrib.sitemaps import views as sitemap_views
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtail_docs_urls
 
+from lpld.core import views as core_views
+
+
 urlpatterns = [
-    path("lpld-admin/", include(wagtail_admin_urls)),
     path("docs/", include(wagtail_docs_urls)),
+    path("lpld-admin/", include(wagtail_admin_urls)),
+    path("robots.txt", core_views.RobotsView.as_view()),
     path("sitemap.xml", sitemap_views.sitemap),
 ]
 
