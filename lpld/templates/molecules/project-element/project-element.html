@@ -2,9 +2,21 @@
 
 <div class="projectElement">
     {% if project.image %}
-        {% image project.image width-384 as project_image %}
+        {% image project.image width-192 as project_image_192 %}
+        {% image project.image width-256 as project_image_256 %}
+        {% image project.image width-384 as project_image_384 %}
         <img
-            src="{{ project_image.url }}"
+            srcset="
+                {{ project_image_192.url }} 192w,
+                {{ project_image_256.url }} 256w,
+                {{ project_image_384.url }} 384w
+            "
+            sizes="
+                (min-width: 640px) 256px,
+                (min-width: 1280px) 384px,
+                192px
+            "
+            src="{{ project_image_384.url }}"
             alt="Screenshot of {{ project.title }}"
             class="projectImage {% if project.image_shadow %}notMacScreenshot{% endif %} thumbnail"
             loading="lazy"
