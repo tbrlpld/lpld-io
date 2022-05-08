@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 html {
   --gray-100: hsl(0, 0%, 98%);
   --gray-200: hsl(0, 0%, 94%);
@@ -55,16 +51,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.headerAndMainWrapper {
-  max-width: 992px;
-  width: 100%;
-  margin: 0 auto;
-}
 
 main {
   margin: 0 24px;
