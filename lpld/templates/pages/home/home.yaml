@@ -3,4 +3,40 @@ context:
     title: "Greetings,"
     introduction: "Working at Torchbox for a bunch <a href='https://example.com'>clients</a>."
   projects:
-    - title: Test
+    - title: "Remember me"
+      introduction: "A memory game"
+      image: True
+      image_shadow: True
+    - title: "Remember me"
+      introduction: "Some other programming project"
+      image: True
+      image_shadow: True
+    - title: "Remember me"
+      introduction: "A memory game"
+      image: True
+      image_shadow: True
+    - title: "Remember me"
+      introduction: "A memory game"
+      image: True
+      image_shadow: True
+    - title: "Remember me"
+      introduction: "A memory game"
+      image: True
+      image_shadow: True
+
+
+tags:
+  image:
+    "project.image width-192 as project_image_192":
+      target_var: "project_image_192"
+      raw:
+        url: "https://via.placeholder.com/192/192"
+    "project.image width-256 as project_image_256":
+      target_var: "project_image_256"
+      raw:
+        url: "https://via.placeholder.com/256/256"
+    "project.image width-384 as project_image_384":
+      target_var: "project_image_384"
+      raw:
+        url: "https://via.placeholder.com/384/384"
+
