@@ -1,7 +1,7 @@
 context:
   page:
     title: "Greetings,"
-    introduction: "Working at Torchbox for a bunch <a href='https://example.com'>clients</a>."
+    introduction: "Working at Torchbox for a bunch of <a href='https://example.com'>clients</a>. Currently I am also working for Mozilla."
   projects:
     - title: "Remember me"
       introduction: "A memory game"

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <div class="w-full max-w-screen-lg mx-auto px-4 md:px-8">
+    <div class="w-full max-w-screen-lg mx-auto px-4 sm:px-8 md:px-12">
         {% block header %}
             {% include "organisms/header/header.html" %}
         {% endblock header %}
@@ -9,12 +9,12 @@
             {% block content %}
             {% endblock content %}
         </main>
+        {% block contact %}
+            <section id="contact" class="mt-16 pt-24 md:pt-44 pb-44">
+                {% include "organisms/contact/contact.html" %}
+            </section>
+        {% endblock contact %}
     </div>
-    {% block contact %}
-        <section id="contact" class="w-full max-w-screen-lg mx-auto mt-16 px-4 md:px-8 pt-24 md:pt-44 pb-44">
-            {% include "organisms/contact/contact.html" %}
-        </section>
-    {% endblock contact %}
     {% block footer  %}
         {% include "organisms/footer/footer.html" %}
     {% endblock footer %}
