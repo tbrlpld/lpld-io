@@ -51,21 +51,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-main {
-  margin: 0 24px;
-}
-@media (min-width: 640px) {
-  main {
-    margin: 0 64px;
-  }
-}
-@media (min-width: 1280px) {
-  main {
-    margin: 0;
-  }
-}
-
 h1 {
   margin: 0;
   padding: 0;
