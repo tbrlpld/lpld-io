@@ -1,8 +1,0 @@
-context:
-  supertitle: "Need pricing or support?"
-  title: "Get in touch now."
-  action_links:
-    - text: "You should do this"
-      url: "tel://12345678900"
-    - text: "This is also cool"
-      url: "https://example.com/action/"
