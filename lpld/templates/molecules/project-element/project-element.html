@@ -1,31 +1,33 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<div class="projectElement">
+<div class="flex items-start group">
     {% if project.image %}
         {% image project.image width-192 as project_image_192 %}
         {% image project.image width-256 as project_image_256 %}
         {% image project.image width-384 as project_image_384 %}
-        <img
-            srcset="
-                {{ project_image_192.url }} 192w,
-                {{ project_image_256.url }} 256w,
-                {{ project_image_384.url }} 384w
-            "
-            sizes="
-                (min-width: 640px) 256px,
-                (min-width: 1280px) 384px,
-                192px
-            "
-            src="{{ project_image_384.url }}"
-            alt="Screenshot of {{ project.title }}"
-            class="projectImage {% if project.image_shadow %}notMacScreenshot{% endif %} thumbnail"
-            loading="lazy"
-        />
+        <div class="shrink-0 w-24 sm:w-32 xl:w-48 {% if project.image_shadow %} px-0.5 sm:px-1 xl:px-2 {% endif %} ">
+            <img
+                srcset="
+                    {{ project_image_192.url }} 192w,
+                    {{ project_image_256.url }} 256w,
+                    {{ project_image_384.url }} 384w
+                "
+                sizes="
+                    (min-width: 640px) 256px,
+                    (min-width: 1280px) 384px,
+                    192px
+                "
+                src="{{ project_image_384.url }}"
+                alt="Screenshot of {{ project.title }}"
+                class="{% if project.image_shadow %} rounded drop-shadow-md {% endif %}"
+                loading="lazy"
+            />
+        </div>
     {% endif %}
-  <div class="projectData">
-    <a class="projectLink" href="{% pageurl project %}">
-        <h3 class="projectName">{{ project.title }}</h3>
+  <div class="ml-4">
+    <a class="no-underline group-hover:text-neutral-800 group-active:text-neutral-500" href="{% pageurl project %}">
+        <h3 class="decoration-3 group-hover:underline mb-3 mt-2 text-xl sm:text-2xl font-bold">{{ project.title }}</h3>
     </a>
-    <p class="projectDescription">{{ project.introduction }}</p>
+    <p class="text-sm sm:text-base xl:text-lg text-neutral-500">{{ project.introduction }}</p>
   </div>
 </div>
