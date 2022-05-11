@@ -129,49 +129,17 @@ section.project {
 }
 
 .projectImage {
-  /* width: 384px; */
-  /* max-width: 100%; */
-  /* height: auto; */
-  /* flex-shrink: 0; */
+  width: 384px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
 }
 
-.projectImage.thumbnail {
-  /* width: 96px; */
-  /* flex-shrink: 0; */
-}
-@media (min-width: 640px) {
-  .projectImage.thumbnail {
-    /* width: 128px; */
-  }
-}
-@media (min-width: 1280px) {
-  .projectImage.thumbnail {
-    /* width: 192px; */
-  }
-}
 
 .projectImage.notMacScreenshot {
-  /* margin: 8px 12px 8px; */
+  margin: 8px 12px 8px;
 
-  /* border-radius: 3px; */
-  /* box-shadow: var(--shadow-2) */
+  border-radius: 3px;
+  box-shadow: var(--shadow-2)
 }
 
-.projectImage.notMacScreenshot.thumbnail {
-  /* width: calc(96px - 2*2px); */
-  /* margin: 0 2px; */
-  /* border-radius: 1px; */
-  /* box-shadow: var(--shadow-1) */
-}
-@media (min-width: 640px) {
-  .projectImage.notMacScreenshot.thumbnail {
-    /* /1* width: calc(128px - 2*4px); *1/ */
-    /* margin: 0 4px; */
-  }
-}
-@media (min-width: 1280px) {
-  .projectImage.notMacScreenshot.thumbnail {
-    /* /1* width: calc(192px - 2*8px); *1/ */
-    /* margin: 0 8px; */
-  }
-}
