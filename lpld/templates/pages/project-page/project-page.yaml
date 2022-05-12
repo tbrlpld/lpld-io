@@ -1,6 +1,6 @@
 context:
   page:
-    title: "Remember me"
+    title: "Remember me with a longer title"
     introduction: "Developed just for fun and giggles."
     image_shadow: True
     repo_url: "https://github.com/"
