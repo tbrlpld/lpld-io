@@ -30,11 +30,12 @@
                         {% endif %}
                     {% endwith %}
                 </div>
-                <div class="extendedDescription">
+                <div class="extendedDescription pt-12 xl:text-lg text-neutral-500">
                     {{ page.description|richtext }}
                 </div>
             </div>
         </div>
+        <div class="h-16 xl:h-24"></div>
         <div class="techPillsContainer">
             {% for tech in page.related_technologies.all %}
                 {% tech_pill label=tech.technology.name %}
