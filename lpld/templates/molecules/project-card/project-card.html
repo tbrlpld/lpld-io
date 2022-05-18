@@ -1,6 +1,6 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<div class="flex items-start group">
+<a class="flex flex-row items-start group no-underline" href="{% pageurl project %}">
     {% if project.image %}
         {% image project.image width-192 as project_image_192 %}
         {% image project.image width-256 as project_image_256 %}
@@ -25,9 +25,9 @@
         </div>
     {% endif %}
   <div class="ml-4">
-    <a class="no-underline group-hover:text-neutral-800 group-active:text-neutral-500" href="{% pageurl project %}">
+    <span class="group-hover:text-neutral-800 group-active:text-neutral-500">
         <h3 class="decoration-3 group-hover:underline mb-3 mt-2 text-xl sm:text-2xl font-bold">{{ project.title }}</h3>
-    </a>
+    </span>
     <p class="text-sm sm:text-base xl:text-lg text-neutral-500">{{ project.introduction }}</p>
   </div>
-</div>
+</a>
