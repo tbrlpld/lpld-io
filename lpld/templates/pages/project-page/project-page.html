@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="h-16 xl:h-24"></div>
-        <div>
+        <div class="flex flex-wrap gap-2">
             {% for tech in page.related_technologies.all %}
                 {% tech_pill label=tech.technology.name %}
             {% endfor %}
