@@ -3,3 +3,15 @@
 @import "tailwindcss/utilities";
 
 @import "./layout";
+
+h1 {
+    @apply font-bold text-4xl sm:text-5xl xl:text-6xl
+}
+
+h2 {
+    @apply font-bold text-3xl sm:text-4xl xl:text-5xl
+}
+
+p > a {
+    @apply decoration-2 hover:decoration-dotted hover:text-neutral-500 active:text-neutral-300 underline underline-offset-2
+}
