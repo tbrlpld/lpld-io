@@ -2,8 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "./layout";
-
 h1 {
     @apply font-bold text-4xl sm:text-5xl xl:text-6xl
 }
@@ -13,5 +11,5 @@ h2 {
 }
 
 p > a {
-    @apply decoration-2 hover:decoration-dotted hover:text-neutral-500 active:text-neutral-700 underline underline-offset-2
+    @apply decoration-2 hover:decoration-dotted hover:text-neutral-500 active:text-neutral-600 underline underline-offset-2
 }
