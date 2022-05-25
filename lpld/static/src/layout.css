@@ -43,8 +43,8 @@ html {
   /* font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif; */
   /* font-family: var(--font-stack); */
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
 }
 
 /* h1 { */
