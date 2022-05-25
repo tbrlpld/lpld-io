@@ -46,6 +46,9 @@ module.exports = {
                     900: 'hsl(170, 81%, 8%)',
                 },
             },
+            fontFamily: {
+                'sans': ['Helvetica', 'Helvetica Neue', 'Arial', ...defaultTheme.fontFamily.sans],
+            },
             textDecorationThickness: {
                 3: '3px',
             },

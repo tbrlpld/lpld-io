@@ -40,8 +40,8 @@ html {
   --font-10-bold: bold 60px var(--font-stack);
   --font-11-bold: bold 76px var(--font-stack);
 
-  font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
-  font-family: var(--font-stack);
+  /* font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif; */
+  /* font-family: var(--font-stack); */
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
