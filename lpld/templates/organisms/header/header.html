@@ -1,12 +1,12 @@
 {% load static %}
-<header>
-    <a href="/">
-        <img class="logo" src="{% static 'img/lpld-logo.svg' %}" alt="LPLD logo" />
+<header class="flex py-4 md:py-8 justify-between items-center">
+    <a href="/" class="block w-12 md:w-16">
+        {% include "atoms/logo/logo.svg" %}
     </a>
     <nav>
-        <ul>
-            <li><a class="navLink" href="/#projects">Projects</a></li>
-            <li><a class="navLink" href="#contact">Contact</a></li>
+        <ul class="inline-block">
+            {% include "./_header-link.html" with href="/#projects" text="Projects" %}
+            {% include "./_header-link.html" with href="#contact" text="Contact" %}
         </ul>
     </nav>
 </header>

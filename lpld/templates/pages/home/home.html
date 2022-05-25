@@ -2,52 +2,49 @@
 {% load slippers static wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-    <section class="welcome">
-        <div class="headingWrapper">
-            <h1>{{ page.title }}</h1>
-            {% if page.profile_image %}
-                {% image page.profile_image fill-192x192 as profile_192 %}
-                {% image page.profile_image fill-256x256 as profile_256 %}
-                {% image page.profile_image fill-384x384 as profile_384 %}
-                {% image page.profile_image fill-512x512 as profile_512 %}
+    <section class="mt-44">
+        <div class="Wrapper flex justify-between items-center">
+            <h1 class="inline-block">{{ page.title }}</h1>
                 <img
-                    class="profilePicture"
-                    alt="{{ page.profile_image.title }}"
-                    srcset="
-                        {{ profile_192.url }} 192w,
-                        {{ profile_256.url }} 256w,
-                        {{ profile_384.url }} 384w,
-                        {{ profile_512.url }} 512w
-                    "
-                    sizes="
-                        (min-width: 640px) 256px,
-                        (min-width: 992px) 384px,
-                        (min-width: 1280px) 512px,
-                        192px
-                    "
-                    src="{{ profile_512.url }}"
+                    {% if page.profile_image %}
+                        {% image page.profile_image fill-192x192 as profile_192 %}
+                        {% image page.profile_image fill-256x256 as profile_256 %}
+                        {% image page.profile_image fill-384x384 as profile_384 %}
+                        {% image page.profile_image fill-512x512 as profile_512 %}
+                        alt="{{ page.profile_image.title }}"
+                        srcset="
+                            {{ profile_192.url }} 192w,
+                            {{ profile_256.url }} 256w,
+                            {{ profile_384.url }} 384w,
+                            {{ profile_512.url }} 512w
+                        "
+                        sizes="
+                            (min-width: 640px) 256px,
+                            (min-width: 992px) 384px,
+                            (min-width: 1280px) 512px,
+                            192px
+                        "
+                        src="{{ profile_512.url }}"
+                    {% else %}
+                        alt="Headshot of Tibor"
+                        src="{% static 'img/profile.jpg' %}"
+                    {% endif %}
+                    class="w-24 sm:w-32 md:w-48 lg:w-64 rounded-full"
                     loading="eager"
                 >
-            {% else %}
-                <img class="profilePicture" alt="Headshot of Tibor" src="{% static 'img/profile.jpg' %}" loading="eager">
-            {% endif %}
         </div>
-        <div class="intro">
+        <div class="max-w-sm md:max-w-md lg:max-w-lg mt-8 lg:mt-16 text-xl sm:text-2xl lg:text-3xl text-neutral-400">
             {{ page.introduction|richtext }}
         </div>
     </section>
-    <section id='projects' class="projects">
-        <h2>These are things I have built before</h2>
-        <ul>
+    <section id="projects" class="mt-16 lg:mt-32 pt-16 lg:mt-32">
+        <h2 class="max-w-lg lg:max-w-2xl">These are things I have built before</h2>
+        <ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
             {% for project in projects  %}
-                <li>
-                    {% include "molecules/project-element/project-element.html" with project=project %}
+                <li class="  ">
+                    {% include "molecules/project-card/project-card.html" with project=project %}
                 </li>
             {% endfor %}
         </ul>
-    </section>
-    <section id='contact' class="contact">
-        {% include "organisms/contact/contact.html" %}
-        <Contact />
     </section>
 {% endblock content  %}

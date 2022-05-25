@@ -2,14 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "./layout";
+h1 {
+    @apply font-bold text-4xl sm:text-5xl xl:text-6xl
+}
 
-@import "./button-link";
-@import "./contact";
-@import "./footer";
-@import "./header";
-@import "./tech-pill";
-@import "./project-element";
+h2 {
+    @apply font-bold text-3xl sm:text-4xl xl:text-5xl
+}
 
-@import "./home";
-@import "./project-page";
+p > a {
+    @apply decoration-2 hover:decoration-dotted hover:text-neutral-500 active:text-neutral-600 underline underline-offset-2
+}
