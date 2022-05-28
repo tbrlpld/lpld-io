@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import static as static_urls
+from django.conf.urls import handler404
 from django.urls import include, path
 
 from wagtail.admin import urls as wagtail_admin_urls
@@ -30,6 +31,8 @@ urlpatterns = [
     path("robots.txt", core_views.RobotsView.as_view()),
     path("sitemap.xml", sitemap_views.sitemap),
 ]
+
+handler404 = core_views.handle_404
 
 
 if "debug_toolbar" in settings.INSTALLED_APPS:
