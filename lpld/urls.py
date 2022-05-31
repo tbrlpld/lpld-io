@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import static as static_urls
-from django.conf.urls import handler404
+from django.conf.urls import handler400, handler403, handler404, handler500
 from django.urls import include, path
 
 from wagtail.admin import urls as wagtail_admin_urls
@@ -70,3 +70,4 @@ urlpatterns.append(path("", include(wagtail_urls)))
 handler400 = core_views.handle_400
 handler403 = core_views.handle_403
 handler404 = core_views.handle_404
+handler500 = core_views.handle_500
