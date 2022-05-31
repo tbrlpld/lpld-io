@@ -51,6 +51,11 @@ if "debug_toolbar" in settings.INSTALLED_APPS:
     )
 
 
+if settings.DEBUG:
+    urlpatterns.append(
+        path("-/test-error/<int:error_code>/", core_views.error_test_view)
+    )
+
 sentry_test = getattr(settings, "SENTRY_TEST", False)
 if sentry_test:
 
