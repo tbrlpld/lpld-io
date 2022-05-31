@@ -1,4 +1,5 @@
 from django import shortcuts
+from django.views import defaults
 from django.views.generic import base as generic_views
 
 
@@ -7,19 +8,34 @@ class RobotsView(generic_views.TemplateView):
 
 
 def handle_400(request, exception=None):
-    return shortcuts.render(request, template_name="pages/errors/400.html", status=400)
+    return defaults.bad_request(
+        request,
+        exception,
+        template_name="pages/errors/400.html"
+    )
 
 
 def handle_403(request, exception=None):
-    return shortcuts.render(request, template_name="pages/errors/403.html", status=403)
+    return defaults.permission_denied(
+        request,
+        exception,
+        template_name="pages/errors/403.html"
+    )
 
 
 def handle_404(request, exception=None):
-    return shortcuts.render(request, template_name="pages/errors/404.html", status=404)
+    return defaults.page_not_found(
+        request,
+        exception,
+        template_name="pages/errors/404.html"
+    )
 
 
 def handle_500(request):
-    return shortcuts.render(request, template_name="pages/errors/500.html", status=500)
+    return defaults.server_error(
+        request,
+        template_name="pages/errors/500.html"
+    )
 
 
 def error_test_view(request, error_code):
