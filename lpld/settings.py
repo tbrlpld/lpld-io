@@ -351,6 +351,8 @@ def show_toolbar(request):
     """Don't debug toolbar in pattern library."""
     if "pattern-library" in request.path:
         return False
+    if "lpld-admin" in request.path:
+        return False
     return True
 
 

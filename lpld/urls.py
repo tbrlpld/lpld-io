@@ -35,10 +35,16 @@ urlpatterns = [
 if "debug_toolbar" in settings.INSTALLED_APPS:
     import debug_toolbar  # type: ignore
 
+    urlpatterns.append(
+        path("__debug__/", include(debug_toolbar.urls)),
+    )
+
+
+if settings.DEBUG:
     urlpatterns.extend(
         [
-            path("__debug__/", include(debug_toolbar.urls)),
             path("pattern-library/", include("pattern_library.urls")),
+            path("-/error/<int:error_code>/", core_views.error_test_view),
         ]
     )
     urlpatterns.extend(
@@ -48,12 +54,18 @@ if "debug_toolbar" in settings.INSTALLED_APPS:
     )
 
 
-sentry_test = getattr(settings, "SENTRY_TEST", False)
-if sentry_test:
+if settings.SENTRY_TEST:
 
     def trigger_error(request):
         1 / 0
 
     urlpatterns.append(path("-/sentry-test/", trigger_error))  # type: ignore
 
+
 urlpatterns.append(path("", include(wagtail_urls)))
+
+
+handler400 = core_views.handle_400
+handler403 = core_views.handle_403
+handler404 = core_views.handle_404
+handler500 = core_views.handle_500
