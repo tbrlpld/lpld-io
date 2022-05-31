@@ -46,7 +46,7 @@ if settings.DEBUG:
     urlpatterns.extend(
         [
             path("pattern-library/", include("pattern_library.urls")),
-            path("-/test-error/<int:error_code>/", core_views.error_test_view),
+            path("-/error/<int:error_code>/", core_views.error_test_view),
         ]
     )
     urlpatterns.extend(
@@ -67,4 +67,6 @@ if settings.SENTRY_TEST:
 urlpatterns.append(path("", include(wagtail_urls)))
 
 
+handler400 = core_views.handle_400
+handler403 = core_views.handle_403
 handler404 = core_views.handle_404

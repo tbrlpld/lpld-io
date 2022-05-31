@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Permission denied
+{% endblock title %}
+
+{% block body %}
+    <main class="flex flex-col h-screen md:items-center justify-center p-12">
+        <div>
+            <h1>Mh mh mmh.</h1>
+            <p class="mt-8 text-neutral-400">
+                You don't have the necessary access permissions for this action.
+            </p>
+            <p class="mt-2 text-neutral-400">
+                Go back to the <a href="/">homepage</a> and try something else.
+            </p>
+        </div>
+    </main>
+{% endblock body %}
