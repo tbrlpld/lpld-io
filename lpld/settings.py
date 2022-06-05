@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "lpld.core",
     "lpld.home",
     "lpld.images",
+    "lpld.mediafiles",
     "lpld.projects",
     "lpld.utils",
     "django.contrib.admin",
@@ -344,9 +345,12 @@ WAGTAIL_ENABLE_UPDATE_CHECK = False
 
 WAGTAILIMAGES_IMAGE_MODEL = "images.CustomImage"
 
+WAGTAILMEDIA = {
+    "MEDIA_MODEL": "mediafiles.CustomMedia",
+}
+
 
 # DEBUG TOOLBAR
-
 
 def show_toolbar(request):
     """Don't debug toolbar in pattern library."""
