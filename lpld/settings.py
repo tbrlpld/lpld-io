@@ -71,20 +71,21 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail.core",
-    "modelcluster",
-    "taggit",
     "heroicons",
+    "modelcluster",
     "slippers",
+    "taggit",
+    "wagtailmedia",
     "widget_tweaks",
 ]
 
 if DEBUG:
     INSTALLED_APPS.extend(
         [
+            "lpld.templatetag_overrides",
             "wagtail.contrib.styleguide",
             "debug_toolbar",
             "pattern_library",
-            "lpld.templatetag_overrides",
         ]
     )
 
