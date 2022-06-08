@@ -7,6 +7,7 @@ from wagtail.core import fields as wagtail_fields
 from wagtail.core import models as wagtail_models
 from wagtail.images import edit_handlers as image_panels
 from wagtail.snippets import edit_handlers as snippet_panels
+from wagtailmedia import edit_handlers as media_panels
 
 
 class ProjectTechnologyRelation(wagtail_models.Orderable):
@@ -36,6 +37,12 @@ class ProjectPage(wagtail_models.Page):
         blank=True,
         on_delete=models.SET_NULL,
     )
+    video = models.ForeignKey(
+        "mediafiles.CustomMedia",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    )
     image_shadow = models.BooleanField(help_text="Add drop shadow to the image?")
 
     introduction = models.TextField(null=False, blank=True)
@@ -52,6 +59,7 @@ class ProjectPage(wagtail_models.Page):
         panels.MultiFieldPanel(
             children=[
                 image_panels.ImageChooserPanel("image"),
+                media_panels.MediaChooserPanel("video", media_type="video"),
                 panels.FieldPanel("image_shadow"),
             ],
             heading="Image",

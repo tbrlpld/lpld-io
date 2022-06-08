@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "lpld.core",
     "lpld.home",
     "lpld.images",
+    "lpld.mediafiles",
     "lpld.projects",
     "lpld.utils",
     "django.contrib.admin",
@@ -71,20 +72,21 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail.core",
-    "modelcluster",
-    "taggit",
     "heroicons",
+    "modelcluster",
     "slippers",
+    "taggit",
+    "wagtailmedia",
     "widget_tweaks",
 ]
 
 if DEBUG:
     INSTALLED_APPS.extend(
         [
+            "lpld.templatetag_overrides",
             "wagtail.contrib.styleguide",
             "debug_toolbar",
             "pattern_library",
-            "lpld.templatetag_overrides",
         ]
     )
 
@@ -342,6 +344,10 @@ WAGTAIL_SEARCH_BACKENDS = {
 WAGTAIL_ENABLE_UPDATE_CHECK = False
 
 WAGTAILIMAGES_IMAGE_MODEL = "images.CustomImage"
+
+WAGTAILMEDIA = {
+    "MEDIA_MODEL": "mediafiles.CustomMedia",
+}
 
 
 # DEBUG TOOLBAR

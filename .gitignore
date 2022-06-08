@@ -141,6 +141,7 @@ cython_debug/
 
 # Other non-python stuff
 .vscode
+.idea
 **/.DS_Store
 node_modules
 **/static/comp
