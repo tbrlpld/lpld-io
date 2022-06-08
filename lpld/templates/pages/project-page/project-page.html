@@ -4,19 +4,36 @@
 {% block content %}
     <section class="pt-32 xl:pt-48">
         <h1 class="max-w-lg xl:max-w-3xl">{{ page.title }}</h1>
+
         <p class="pt-6 md:pt-8 xl:pt-12 text-xl md:text-2xl xl:text-3xl text-neutral-400">{{ page.introduction }}</p>
+
         <div class="flex flex-col lg:flex-row pt-4 lg:pt-8 xl:pt-12">
-            <div class="flex items-start justify-center px-2 py-3 shrink-0 ">
-                {% image page.image width-768 as project_image %}
-                <img
-                    src="{{ project_image.url }}"
-                    alt="Screenshot of {{ page.title }}"
-                    class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md drop-shadow-md lg:drop-shadow-lg {% endif %}"
-                    loading="lazy"
-                />
-                <video src="{{ page.video.url }}" controls>Your browser does not support the animation.</video>
-            </div>
-            <div class="lg:pl-8">
+            {% if page.video or page.image %}
+                <div class="flex items-start justify-center  lg:pr-8 px-2 py-3 shrink-0">
+                    {% if page.video %}
+                        <video
+                            src="{{ page.video.url }}"
+                            width="{{ page.video.width }}"
+                            height="{{ page.video.height }}"
+                            class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md drop-shadow-md lg:drop-shadow-lg {% endif %}"
+                            autoplay
+                            loop
+                            controlslist="nodownload nofullscreen noremoteplayback"
+                            onclick="if (this.paused) {this.play()} else {this.pause()}"
+                        >Animation of {{ page.title }}</video>
+                    {% elif page.image %}
+                        {% image page.image width-768 as project_image %}
+                        <img
+                            src="{{ project_image.url }}"
+                            alt="Screenshot of {{ page.title }}"
+                            class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md drop-shadow-md lg:drop-shadow-lg {% endif %}"
+                            loading="lazy"
+                        />
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <div>
                 <div class="flex flex-row flex-wrap gap-4 items-center justify-center lg:justify-start pt-8 lg:pt-12 xl:pt-16 ">
                     {% with button_classes="lg:font-bold lg:p-5 lg:text-lg w-36 lg:w-48" %}
                         {% if page.repo_url %}
@@ -31,12 +48,15 @@
                         {% endif %}
                     {% endwith %}
                 </div>
+
                 <div class="pt-12 xl:text-lg text-neutral-500">
                     {{ page.description|richtext }}
                 </div>
             </div>
         </div>
+
         <div class="h-16 xl:h-24"></div>
+
         <div class="flex flex-wrap gap-2">
             {% for tech in page.related_technologies.all %}
                 {% tech_pill label=tech.technology.name %}
