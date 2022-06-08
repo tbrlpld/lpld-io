@@ -352,6 +352,7 @@ WAGTAILMEDIA = {
 
 # DEBUG TOOLBAR
 
+
 def show_toolbar(request):
     """Don't debug toolbar in pattern library."""
     if "pattern-library" in request.path:
