@@ -58,7 +58,7 @@ class ProjectPage(wagtail_models.Page):
         panels.MultiFieldPanel(
             children=[
                 image_panels.ImageChooserPanel("image"),
-                media_panels.MediaChooserPanel("video"),
+                media_panels.MediaChooserPanel("video", media_type="video"),
                 panels.FieldPanel("image_shadow"),
             ],
             heading="Image",
