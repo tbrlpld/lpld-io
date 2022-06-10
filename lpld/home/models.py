@@ -3,8 +3,8 @@ from django.db import models
 
 from wagtail import images as wagtail_images
 from wagtail.admin import edit_handlers
-from wagtail.core import fields
-from wagtail.core import models as wagtail_models
+from wagtail import fields
+from wagtail import models as wagtail_models
 from wagtail.images import edit_handlers as image_panels
 
 

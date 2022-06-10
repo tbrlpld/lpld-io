@@ -19,7 +19,7 @@ from django.urls import include, path
 
 from wagtail.admin import urls as wagtail_admin_urls
 from wagtail.contrib.sitemaps import views as sitemap_views
-from wagtail.core import urls as wagtail_urls
+from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtail_docs_urls
 
 from lpld.core import views as core_views

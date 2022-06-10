@@ -1,4 +1,4 @@
-from wagtail.core import blocks as wagtail_blocks
+from wagtail import blocks as wagtail_blocks
 from wagtail.images import blocks as image_blocks
 
 

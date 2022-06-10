@@ -5,7 +5,7 @@ from django.conf import settings
 from django.db import migrations, models
 
 import taggit.managers
-import wagtail.core.models.collections
+import wagtail.models.collections
 import wagtail.images.models
 import wagtail.search.index
 
@@ -69,7 +69,7 @@ class Migration(migrations.Migration):
                 (
                     "collection",
                     models.ForeignKey(
-                        default=wagtail.core.models.collections.get_root_collection_id,
+                        default=wagtail.models.collections.get_root_collection_id,
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name="+",
                         to="wagtailcore.collection",
