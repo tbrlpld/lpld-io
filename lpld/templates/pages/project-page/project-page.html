@@ -15,7 +15,7 @@
                             src="{{ page.video.url }}"
                             width="{{ page.video.width }}"
                             height="{{ page.video.height }}"
-                            class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md drop-shadow-md lg:drop-shadow-lg {% endif %}"
+                            class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md shadow-md lg:shadow-lg {% endif %}"
                             autoplay
                             loop
                             controlslist="nodownload nofullscreen noremoteplayback"
@@ -26,7 +26,7 @@
                         <img
                             src="{{ project_image.url }}"
                             alt="Screenshot of {{ page.title }}"
-                            class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md drop-shadow-md lg:drop-shadow-lg {% endif %}"
+                            class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md shadow-md lg:shadow-lg {% endif %}"
                             loading="lazy"
                         />
                     {% endif %}

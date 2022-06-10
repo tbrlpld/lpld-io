@@ -8,7 +8,7 @@
                     src="{{ project.video.url }}"
                     width="{{ project.video.width }}"
                     height="{{ project.video.height }}"
-                    class="{% if project.image_shadow %} rounded drop-shadow-md {% endif %}"
+                    class="{% if project.image_shadow %} rounded shadow-md {% endif %}"
                     autoplay
                     loop
                 >Animation of {{ project.title }}</video>
@@ -29,7 +29,7 @@
                         "
                     src="{{ project_image_384.url }}"
                     alt="Screenshot of {{ project.title }}"
-                    class="{% if project.image_shadow %} rounded drop-shadow-md {% endif %}"
+                    class="{% if project.image_shadow %} rounded shadow-md {% endif %}"
                     loading="lazy"
                 />
             {% endif %}
