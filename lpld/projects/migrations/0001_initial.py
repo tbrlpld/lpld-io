@@ -3,7 +3,7 @@
 import django.db.models.deletion
 from django.db import migrations, models
 
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                     models.BooleanField(help_text="Add drop shadow to the image?"),
                 ),
                 ("introduction", models.TextField(blank=True)),
-                ("description", wagtail.core.fields.RichTextField(blank=True)),
+                ("description", wagtail.fields.RichTextField(blank=True)),
                 ("repo_url", models.URLField(blank=True)),
                 ("demo_url", models.URLField(blank=True)),
                 (
