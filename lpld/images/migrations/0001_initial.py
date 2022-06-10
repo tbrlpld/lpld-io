@@ -5,8 +5,8 @@ from django.conf import settings
 from django.db import migrations, models
 
 import taggit.managers
-import wagtail.models.collections
 import wagtail.images.models
+import wagtail.models.collections
 import wagtail.search.index
 
 

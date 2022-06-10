@@ -1,10 +1,10 @@
 from django.apps import apps
 from django.db import models
 
-from wagtail import images as wagtail_images
-from wagtail.admin import panels
 from wagtail import fields
+from wagtail import images as wagtail_images
 from wagtail import models as wagtail_models
+from wagtail.admin import panels
 
 
 class HomePage(wagtail_models.Page):
