@@ -2,10 +2,9 @@ from django.apps import apps
 from django.db import models
 
 from wagtail import images as wagtail_images
-from wagtail.admin import edit_handlers
+from wagtail.admin import panels
 from wagtail import fields
 from wagtail import models as wagtail_models
-from wagtail.images import edit_handlers as image_panels
 
 
 class HomePage(wagtail_models.Page):
@@ -23,8 +22,8 @@ class HomePage(wagtail_models.Page):
     )
 
     content_panels = wagtail_models.Page.content_panels + [
-        edit_handlers.FieldPanel("introduction"),
-        image_panels.ImageChooserPanel("profile_image"),
+        panels.FieldPanel("introduction"),
+        panels.FieldPanel("profile_image"),
     ]
 
     def get_context(self, request):
