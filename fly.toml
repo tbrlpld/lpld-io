@@ -9,7 +9,7 @@ processes = []
   dockerfile = "Dockerfile"
 
 [deploy]
-    release_command = "./scripts/release.sh"
+    release_command = "./manage.py migrate --noinput"
 
 [env]
 
