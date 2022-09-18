@@ -9,7 +9,7 @@ processes = []
   dockerfile = "Dockerfile"
 
 [deploy]
-    release_command = "./manage.py check --deploy --fail-level WARNING && ./manage.py createcachetable && ./manage.py migrate --noinput"
+    release_command = "./scripts/release.sh"
 
 [env]
 
