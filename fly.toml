@@ -12,6 +12,12 @@ processes = []
     release_command = "./manage.py migrate --noinput"
 
 [env]
+    ALLOWED_HOSTS = "lpld-io-staging.fly.dev"
+    SECURE_HSTS_SECONDS = "1"
+    SECURE_SSL_REDIRECT = "True"
+    SENTRY_ENVIRONMENT= "staging"
+    WEB_CONCURRENCY = "3"
+    PORT = "8000"
 
 [experimental]
   allowed_public_ports = []
