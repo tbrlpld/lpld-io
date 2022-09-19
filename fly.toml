@@ -9,7 +9,7 @@ processes = []
   dockerfile = "Dockerfile"
 
 [deploy]
-    release_command = "./manage.py check --deploy --fail-level WARNING && ./manage.py createcachetable && ./manage.py migrate --noinput"
+    release_command = "python manage.py check --deploy --fail-level WARNING && python manage.py createcachetable && python manage.py migrate --noinput"
 
 [env]
     ALLOWED_HOSTS = "lpld-io-staging.fly.dev"
