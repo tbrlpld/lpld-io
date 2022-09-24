@@ -39,5 +39,5 @@ COPY --chown=lpld:lpld --from=frontend ./lpld/static/comp ./lpld/static/comp
 
 RUN SECRET_KEY=none ./manage.py collectstatic --noinput --clear
 
-EXPOSE 8000
-CMD gunicorn --bind 0.0.0.0:$PORT lpld.wsgi:application
+EXPOSE 80
+CMD gunicorn --bind 0.0.0.0:80 --forwarded-allow-ips="*" lpld.wsgi:application
