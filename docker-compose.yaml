@@ -1,26 +1,23 @@
+version: "2.4"
 services:
   web:
     image: lpld_web
     build: .
     ports:
-      - "8000:8000"
+      - "8000:80"
     volumes:
-      - .:/app
-    environment:
-      DATABASE_URL: postgres://lpld:lpld@db:5432/lpld # pragma: allowlist secret
-      SECRET_KEY: thisisnotasecrectkey
-      DEBUG: "True"
-      INTERNAL_IPS: "172.20.0.1"
-    command: ["tail", "-f", "/dev/null"]
-    depends_on:
-      - db
+      - ".:/app"
+      - "./media:/data"
+    command: python manage.py runserver 0.0.0.0:80
+    links:
+      - "database_default"
+    env_file: .env-local
 
-  db:
-    image: "postgres:13"
-    expose:
-      - 5432
-    volumes:
-      - ./dbdump:/dbdump
+  database_default:
+    image: "postgres:13.5-alpine"
     environment:
-      POSTGRES_USER: lpld
-      POSTGRES_PASSWORD: lpld
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      SERVICE_MANAGER: "fsm-postgres"
+    volumes:
+      - ".:/app:rw"
