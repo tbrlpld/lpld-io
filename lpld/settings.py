@@ -241,6 +241,8 @@ DefaultStorageClass = django_storage_url.dsn_configured_storage_class(
 # Django's DEFAULT_FILE_STORAGE requires the class name
 DEFAULT_FILE_STORAGE = "lpld.settings.DefaultStorageClass"
 #
+# For the `divio app push media` command to work, the media needs to be
+# in `./data/media` directory
 MEDIA_ROOT = "/data/media"
 MEDIA_URL = "media/"
 
