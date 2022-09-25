@@ -241,7 +241,7 @@ DefaultStorageClass = django_storage_url.dsn_configured_storage_class(
 # Django's DEFAULT_FILE_STORAGE requires the class name
 DEFAULT_FILE_STORAGE = "lpld.settings.DefaultStorageClass"
 #
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = "/data/media"
 MEDIA_URL = "media/"
 
 
