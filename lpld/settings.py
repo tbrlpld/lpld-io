@@ -34,16 +34,12 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 # ALLOWED HOSTS
-DIVIO_DOMAIN = os.environ.get('DOMAIN', '')
+DIVIO_DOMAIN = os.environ.get("DOMAIN", "")
 DIVIO_DOMAIN_ALIASES = [
-    d.strip()
-    for d in os.environ.get('DOMAIN_ALIASES', '').split(',')
-    if d.strip()
+    d.strip() for d in os.environ.get("DOMAIN_ALIASES", "").split(",") if d.strip()
 ]
 DIVIO_DOMAIN_REDIRECTS = [
-    d.strip()
-    for d in os.environ.get('DOMAIN_REDIRECTS', '').split(',')
-    if d.strip()
+    d.strip() for d in os.environ.get("DOMAIN_REDIRECTS", "").split(",") if d.strip()
 ]
 
 ALLOWED_HOSTS = [
@@ -237,11 +233,13 @@ STATIC_URL = "static/"
 # Media files (user uploaded content)
 #
 # Read the setting value from the environment variable
-DEFAULT_STORAGE_DSN = os.environ.get('DEFAULT_STORAGE_DSN')
+DEFAULT_STORAGE_DSN = os.environ.get("DEFAULT_STORAGE_DSN")
 # dsn_configured_storage_class() requires the name of the setting
-DefaultStorageClass = django_storage_url.dsn_configured_storage_class('DEFAULT_STORAGE_DSN')
+DefaultStorageClass = django_storage_url.dsn_configured_storage_class(
+    "DEFAULT_STORAGE_DSN"
+)
 # Django's DEFAULT_FILE_STORAGE requires the class name
-DEFAULT_FILE_STORAGE = 'lpld.settings.DefaultStorageClass'
+DEFAULT_FILE_STORAGE = "lpld.settings.DefaultStorageClass"
 #
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "media/"
