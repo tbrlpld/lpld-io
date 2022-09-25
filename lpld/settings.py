@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 
 import dj_database_url  # type: ignore
-import django_storage_url
+import django_storage_url  # type: ignore
 import dotenv
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
