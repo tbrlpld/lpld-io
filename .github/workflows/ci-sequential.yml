@@ -45,22 +45,22 @@ jobs:
         run: docker images
 
       - name: Start docker stack
-        run: docker-compose -f docker-compose.ci.yaml up --detach
+        run: docker-compose -f docker-compose.ci.yml up --detach
 
       - name: Run black
-        run: docker-compose -f docker-compose.ci.yaml exec -T web black . --check
+        run: docker-compose -f docker-compose.ci.yml exec -T web black . --check
 
       - name: Run isort
-        run: docker-compose -f docker-compose.ci.yaml exec -T web isort . --check
+        run: docker-compose -f docker-compose.ci.yml exec -T web isort . --check
 
       - name: Run flake8
-        run: docker-compose -f docker-compose.ci.yaml exec -T web flake8
+        run: docker-compose -f docker-compose.ci.yml exec -T web flake8
 
       - name: Run mypy
-        run: docker-compose -f docker-compose.ci.yaml exec -T web mypy .
+        run: docker-compose -f docker-compose.ci.yml exec -T web mypy .
 
       - name: Run pytest
-        run: docker-compose -f docker-compose.ci.yaml exec -T web pytest
+        run: docker-compose -f docker-compose.ci.yml exec -T web pytest
 
       - name: Stop docker stack
-        run: docker-compose -f docker-compose.ci.yaml stop
+        run: docker-compose -f docker-compose.ci.yml stop

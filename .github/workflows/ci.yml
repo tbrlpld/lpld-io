@@ -74,14 +74,14 @@ jobs:
           docker image ls -a
 
       - name: Start docker stack
-        run: docker-compose -f docker-compose.ci.yaml up --no-build --detach
+        run: docker-compose -f docker-compose.ci.yml up --no-build --detach
 
       - name: Run test
         run: |
-          docker-compose -f docker-compose.ci.yaml exec -T web pytest
+          docker-compose -f docker-compose.ci.yml exec -T web pytest
 
       - name: Stop docker stack
-        run: docker-compose -f docker-compose.ci.yaml stop
+        run: docker-compose -f docker-compose.ci.yml stop
 
   black:
     runs-on: ubuntu-latest
@@ -106,14 +106,14 @@ jobs:
           docker image ls -a
 
       - name: start docker stack
-        run: docker-compose -f docker-compose.ci.yaml up --no-build --detach
+        run: docker-compose -f docker-compose.ci.yml up --no-build --detach
 
       - name: run black
         run: |
-          docker-compose -f docker-compose.ci.yaml exec -T web black . --check
+          docker-compose -f docker-compose.ci.yml exec -T web black . --check
 
       - name: stop docker stack
-        run: docker-compose -f docker-compose.ci.yaml stop
+        run: docker-compose -f docker-compose.ci.yml stop
 
   isort:
     runs-on: ubuntu-latest
@@ -138,13 +138,13 @@ jobs:
           docker image ls -a
 
       - name: start docker stack
-        run: docker-compose -f docker-compose.ci.yaml up --no-build --detach
+        run: docker-compose -f docker-compose.ci.yml up --no-build --detach
 
       - name: run isort
-        run: docker-compose -f docker-compose.ci.yaml exec -T web isort . --check
+        run: docker-compose -f docker-compose.ci.yml exec -T web isort . --check
 
       - name: stop docker stack
-        run: docker-compose -f docker-compose.ci.yaml stop
+        run: docker-compose -f docker-compose.ci.yml stop
 
   flake8:
     runs-on: ubuntu-latest
@@ -169,13 +169,13 @@ jobs:
           docker image ls -a
 
       - name: start docker stack
-        run: docker-compose -f docker-compose.ci.yaml up --no-build --detach
+        run: docker-compose -f docker-compose.ci.yml up --no-build --detach
 
       - name: run flake8
-        run: docker-compose -f docker-compose.ci.yaml exec -T web flake8
+        run: docker-compose -f docker-compose.ci.yml exec -T web flake8
 
       - name: stop docker stack
-        run: docker-compose -f docker-compose.ci.yaml stop
+        run: docker-compose -f docker-compose.ci.yml stop
 
   mypy:
     runs-on: ubuntu-latest
@@ -200,13 +200,13 @@ jobs:
           docker image ls -a
 
       - name: start docker stack
-        run: docker-compose -f docker-compose.ci.yaml up --no-build --detach
+        run: docker-compose -f docker-compose.ci.yml up --no-build --detach
 
       - name: run mypy
-        run: docker-compose -f docker-compose.ci.yaml exec -T web mypy .
+        run: docker-compose -f docker-compose.ci.yml exec -T web mypy .
 
       - name: stop docker stack
-        run: docker-compose -f docker-compose.ci.yaml stop
+        run: docker-compose -f docker-compose.ci.yml stop
 
   clean-up:
     runs-on: ubuntu-latest
