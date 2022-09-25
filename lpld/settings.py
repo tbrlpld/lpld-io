@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 import dj_database_url  # type: ignore
+import django_storage_url
 import dotenv
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
@@ -22,7 +23,6 @@ dotenv.load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -33,9 +33,25 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
+# ALLOWED HOSTS
+DIVIO_DOMAIN = os.environ.get('DOMAIN', '')
+DIVIO_DOMAIN_ALIASES = [
+    d.strip()
+    for d in os.environ.get('DOMAIN_ALIASES', '').split(',')
+    if d.strip()
+]
+DIVIO_DOMAIN_REDIRECTS = [
+    d.strip()
+    for d in os.environ.get('DOMAIN_REDIRECTS', '').split(',')
+    if d.strip()
+]
+
 ALLOWED_HOSTS = [
     host.strip() for host in os.environ.get("ALLOWED_HOSTS", "").split(",") if host
 ]
+ALLOWED_HOSTS.append(DIVIO_DOMAIN)
+ALLOWED_HOSTS.extend(DIVIO_DOMAIN_ALIASES)
+ALLOWED_HOSTS.extend(DIVIO_DOMAIN_REDIRECTS)
 
 if DEBUG:
     # The internal ips settings is needed to activate the debug toolbar.
@@ -163,7 +179,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 DATABASE_URL = os.environ.get(
     "DATABASE_URL",
-    "sqlite:///" + str(Path(BASE_DIR).joinpath("db.sqlite3")),
+    "sqlite://:memory:",
 )
 DATABASES = {}
 DATABASES["default"] = dj_database_url.parse(DATABASE_URL)
@@ -219,79 +235,16 @@ STATIC_URL = "static/"
 
 
 # Media files (user uploaded content)
+#
+# Read the setting value from the environment variable
+DEFAULT_STORAGE_DSN = os.environ.get('DEFAULT_STORAGE_DSN')
+# dsn_configured_storage_class() requires the name of the setting
+DefaultStorageClass = django_storage_url.dsn_configured_storage_class('DEFAULT_STORAGE_DSN')
+# Django's DEFAULT_FILE_STORAGE requires the class name
+DEFAULT_FILE_STORAGE = 'lpld.settings.DefaultStorageClass'
+#
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "media/"
-# AWS S3 buckets configuration
-# This is media files storage backend configuration. S3 is our preferred file
-# storage solution.
-# To enable this storage backend we use django-storages package...
-# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
-# ...that uses AWS' boto3 library.
-# https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
-#
-# Three required environment variables are:
-#  * AWS_STORAGE_BUCKET_NAME
-#  * AWS_ACCESS_KEY_ID
-#  * AWS_SECRET_ACCESS_KEY
-# The last two are picked up by boto3:
-# https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#environment-variables
-if "AWS_STORAGE_BUCKET_NAME" in os.environ:
-    INSTALLED_APPS = INSTALLED_APPS + [
-        "storages",
-        # "wagtail_storages",
-    ]
-
-    # https://docs.djangoproject.com/en/stable/ref/settings/#default-file-storage
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-    AWS_STORAGE_BUCKET_NAME = os.environ["AWS_STORAGE_BUCKET_NAME"]
-
-    # Disables signing of the S3 objects' URLs. When set to True it
-    # will append authorization querystring to each URL.
-    AWS_QUERYSTRING_AUTH = False
-
-    # Do not allow overriding files on S3 as per Wagtail docs recommendation:
-    # https://docs.wagtail.io/en/stable/advanced_topics/deploying.html#cloud-storage
-    # Not having this setting may have consequences in losing files.
-    AWS_S3_FILE_OVERWRITE = False
-
-    # Default ACL for new files should be "private" - not accessible to the
-    # public. Images should be made available to public via the bucket policy,
-    # where the documents should use wagtail-storages.
-    # ***
-    # I have removed Wagtail storages for now, because it is not compatible with
-    # Django 4.0. The CDN features are not really for me anyhow. It seems overkill
-    # to combine the S3 and a CDN. I guess the nice thing it adds is that is uses
-    # per-object-ACL that correspond to that is defined in Wagtail. Meaning that
-    # it uses redirects to signed URLs for private documents.
-    # I don't think that I will need this for my personal project. I guess this might
-    # be interesting for intranets or something... but that is not what I am building.
-    AWS_DEFAULT_ACL = "public-read"
-
-    # We generally use this setting in the production to put the S3 bucket
-    # behind a CDN using a custom domain, e.g. media.llamasavers.com.
-    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#cloudfront
-    if "AWS_S3_CUSTOM_DOMAIN" in os.environ:
-        AWS_S3_CUSTOM_DOMAIN = os.environ["AWS_S3_CUSTOM_DOMAIN"]
-
-    # When signing URLs is facilitated, the region must be set, because the
-    # global S3 endpoint does not seem to support that. Set this only if
-    # necessary.
-    if "AWS_S3_REGION_NAME" in os.environ:
-        AWS_S3_REGION_NAME = os.environ["AWS_S3_REGION_NAME"]
-
-    # This settings lets you force using http or https protocol when generating
-    # the URLs to the files. Set https as default.
-    # https://github.com/jschneier/django-storages/blob/10d1929de5e0318dbd63d715db4bebc9a42257b5/storages/backends/s3boto3.py#L217
-    AWS_S3_URL_PROTOCOL = os.environ.get("AWS_S3_URL_PROTOCOL", "https:")
-
-    # Custom S3 URL to use when connecting to S3, including scheme.
-    # Overrides AWS_S3_REGION_NAME and AWS_S3_USE_SSL.
-    # To avoid AuthorizationQueryParametersError error, AWS_S3_REGION_NAME should also be set.  # noqa: E501
-    # See also:
-    # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
-    if "AWS_S3_ENDPOINT_URL" in os.environ:
-        AWS_S3_ENDPOINT_URL = os.environ["AWS_S3_ENDPOINT_URL"]
 
 
 # SECURITY
@@ -306,7 +259,8 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = True
     # This should already happen at the DNS and host level, but to be sure.
     # https://docs.djangoproject.com/en/4.0/ref/settings/#secure-ssl-redirect
-    SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
+    # Defaults to true, so that we have to disable it explicitly.
+    SECURE_SSL_REDIRECT = os.environ.get("SECURE_SSL_REDIRECT", "True") == "True"
     if SECURE_SSL_REDIRECT:
         # When running the app behind a proxy (e.g. on Heroku) then the app server
         # won't see the if the request came with SSL. But, usually proxies add that
