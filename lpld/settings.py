@@ -178,7 +178,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 
 DATABASE_URL = os.environ.get(
-    "DATABASE_URL",
+    "LPLDIO_DATABASE_DSN",
     "sqlite://:memory:",
 )
 DATABASES = {}
