@@ -6,6 +6,7 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+      - ./data:/data
     environment:
       DATABASE_URL: postgres://lpld:lpld@db:5432/lpld # pragma: allowlist secret
       SECRET_KEY: thisisnotasecrectkey
