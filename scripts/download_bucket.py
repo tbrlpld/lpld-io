@@ -1,13 +1,15 @@
 import os
+import pathlib
 
 import boto3
 import dotenv
 
 
 settings = dotenv.dotenv_values(".env")
+bucket_name = settings["AWS_STORAGE_BUCKET_NAME"]
 
-print(settings)
-
+target_directory = pathlib.Path("/data") / bucket_name
+target_directory.mkdir(exist_ok=True)
 
 session = boto3.session.Session()
 client = session.client(
@@ -18,7 +20,17 @@ client = session.client(
     aws_secret_access_key=settings["AWS_SECRET_ACCESS_KEY"],
 )
 
-
-response = client.list_objects(Bucket=settings["AWS_STORAGE_BUCKET_NAME"])
+response = client.list_objects(Bucket=bucket_name)
 for obj in response["Contents"]:
-    print(obj["Key"])
+    filepath = obj["Key"]
+    local_filepath = target_directory / filepath
+
+    # Create sub-directories if necessary
+    local_filepath.parent.mkdir(exist_ok=True)
+
+    print(f"Downloading: { filepath }\nTo: { local_filepath }\n")
+    client.download_file(
+        bucket_name,
+        filepath,
+        str(local_filepath),
+    )
