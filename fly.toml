@@ -40,7 +40,3 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
-
-[mounts]
-source="lpld_io_staging_data"
-destination="/data"
