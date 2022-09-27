@@ -1,4 +1,3 @@
-import os
 import pathlib
 
 import boto3  # type: ignore
