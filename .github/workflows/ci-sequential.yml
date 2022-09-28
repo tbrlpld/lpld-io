@@ -1,10 +1,7 @@
 # https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching
-name: ci (sequential)
+name: continuous integration
 
 on: [push]
-
-env:
-  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
 jobs:
   build-lint-test:
@@ -67,14 +64,3 @@ jobs:
 
       - name: Stop docker stack
         run: docker-compose -f docker-compose.ci.yaml stop
-
-  deploy:
-    # Only deploy form main
-    if: ${{ endsWith(github.ref, 'main') }}
-    needs: build-lint-test
-    name: Deploy staging
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only

@@ -1,5 +1,5 @@
 # https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching
-name: ci
+name: ci (parallel)
 
 on: [push]
 
