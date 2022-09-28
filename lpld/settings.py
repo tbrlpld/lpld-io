@@ -219,7 +219,7 @@ STATIC_URL = "static/"
 
 
 # Media files (user uploaded content)
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = "/data/media"
 MEDIA_URL = "media/"
 # AWS S3 buckets configuration
 # This is media files storage backend configuration. S3 is our preferred file

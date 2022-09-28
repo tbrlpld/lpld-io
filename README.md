@@ -103,3 +103,35 @@ To connect a database, just add the Heroku Postgres add-on.
 When you do that, it should automatically set the `DATABASE_URL` environment variable.
 The app settings are configured to then use the connection defined in the `DATABASE_URL` environment variable.
 This is done with the `dj-database-url` package.
+
+### Transition to Fly.io
+
+Because Heroku is stopping it's free tier I won't be able to run a staging server for this app anymore.
+Therefore, I am going to transition hosting from Heroku to Fly.io.
+I am mostly following [this article](https://usher.dev/posts/wagtail-on-flyio/part-5/).
+
+This repo contains a `fly.toml` file that configures app on Fly.io for staging.
+
+You are going to need the [`flyctl`](https://fly.io/docs/flyctl/installing/) CLI tool and an account.
+Then login to the CLI with `flyctl auth login`.
+
+First you need to create / launch the app on Fly.
+```console
+flyctl launch
+```
+
+This might raise some questions, e.g. if you want to add a database.
+You can click yes to this... but I will change this so that we won't need anything...
+
+You will probably need to set some configuration variables.
+Define those in a `.env` file and then add them as secrets to the app environment.
+```
+flyctl secrets import < .env
+```
+
+All you really need then is to deploy the app.
+```console
+flyctl deploy
+```
+This will build the Docker image (locally!) and push it to Fly where it then runs (as a VM... but that's a differnt story).
+
