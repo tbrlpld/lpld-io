@@ -19,4 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl scale count 1
       - run: flyctl deploy --remote-only
+      - run: flyctl scale count 0
