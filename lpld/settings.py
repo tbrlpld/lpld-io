@@ -160,14 +160,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # https://github.com/jacobian/dj-database-url
 
-
+SQLITE_URL = f"sqlite:///{ Path(BASE_DIR).joinpath('data/db.sqlite3')}"
 DATABASE_URL = os.environ.get(
     "DATABASE_URL",
-    "sqlite:///" + str(Path(BASE_DIR).joinpath("db.sqlite3")),
+    SQLITE_URL,
 )
 DATABASES = {}
 DATABASES["default"] = dj_database_url.parse(DATABASE_URL)
-
+if DATABASE_URL != SQLITE_URL:
+    # If the default database is not the SQLite database, then also add a second database config for SQLite
+    DATABASES["sqlite"] = dj_database_url.parse(SQLITE_URL)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
