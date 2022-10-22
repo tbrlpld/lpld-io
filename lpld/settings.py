@@ -167,9 +167,6 @@ DATABASE_URL = os.environ.get(
 )
 DATABASES = {}
 DATABASES["default"] = dj_database_url.parse(DATABASE_URL)
-if DATABASE_URL != SQLITE_URL:
-    # If the default database is not the SQLite database, then also add a second database config for SQLite
-    DATABASES["sqlite"] = dj_database_url.parse(SQLITE_URL)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
