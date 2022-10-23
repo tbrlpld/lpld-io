@@ -1,0 +1,7 @@
+access-key-id: ${LITESTREAM_KEY_ID}
+secret-access-key: ${LITESTREAM_ACCESS_KEY}
+
+dbs:
+  - path: /data/db.sqlite3
+    replicas:
+      - url: s3://${LITESTREAM_BUCKET_HOST}/db.sqlite3
