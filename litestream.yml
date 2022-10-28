@@ -1,6 +1,8 @@
 access-key-id: ${LITESTREAM_KEY_ID}
 secret-access-key: ${LITESTREAM_ACCESS_KEY}
 
+exec: gunicorn --bind 0.0.0.0:${PORT} lpld.wsgi:application
+
 dbs:
   - path: /data/db.sqlite3
     replicas:
