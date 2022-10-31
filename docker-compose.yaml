@@ -12,4 +12,5 @@ services:
       SECRET_KEY: thisisnotasecrectkey
       DEBUG: "True"
       INTERNAL_IPS: "172.20.0.1"
+      PORT: 8000
     command: ["tail", "-f", "/dev/null"]
