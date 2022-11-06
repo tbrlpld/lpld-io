@@ -25,7 +25,6 @@ RUN env
 # Install litestream (https://litestream.io/install/debian/)
 RUN wget https://github.com/benbjohnson/litestream/releases/download/v0.3.9/litestream-v0.3.9-linux-amd64.deb
 RUN dpkg -i litestream-v0.3.9-linux-amd64.deb
-COPY litestream.yml /etc/litestream.yml
 
 # Install poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
