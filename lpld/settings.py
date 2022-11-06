@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
@@ -158,7 +158,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # https://github.com/jacobian/dj-database-url
 
-SQLITE_URL = f"sqlite:///{ Path(BASE_DIR).joinpath('data/db.sqlite3')}"
+DB_DIR = os.environ["DB_DIR"]
+SQLITE_URL = f"sqlite:///{ Path(DB_DIR).joinpath('db.sqlite3') }"
 DATABASE_URL = os.environ.get(
     "DATABASE_URL",
     SQLITE_URL,
