@@ -95,20 +95,48 @@ To get a container deployment runing on Heroku, you need to configure it on the 
 heroku stack:set container -a <app-name>
 ```
 
+### Configuration
+
+You are going to need to set a few environment variables on the servers.
+
+* `ALLOWED_HOSTS` - Comma separated list of the host domains that the app should be available under.
+* `SECRET_KEY` - Salt needed for cryptography in Django. You can generate one with `./manage.py shell -c "from django.utils.crypto import get_random_string; print(get_random_string(50))"`
+* `WEB_CONCURRENCY` - Number of worker processes for Gunicorn. You can start with twice the number of processors your server has. On heroku I use 3.
+
+### Static and media files
+
+Static files (CSS, JS) are served by the app with [Whitenoise](https://github.com/evansd/whitenoise).
+That means no special settings need to be configured.
+
+Media files need to be uploaded to an S3 bucket though to persist container restarts in hosted environment.
+You need to set a couple of environment variables to configure the bucket to use.
+
+* `AWS_S3_ENDPOINT_URL` - Endpoint URL for the bucket including the protocol, e.g. `https://sfo3.digitaloceanspaces.com`.
+* `AWS_S3_REGION_NAME` - Region name for the bucket, this information maybe duplicated in the endpoint URL, e.g. `sfo3`.
+* `AWS_STORAGE_BUCKET_NAME` - Name of your bucket, e.g. `my-bucket`.
+* `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` - Access credentials for the bucket.
+
+### SSL/TLS
+
+Once your app is working, and you have TLS in place, you also configure:
+
+* `SECURE_SSL_REDIRECT=True` - Redirect all requests from `http` to `https`,
+* `SECURE_HSTS_SECONDS` - Number of seconds for how long browsers should not retry `http`. This should only be set to a high number after you are sure your configuration works. See also the [Django docs on this](https://docs.djangoproject.com/en/4.1/ref/middleware/#http-strict-transport-security).
+
 ### Database
 
-This project is using SQLite as it's database -- even in production 😱. 
-Using SQLite is often discouraged to be used in production. 
-Those concerns a usually based on the abilitiy to handle multiple writes and how to backup the database. 
-For container deployments on a platform as a service (such as Heroku) there is also the problem of persisting the database between container restarts. 
+This project is using SQLite as it's database -- even in production 😱.
+Using SQLite is often discouraged to be used in production.
+Those concerns a usually based on the abilitiy to handle multiple writes and how to backup the database.
+For container deployments on a platform as a service (such as Heroku) there is also the problem of persisting the database between container restarts.
 
-The write ability is not really an issue for this application. 
-Since this app is mainly a content site with few editors working simulaneously (if ever) it is much more read-heavy than write-heavy. 
-Reads are easy for SQLite to handle. 
+The write ability is not really an issue for this application.
+Since this app is mainly a content site with few editors working simulaneously (if ever) it is much more read-heavy than write-heavy.
+Reads are easy for SQLite to handle.
 
-The persistence problem does apply to this app though. 
-But, luckily, now there is [Litestream](https://litestream.io/). 
-Litestream makes it easy to replicate and restore SQLite database to and from persistent storage such as S3. 
+The persistence problem does apply to this app though.
+But, luckily, now there is [Litestream](https://litestream.io/).
+Litestream makes it easy to replicate and restore SQLite database to and from persistent storage such as S3.
 For the replication and restoration to work you need to create a S3 bucket at some hosting provider and set the following environment variables:
 
 * `DB_DIR` - the directory where the database file `db.sqlite3` is stored locally (it will be created if it does not exist),
@@ -116,5 +144,5 @@ For the replication and restoration to work you need to create a S3 bucket at so
 * `LITESTREAM_KEY_ID` and `LITESTREAM_ACCESS_KEY` - the access credentials for the bucket.
 
 The replication is handled in the `./scripts/run.sh` script by wrapping the Gunicorn server process in the Litestream process.
-This is the recommended way to [run Litestream in a container](https://litestream.io/guides/docker/). 
+This is the recommended way to [run Litestream in a container](https://litestream.io/guides/docker/).
 The restoration is handled in the `./scripts/release.sh` script. This script is run by Heroku on every container restart.
