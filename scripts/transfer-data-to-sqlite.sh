@@ -7,6 +7,9 @@ IFS=$'\n\t'
 
 echo "Transfer data from PostgreSQL to SQLite"
 
+# Create the database directory for the SQLite file
+mkdir -p "$DB_DIR"
+
 echo "Migrate SQLite database..."
 env -u DATABASE_URL ./manage.py migrate --no-input
 
