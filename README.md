@@ -146,3 +146,29 @@ For the replication and restoration to work you need to create a S3 bucket at so
 The replication is handled in the `./scripts/run.sh` script by wrapping the Gunicorn server process in the Litestream process.
 This is the recommended way to [run Litestream in a container](https://litestream.io/guides/docker/).
 The restoration is handled in the `./scripts/release.sh` script. This script is run by Heroku on every container restart.
+
+### Scale down Heroku Dynos
+
+Heroku has removed their free plan.
+That means having an idle server that is practically not running will start to cost money.
+This is a bit of a pain, because I was using the free Dyno for a staging server for my site.
+My site is not that important and I could probably do without a staging server, but I like having this stop gap between my local setup and the production one.
+
+It turns out, the paid plans for [Heroku are prorated to the second](https://www.heroku.com/pricing).
+I did not know that because I was only running a single paid app and the was on all the time, I never needed any scaling.
+But now this becomes interesting.
+I hardly need the staging server and I am ok with paying for the few times that I need it.
+To not pay the full month for the staging server that I basically never need, I can just scale it down to 0 instances, with:
+
+```console
+heroku ps:scale web=0 -a lpld-io-staging
+```
+
+If I need to access it, I just need to scale it up again.
+
+```console
+heroku ps:scale web=1 -a lpld-io-staging
+```
+
+Autoscaling if not an option, because that is only available on the more expensive plans.
+But for now I am ok with doing it manually.
