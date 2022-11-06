@@ -2,19 +2,16 @@ services:
   web:
     image: lpld_web
     build: .
+    command: ["tail", "-f", "/dev/null"]
+    depends_on:
+      - db
+    env_file:
+      - .env
     ports:
       - "8000:8000"
     volumes:
       - .:/app
       - ./data:/data
-    environment:
-      DATABASE_URL: postgres://lpld:lpld@db:5432/lpld # pragma: allowlist secret
-      SECRET_KEY: thisisnotasecrectkey
-      DEBUG: "True"
-      INTERNAL_IPS: "172.20.0.1"
-    command: ["tail", "-f", "/dev/null"]
-    depends_on:
-      - db
 
   db:
     image: "postgres:13"

@@ -22,6 +22,10 @@ ENV PATH=${POETRY_HOME}/bin:$PATH \
     DJANGO_SETTINGS_MODULE=lpld.settings
 RUN env
 
+# Install litestream (https://litestream.io/install/debian/)
+RUN wget https://github.com/benbjohnson/litestream/releases/download/v0.3.9/litestream-v0.3.9-linux-amd64.deb
+RUN dpkg -i litestream-v0.3.9-linux-amd64.deb
+
 # Install poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN chown -R lpld:lpld ${POETRY_HOME}
@@ -40,4 +44,4 @@ COPY --chown=lpld:lpld --from=frontend ./lpld/static/comp ./lpld/static/comp
 RUN SECRET_KEY=none ./manage.py collectstatic --noinput --clear
 
 EXPOSE 8000
-CMD gunicorn --bind 0.0.0.0:$PORT lpld.wsgi:application
+CMD ./scripts/run.sh
