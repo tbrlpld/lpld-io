@@ -14,6 +14,7 @@ echo "Flush SQLite database to remove data created during migrations..."
 env -u DATABASE_URL ./manage.py flush --no-input
 
 echo "Dump PostgreSQL database..."
+mkdir -p ./dbdump
 ./manage.py dumpdata --natural-foreign --natural-primary --exclude "wagtailcore.PageLogEntry" --indent 4 > ./dbdump/dbdump.json
 
 echo "Load database dump into SQLite..."
