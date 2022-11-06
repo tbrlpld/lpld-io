@@ -1,14 +1,9 @@
+import os
 import pathlib
 
 import boto3  # type: ignore
-import dotenv
 
-settings = dotenv.dotenv_values(".env")
-bucket_name = settings.get("AWS_STORAGE_BUCKET_NAME", "")
-
-if not bucket_name:
-    print("No bucket name defined.")
-    exit(1)
+bucket_name = os.environ["AWS_STORAGE_BUCKET_NAME"]
 
 target_directory = pathlib.Path("/data") / bucket_name
 target_directory.mkdir(exist_ok=True)
@@ -16,10 +11,10 @@ target_directory.mkdir(exist_ok=True)
 session = boto3.session.Session()
 client = session.client(
     "s3",
-    region_name=settings["AWS_S3_REGION_NAME"],
-    endpoint_url=settings["AWS_S3_ENDPOINT_URL"],
-    aws_access_key_id=settings["AWS_ACCESS_KEY_ID"],
-    aws_secret_access_key=settings["AWS_SECRET_ACCESS_KEY"],
+    region_name=os.environ["AWS_S3_REGION_NAME"],
+    endpoint_url=os.environ["AWS_S3_ENDPOINT_URL"],
+    aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"],
+    aws_secret_access_key=os.environ["AWS_SECRET_ACCESS_KEY"],
 )
 
 response = client.list_objects(Bucket=bucket_name)
