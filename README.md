@@ -95,43 +95,26 @@ To get a container deployment runing on Heroku, you need to configure it on the 
 heroku stack:set container -a <app-name>
 ```
 
-The project will build and deploy without a database being configured in Heroku.
-In that case, it will default to a SQLite database in the container.
-That does not make any sense of course, because the database is wiped with every new build.
+### Database
 
-To connect a database, just add the Heroku Postgres add-on.
-When you do that, it should automatically set the `DATABASE_URL` environment variable.
-The app settings are configured to then use the connection defined in the `DATABASE_URL` environment variable.
-This is done with the `dj-database-url` package.
+This project is using SQLite as it's database -- even in production 😱. 
+Using SQLite is often discouraged to be used in production. 
+Those concerns a usually based on the abilitiy to handle multiple writes and how to backup the database. 
+For container deployments on a platform as a service (such as Heroku) there is also the problem of persisting the database between container restarts. 
 
-### Transition to Fly.io
+The write ability is not really an issue for this application. 
+Since this app is mainly a content site with few editors working simulaneously (if ever) it is much more read-heavy than write-heavy. 
+Reads are easy for SQLite to handle. 
 
-Because Heroku is stopping it's free tier I won't be able to run a staging server for this app anymore.
-Therefore, I am going to transition hosting from Heroku to Fly.io.
-I am mostly following [this article](https://usher.dev/posts/wagtail-on-flyio/part-5/).
+The persistence problem does apply to this app though. 
+But, luckily, now there is [Litestream](https://litestream.io/). 
+Litestream makes it easy to replicate and restore SQLite database to and from persistent storage such as S3. 
+For the replication and restoration to work you need to create a S3 bucket at some hosting provider and set the following environment variables:
 
-This repo contains a `fly.toml` file that configures app on Fly.io for staging.
+* `DB_DIR` - the directory where the database file `db.sqlite3` is stored locally (it will be created if it does not exist),
+* `LITESTREAM_BUCKET_HOST` - the S3 bucket host domain, e.g `my-bucket.nyc3.digitaloceanspaces.com`,
+* `LITESTREAM_KEY_ID` and `LITESTREAM_ACCESS_KEY` - the access credentials for the bucket.
 
-You are going to need the [`flyctl`](https://fly.io/docs/flyctl/installing/) CLI tool and an account.
-Then login to the CLI with `flyctl auth login`.
-
-First you need to create / launch the app on Fly.
-```console
-flyctl launch
-```
-
-This might raise some questions, e.g. if you want to add a database.
-You can click yes to this... but I will change this so that we won't need anything...
-
-You will probably need to set some configuration variables.
-Define those in a `.env` file and then add them as secrets to the app environment.
-```
-flyctl secrets import < .env
-```
-
-All you really need then is to deploy the app.
-```console
-flyctl deploy
-```
-This will build the Docker image (locally!) and push it to Fly where it then runs (as a VM... but that's a differnt story).
-
+The replication is handled in the `./scripts/run.sh` script by wrapping the Gunicorn server process in the Litestream process.
+This is the recommended way to [run Litestream in a container](https://litestream.io/guides/docker/). 
+The restoration is handled in the `./scripts/release.sh` script. This script is run by Heroku on every container restart.
