@@ -3,7 +3,8 @@ name: continuous deployment
 on:
   workflow_run:
     # Trigger this workflow if the "continous integration" workflows on the "main" branch "completed".
-    branches: [main]
+#    branches: [main]
+    branches: []
     workflows: [continuous integration]
     types: [completed]
 
