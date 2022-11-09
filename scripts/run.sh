@@ -5,22 +5,24 @@ IFS=$'\n\t'
 
 CMD="gunicorn --bind 0.0.0.0:$PORT lpld.wsgi:application"
 
-# Allow missing envar
-set +u
-if [[ -z "$DATABASE_URL" ]]; then
+if [ $USE_SQLITE = "true" ]; then
     echo "DATABASE_URL env var not specified - using the SQLite database."
 
     mkdir -p "$DB_DIR"
-    chmod -R a+rwX "$DB_DIR"
 
     echo "Restoring the SQLite database from bucket."
     litestream restore -config litestream.yml -if-db-not-exists -if-replica-exists "$DB_DIR/db.sqlite3"
 
+    # The release and the start script are running in different containers.
+    # This means the original run of the release script does not take effect in the run container.
+    echo "Running release commands."
+    ./manage.py check --deploy --fail-level WARNING
+    ./manage.py createcachetable
+    ./manage.py migrate --noinput
+
     echo "Wrapping the command in the litestream exec to replicate database."
     CMD="litestream replicate -config litestream.yml --exec '$CMD'"
 fi
-# Disallow missing envar
-set -u
 
 echo "Running: $CMD"
 exec $(eval $CMD)
