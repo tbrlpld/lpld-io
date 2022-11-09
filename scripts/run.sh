@@ -6,9 +6,7 @@ IFS=$'\n\t'
 CMD="gunicorn --bind 0.0.0.0:$PORT lpld.wsgi:application"
 
 if [ $USE_SQLITE = "true" ]; then
-    echo "DATABASE_URL env var not specified - using the SQLite database."
-
-    mkdir -p "$DB_DIR"
+    echo "Use of SQLite database configured."
 
     echo "Restoring the SQLite database from bucket."
     litestream restore -config litestream.yml -if-db-not-exists -if-replica-exists "$DB_DIR/db.sqlite3"
