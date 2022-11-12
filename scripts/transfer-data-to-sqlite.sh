@@ -4,7 +4,7 @@ IFS=$'\n\t'
 
 echo "Transfer data from PostgreSQL to SQLite"
 
-$DUMP_FILE=$DB_DIR/dbdump.json
+DUMP_FILE=$DB_DIR/dbdump.json
 
 echo "Migrate SQLite database..."
 USE_SQLITE=true ./manage.py migrate --no-input
