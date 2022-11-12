@@ -10,16 +10,19 @@ RUN npm run build:css
 
 FROM python:3.9
 
-RUN mkdir /app
-WORKDIR /app
+RUN mkdir /app && mkdir /data
 RUN useradd -m lpld -s /bin/bash && \
-    chown -R lpld /app
+    chown -R lpld /app && \
+    chown -R lpld /data
+WORKDIR /app
 
 ENV POETRY_HOME=/home/lpld/poetry
 ENV PATH=${POETRY_HOME}/bin:$PATH \
     # Ensure dependencies are available globally (without having to mess with the poetry's venvs)
     POETRY_VIRTUALENVS_CREATE=false \
-    DJANGO_SETTINGS_MODULE=lpld.settings
+    DJANGO_SETTINGS_MODULE=lpld.settings \
+    DB_DIR=/data \
+    USE_SQLITE=false
 RUN env
 
 # Install litestream (https://litestream.io/install/debian/)
