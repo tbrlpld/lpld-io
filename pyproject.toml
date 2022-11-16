@@ -34,8 +34,8 @@ djhtml = "~1.4.10"
 flake8 = "^3.8.4"
 isort = "^5.6.4"
 mypy = "~0.910"
-pytest = "^6.2.1"
-pytest-django = "^4.1.0"
+pytest = "^7.2"
+pytest-django = "^4"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "lpld.settings"
