@@ -1,11 +1,11 @@
 name: continuous deployment
 
-on:
-  workflow_run:
-    # Trigger this workflow if the "continous integration" workflows on the "main" branch "completed".
-    branches: [main]
-    workflows: [continuous integration]
-    types: [completed]
+#on:
+#  workflow_run:
+#    # Trigger this workflow if the "continous integration" workflows on the "main" branch "completed".
+#    branches: [main]
+#    workflows: [continuous integration]
+#    types: [completed]
 
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg id="svg42" style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5" version="1.1" viewBox="0 0 770.02045 772.77509" height="772.77509" width="770.02045" xmlns="http://www.w3.org/2000/svg">
-  <g id="g40" transform="translate(-1713.8455,-1522.3061)">
-    <g transform="translate(1598.93,1381.15)" id="Rounded-Sides">
-      <rect id="rect30" style="fill:none" height="1000" width="1000" y="0" x="0"/>
-      <g id="Basic-Layout-Shapes">
-        <path style="fill:#333333;stroke:#ffffff;stroke-width:20px;stroke-linecap:square;stroke-linejoin:miter" d="M 673.948,551.892 812.814,413.026 c 0,0 22.457,22.456 44.548,44.548 11.252,11.252 17.574,26.513 17.574,42.426 0,15.913 -6.322,31.174 -17.574,42.426 -65.41,65.41 -183.414,183.414 -183.414,183.414 L 448.108,500 535.082,413.026 Z" id="_2nd-L"/>
-        <path style="fill:#333333;stroke:#ffffff;stroke-width:20px;stroke-linecap:square;stroke-linejoin:miter" d="M 187.035,412.875 360.983,238.927 535.082,413.026 448.108,500 586.974,638.866 500,725.84 Z" id="P-arc"/>
-        <path style="fill:#333333;stroke:#ffffff;stroke-width:20px;stroke-linecap:square;stroke-linejoin:miter" d="M 500,725.84 586.974,638.866 673.948,725.84 500,899.789 c 0,0 -254.63,-254.63 -357.574,-357.574 -23.431,-23.431 -23.431,-61.421 0,-84.853 22.092,-22.091 44.548,-44.548 44.548,-44.548 z" id="_1st-L"/>
-        <g transform="matrix(1.96388,-1.96388,1.38247,1.38247,-104.068,-781.589)" id="D">
-          <path id="path35" style="fill:#333333;stroke:#ffffff;stroke-width:8.33px" d="M -70.71 600.308 C -70.71 583.623 -75.376 567.621 -83.681 555.823 C -91.987 544.024 -103.251 537.396 -114.997 537.396 L -141.42 537.396 L -140.846 764.533 L -70.71 763.668 L -70.71 600.308 Z"/>
-        </g>
-      </g>
-    </g>
+<svg width="700px" height="700px" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:grid x="0" y="0" width="25" height="25"/>
+  </defs>
+  <g style="" transform="matrix(0.707107, -0.707107, 0.707107, 0.707107, -144.974899, 328.553497)" bx:origin="0 1">
+    <title>Letters</title>
+    <path style="stroke-width: 16px; stroke: rgb(255, 255, 255); fill: rgb(51, 51, 51);" d="M 100 150 C 100 125 125 100 150 100 L 200 100 L 200 500 L 300 500 L 300 600 L 100 600 L 100 150 Z">
+      <title>L</title>
+    </path>
+    <polygon style="stroke-width: 16px; stroke: rgb(255, 255, 255); fill: rgb(51, 51, 51);" points="200 100 400 100 400 300 300 300 300 500 200 500">
+      <title>P</title>
+    </polygon>
+    <path style="stroke-width: 16px; stroke: rgb(255, 255, 255); fill: rgb(51, 51, 51);" d="M 300 300 L 400 300 L 400 500 L 600 500 L 600 550 C 600 575 575 600 550 600 L 300 600 L 300 300 Z">
+      <title>L</title>
+    </path>
+    <path style="stroke-width: 16px; stroke: rgb(255, 255, 255); fill: rgb(51, 51, 51);" d="M 500 100 C 550 100 600 150 600 200 L 600 500 L 400 500 L 400 100 L 500 100 Z">
+      <title>D</title>
+    </path>
   </g>
 </svg>
