@@ -838,15 +838,15 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "slippers"
-version = "0.3.1"
+version = "0.5.0"
 description = "Build reusable components in Django without writing a single line of Python."
 category = "main"
 optional = false
 python-versions = ">=3.7.0,<4.0.0"
 
 [package.dependencies]
-Django = ">=2.2,<4.1"
-PyYAML = ">=5.4.1,<6.0.0"
+Django = ">=3.2,<4.2"
+PyYAML = ">=5.4.0,<7.0.0"
 
 [[package]]
 name = "soupsieve"
@@ -1110,7 +1110,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "7645d6ae1e4729a9abacea73900a096a1f2d3bb802f2ecc2fefa1c15f67ec624"
+content-hash = "fb960077c23512298abb6a6372141836b2571d701d0df4229fbccbb96755586b"
 
 [metadata.files]
 anyascii = [
@@ -1486,8 +1486,8 @@ six = [
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
 slippers = [
-    {file = "slippers-0.3.1-py3-none-any.whl", hash = "sha256:a85938c478210dd1827a82e6a2c673bda6ccedc1c108984e1126e1fa27559dfb"},
-    {file = "slippers-0.3.1.tar.gz", hash = "sha256:6d0f29ef34f28a5608c36079d7fe12952e5e6c16a9d0b4d1a828be262af41850"},
+    {file = "slippers-0.5.0-py3-none-any.whl", hash = "sha256:5a17ef4cf6eb586739d8a6d85756995a8ac3178a49a560f7e0768258e736aa6b"},
+    {file = "slippers-0.5.0.tar.gz", hash = "sha256:413281c8a82f9940bbbcb60dcc42d075162b5ff25a6e254c9076b6bb0deaf746"},
 ]
 soupsieve = [
     {file = "soupsieve-2.3.1-py3-none-any.whl", hash = "sha256:1a3cca2617c6b38c0343ed661b1fa5de5637f257d4fe22bd9f1338010a1efefb"},
