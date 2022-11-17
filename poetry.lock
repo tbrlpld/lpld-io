@@ -1009,7 +1009,7 @@ test = ["coverage (==4.5.3)", "flake8 (==3.7.8)", "flake8-blind-except (==0.1.1)
 
 [[package]]
 name = "wagtail-storages"
-version = "0.5.1rc1"
+version = "1.0.0rc1"
 description = "Use AWS S3 with private documents in Wagtail."
 category = "main"
 optional = false
@@ -1017,7 +1017,7 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 django-storages = {version = "<2", extras = ["boto3"]}
-Wagtail = ">=2.15,<4.0"
+Wagtail = ">=2.15,<5.0"
 
 [package.extras]
 testing = ["black (==22.3.0)", "coverage (==5.0.3)", "factory-boy (==2.12.0)", "flake8", "isort", "moto (==3.1.8)"]
@@ -1110,7 +1110,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "7645d6ae1e4729a9abacea73900a096a1f2d3bb802f2ecc2fefa1c15f67ec624"
+content-hash = "94869bd5f0a90340356870d0a14494dc66eb28f99b6a2c5f206a9ee3a58f1b48"
 
 [metadata.files]
 anyascii = [
@@ -1542,8 +1542,8 @@ wagtail-factories = [
     {file = "wagtail_factories-2.0.1.tar.gz", hash = "sha256:3eeb55199f2c9ffbfe14979a94766d724c9e9f4d8f561df61097884e63bd537f"},
 ]
 wagtail-storages = [
-    {file = "wagtail-storages-0.5.1rc1.tar.gz", hash = "sha256:5bcd844e892f7644cc429ae99f993cda2b1f59b18883955ddc7e6920fb94377e"},
-    {file = "wagtail_storages-0.5.1rc1-py3-none-any.whl", hash = "sha256:05d7ad93d0ebb9a60e8612f3f6441882c528eca3bc400683f547dffcb5d8a6d1"},
+    {file = "wagtail-storages-1.0.0rc1.tar.gz", hash = "sha256:d1d5bfe82ed53321ae88428ce2c0a7eee8f4feab1fcfb520175ba981edb31013"},
+    {file = "wagtail_storages-1.0.0rc1-py3-none-any.whl", hash = "sha256:9b5a3a6b4e201fbf0880225245820482b1ca44d357cf02988a5ca7123b25a66a"},
 ]
 wagtailmedia = [
     {file = "wagtailmedia-0.9.0-py2.py3-none-any.whl", hash = "sha256:e845ce5be97df9f6c8c1518678d15ef686f2d4c2351a893b5882b84a68905dc6"},

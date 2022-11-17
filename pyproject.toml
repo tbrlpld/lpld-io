@@ -22,7 +22,7 @@ slippers = "^0.3.0"
 wagtail = "~3.0"
 wagtail-factories = "^2.0.1"
 wagtailmedia = "^0.9.0"
-wagtail-storages = "^0.5.1rc1"
+wagtail-storages = "^1.0.0rc1"
 whitenoise = "^5.2.0"
 
 [tool.poetry.dev-dependencies]
