@@ -1024,14 +1024,15 @@ testing = ["black (==22.3.0)", "coverage (==5.0.3)", "factory-boy (==2.12.0)", "
 
 [[package]]
 name = "wagtailmedia"
-version = "0.9.0"
+version = "0.12.0"
 description = "A module for Wagtail that provides functionality similar to wagtail.documents module, but for audio and video files."
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-wagtail = ">=2.11"
+Django = ">=3.2"
+wagtail = ">=2.15"
 
 [package.extras]
 testing = ["coverage (>=3.7.0)", "mock (>=1.0.0)", "tox (>=3.24,<4.0)"]
@@ -1110,7 +1111,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "fb960077c23512298abb6a6372141836b2571d701d0df4229fbccbb96755586b"
+content-hash = "42b7868b55c9f8ded8cebf3733ffd002e6e56133d72fd16addb807b49badb795"
 
 [metadata.files]
 anyascii = [
@@ -1546,8 +1547,8 @@ wagtail-storages = [
     {file = "wagtail_storages-0.5.1rc1-py3-none-any.whl", hash = "sha256:05d7ad93d0ebb9a60e8612f3f6441882c528eca3bc400683f547dffcb5d8a6d1"},
 ]
 wagtailmedia = [
-    {file = "wagtailmedia-0.9.0-py2.py3-none-any.whl", hash = "sha256:e845ce5be97df9f6c8c1518678d15ef686f2d4c2351a893b5882b84a68905dc6"},
-    {file = "wagtailmedia-0.9.0.tar.gz", hash = "sha256:a898585d5bdc58bdd3b7186c791ae591e94f8e89bee11bdba1d17bd07230c66c"},
+    {file = "wagtailmedia-0.12.0-py2.py3-none-any.whl", hash = "sha256:0807515c5d89782666b613de2e4aedab19e9dd358097fad2cb79633c0b5416d3"},
+    {file = "wagtailmedia-0.12.0.tar.gz", hash = "sha256:1d39622c3d7d0191e58ffedf45d05fbef851e3905955513012a72ae4d46a12b0"},
 ]
 webencodings = [
     {file = "webencodings-0.5.1-py2.py3-none-any.whl", hash = "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"},
