@@ -4,8 +4,7 @@ from modelcluster import fields as cluster_fields
 from wagtail import fields as wagtail_fields
 from wagtail import images as wagtail_images
 from wagtail import models as wagtail_models
-from wagtail.admin import edit_handlers as panels
-from wagtail.images import edit_handlers as image_panels
+from wagtail.admin import panels
 from wagtailmedia import edit_handlers as media_panels
 
 
@@ -57,7 +56,7 @@ class ProjectPage(wagtail_models.Page):
     content_panels = wagtail_models.Page.content_panels + [
         panels.MultiFieldPanel(
             children=[
-                image_panels.ImageChooserPanel("image"),
+                panels.FieldPanel("image"),
                 media_panels.MediaChooserPanel("video", media_type="video"),
                 panels.FieldPanel("image_shadow"),
             ],
