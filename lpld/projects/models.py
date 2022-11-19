@@ -7,6 +7,8 @@ from wagtail import models as wagtail_models
 from wagtail.admin import panels
 from wagtailmedia import edit_handlers as media_panels
 
+from lpld.core import models as core_models
+
 
 class ProjectTechnologyRelation(wagtail_models.Orderable):
     project_page = cluster_fields.ParentalKey(
@@ -25,7 +27,7 @@ class ProjectTechnologyRelation(wagtail_models.Orderable):
     panels = [panels.FieldPanel("technology")]
 
 
-class ProjectPage(wagtail_models.Page):
+class ProjectPage(core_models.BasePage):
     parent_page_types = ["home.HomePage"]
     template = "pages/project-page/project-page.html"
 
@@ -53,7 +55,7 @@ class ProjectPage(wagtail_models.Page):
     repo_url = models.URLField(null=False, blank=True)
     demo_url = models.URLField(null=False, blank=True)
 
-    content_panels = wagtail_models.Page.content_panels + [
+    content_panels = core_models.BasePage.content_panels + [
         panels.MultiFieldPanel(
             children=[
                 panels.FieldPanel("image"),

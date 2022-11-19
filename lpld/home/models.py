@@ -3,11 +3,12 @@ from django.db import models
 
 from wagtail import fields
 from wagtail import images as wagtail_images
-from wagtail import models as wagtail_models
 from wagtail.admin import panels
 
+from lpld.core import models as core_models
 
-class HomePage(wagtail_models.Page):
+
+class HomePage(core_models.BasePage):
     """docstring for HomePage"""
 
     max_count = 1
@@ -21,7 +22,7 @@ class HomePage(wagtail_models.Page):
         on_delete=models.SET_NULL,
     )
 
-    content_panels = wagtail_models.Page.content_panels + [
+    content_panels = core_models.BasePage.content_panels + [
         panels.FieldPanel("introduction"),
         panels.FieldPanel("profile_image"),
     ]
