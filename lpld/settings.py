@@ -31,7 +31,9 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [
-    host.strip() for host in os.environ.get("ALLOWED_HOSTS", "localhost").split(",") if host
+    host.strip()
+    for host in os.environ.get("ALLOWED_HOSTS", "localhost").split(",")
+    if host
 ]
 
 if DEBUG:
