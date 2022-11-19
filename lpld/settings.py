@@ -31,7 +31,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [
-    host.strip() for host in os.environ.get("ALLOWED_HOSTS", "").split(",") if host
+    host.strip() for host in os.environ.get("ALLOWED_HOSTS", "localhost").split(",") if host
 ]
 
 if DEBUG:
@@ -332,6 +332,8 @@ SILENCED_SYSTEM_CHECKS = [
 # WAGTAIL
 
 WAGTAIL_SITE_NAME = "lpld.io"
+
+WAGTAILADMIN_BASE_URL = ALLOWED_HOSTS[0]
 
 WAGTAIL_SEARCH_BACKENDS = {
     "default": {
