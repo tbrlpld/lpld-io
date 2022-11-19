@@ -3,8 +3,6 @@ services:
     image: lpld_web
     build: .
     command: ["tail", "-f", "/dev/null"]
-    depends_on:
-      - db
     env_file:
       - .env
     ports:
@@ -12,13 +10,3 @@ services:
     volumes:
       - .:/app
       - ./data:/data
-
-  db:
-    image: "postgres:13"
-    expose:
-      - 5432
-    volumes:
-      - ./dbdump:/dbdump
-    environment:
-      POSTGRES_USER: lpld
-      POSTGRES_PASSWORD: lpld

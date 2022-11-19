@@ -7,4 +7,5 @@ services:
     environment:
       SECRET_KEY: thisisnotasecrectkey
       DB_DIR: /data
+      USE_SQLITE: true
     command: ["tail", "-f", "/dev/null"]
