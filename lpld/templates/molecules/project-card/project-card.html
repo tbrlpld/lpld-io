@@ -1,4 +1,4 @@
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load l10n wagtailcore_tags wagtailimages_tags %}
 
 <a class="flex flex-row items-start group no-underline" href="{% pageurl project %}">
     {% if project.video or project.image %}
@@ -6,8 +6,8 @@
             {% if project.video %}
                 <video
                     src="{{ project.video.url }}"
-                    width="{{ project.video.width }}"
-                    height="{{ project.video.height }}"
+                    width="{{ project.video.width | unlocalize }}"
+                    height="{{ project.video.height | unlocalize }}"
                     class="{% if project.image_shadow %} rounded shadow-md {% endif %}"
                     autoplay
                     loop

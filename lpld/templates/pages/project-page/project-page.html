@@ -1,5 +1,5 @@
 {% extends "base-page.html" %}
-{% load wagtailcore_tags wagtailimages_tags slippers %}
+{% load l10n wagtailcore_tags wagtailimages_tags slippers %}
 
 {% block content %}
     <section class="pt-32 xl:pt-48">
@@ -13,8 +13,8 @@
                     {% if page.video %}
                         <video
                             src="{{ page.video.url }}"
-                            width="{{ page.video.width }}"
-                            height="{{ page.video.height }}"
+                            width="{{ page.video.width | unlocalize }}"
+                            height="{{ page.video.height | unlocalize }}"
                             class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md shadow-md lg:shadow-lg {% endif %}"
                             autoplay
                             loop
