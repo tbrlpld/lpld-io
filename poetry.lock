@@ -351,7 +351,7 @@ pytz = "*"
 
 [[package]]
 name = "djhtml"
-version = "1.4.14"
+version = "1.5.2"
 description = "Django/Jinja template indenter"
 category = "dev"
 optional = false
@@ -1111,7 +1111,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "5e4fd2ffa668dd22b3d62d3ca4da5f17b25099c8c64af21004601542b541d4ca"
+content-hash = "5f8e3a0e133df0646d4883b867326b37857eb140f3276dd6162e0a9db916cb82"
 
 [metadata.files]
 anyascii = [
@@ -1238,7 +1238,7 @@ djangorestframework = [
     {file = "djangorestframework-3.13.1.tar.gz", hash = "sha256:0c33407ce23acc68eca2a6e46424b008c9c02eceb8cf18581921d0092bc1f2ee"},
 ]
 djhtml = [
-    {file = "djhtml-1.4.14.tar.gz", hash = "sha256:04de986f913a4c474c12fcadd9868f415fd92136bf5e2fbd0ab004be5839bbd5"},
+    {file = "djhtml-1.5.2.tar.gz", hash = "sha256:b54c4ab6effaf3dbe87d616ba30304f1dba22f07127a563df4130a71acc290ea"},
 ]
 draftjs-exporter = [
     {file = "draftjs_exporter-2.1.7-py3-none-any.whl", hash = "sha256:d415a9964690a2cddb66a31ef32dd46c277e9b80434b94e39e3043188ed83e33"},
