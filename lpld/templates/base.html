@@ -14,6 +14,9 @@
                 · lpld.io
             {% endblock title %}
         </title>
+        {% if page.meta_description %}
+            <meta name="description" content="{{ page.meta_description }}">
+        {% endif %}
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
         <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">

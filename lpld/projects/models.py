@@ -77,3 +77,6 @@ class ProjectPage(core_models.BasePage):
             "related_technologies", heading="Used technologies", label="Technology"
         ),
     ]
+
+    def get_meta_description(self):
+        return self.search_description or self.introduction or ""

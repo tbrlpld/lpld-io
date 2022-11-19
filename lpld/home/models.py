@@ -1,5 +1,6 @@
 from django.apps import apps
 from django.db import models
+from django.utils import html as html_utils
 
 from wagtail import fields
 from wagtail import images as wagtail_images
@@ -34,3 +35,10 @@ class HomePage(core_models.BasePage):
         context["projects"] = ProjectPage.objects.all()
 
         return context
+
+    def get_meta_description(self):
+        return self.search_description or self.get_introduction_without_tags() or ""
+
+    def get_introduction_without_tags(self):
+        """Return introduction but without the HTMl tags."""
+        return html_utils.strip_tags(self.introduction)
