@@ -17,7 +17,7 @@ class ProjectTechnologyRelation(wagtail_models.Orderable):
         related_name="related_technologies",
     )
     technology = models.ForeignKey(
-        "core.Technology",
+        "technologies.Technology",
         null=False,
         blank=False,
         on_delete=models.CASCADE,
