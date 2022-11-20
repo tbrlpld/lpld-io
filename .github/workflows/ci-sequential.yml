@@ -47,6 +47,9 @@ jobs:
       - name: Start docker stack
         run: docker-compose -f docker-compose.ci.yaml up --detach
 
+      - name: Check for missing migrations
+        run: docker-compose -f docker-compose.ci.yaml exec -T web python manage.py makemigrations --dry-run --check
+
       - name: Run black
         run: docker-compose -f docker-compose.ci.yaml exec -T web black . --check
 
