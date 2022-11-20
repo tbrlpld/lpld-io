@@ -27,7 +27,6 @@ class BasePage(wagtail_models.Page):
         return self.search_description or ""
 
 
-@snippet_models.register_snippet
 class Technology(models.Model):
     name = models.CharField(max_length=250, null=False, blank=False)
 
