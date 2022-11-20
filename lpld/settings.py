@@ -336,7 +336,9 @@ SILENCED_SYSTEM_CHECKS = [
 
 WAGTAIL_SITE_NAME = "lpld.io"
 
-WAGTAILADMIN_BASE_URL = ALLOWED_HOSTS[0]
+base_url = os.environ.get("WAGTAILADMIN_BASE_URL")
+if base_url:
+    WAGTAILADMIN_BASE_URL = base_url
 
 WAGTAIL_SEARCH_BACKENDS = {
     "default": {
