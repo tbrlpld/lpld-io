@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils import functional as func_utils
 
-from wagtail.core import models as wagtail_models
 from wagtail.admin import panels
+from wagtail.core import models as wagtail_models
 from wagtail.snippets import models as snippet_models
 
 
