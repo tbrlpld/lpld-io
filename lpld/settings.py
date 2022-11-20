@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "lpld.images",
     "lpld.mediafiles",
     "lpld.projects",
+    "lpld.technologies",
     "lpld.utils",
     "django.contrib.admin",
     "django.contrib.auth",
