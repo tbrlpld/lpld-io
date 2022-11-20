@@ -3,7 +3,6 @@ from django.utils import functional as func_utils
 
 from wagtail.admin import panels
 from wagtail.core import models as wagtail_models
-from wagtail.snippets import models as snippet_models
 
 
 class BasePage(wagtail_models.Page):
@@ -27,7 +26,8 @@ class BasePage(wagtail_models.Page):
         return self.search_description or ""
 
 
-@snippet_models.register_snippet
+# TODO: Once the technologies.Technology model is in production,
+#       this model can be deleted.
 class Technology(models.Model):
     name = models.CharField(max_length=250, null=False, blank=False)
 
