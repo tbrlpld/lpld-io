@@ -3,7 +3,6 @@ from django.utils import functional as func_utils
 
 from wagtail.admin import panels
 from wagtail.core import models as wagtail_models
-from wagtail.snippets import models as snippet_models
 
 
 class BasePage(wagtail_models.Page):
