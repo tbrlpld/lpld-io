@@ -13,6 +13,7 @@ class Technology(models.Model):
     ]
 
     class Meta:
+        ordering = ["name"]
         verbose_name_plural = "Technologies"
 
     def __str__(self):
