@@ -7,6 +7,8 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ("core", "0002_project_tech_relation"),
+        ("technologies", "0003_alter_technology_options"),
+        ("projects", "0005_alter_projecttechnologyrelation_technology"),
     ]
 
     operations = [
