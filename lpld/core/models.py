@@ -26,6 +26,7 @@ class BasePage(wagtail_models.Page):
         return self.search_description or ""
 
 
+# TODO: Once the technologies.Technology model is in production, this model can be deleted.
 class Technology(models.Model):
     name = models.CharField(max_length=250, null=False, blank=False)
 
