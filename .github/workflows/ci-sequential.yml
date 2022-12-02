@@ -19,13 +19,23 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Cache Docker layers
+      - name: Restore Docker layers from branch
+        if: ${{ github.event_name == 'push' }}
         uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.ref }}
+          key: ${{ runner.os }}-buildx-${{ github.ref_name }}
           restore-keys: |
-            ${{ runner.os }}-buildx-
+            ${{ runner.os }}-buildx-${{ github.ref_name }}
+
+      - name: Restore Docker layers from branch or target
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.head_ref }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-${{ github.base_ref }}
 
       - name: Build
         uses: docker/build-push-action@v3
