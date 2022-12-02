@@ -1,7 +1,13 @@
 # https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching
 name: continuous integration
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   build-lint-test:
