@@ -198,14 +198,14 @@ lint = ["black (==20.8b1)", "flake8 (==3.8.4)", "isort (==5.7.0)"]
 
 [[package]]
 name = "django-debug-toolbar"
-version = "3.2.4"
+version = "3.7.0"
 description = "A configurable set of panels that display various debug information about the current request/response."
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
-Django = ">=2.2"
+Django = ">=3.2.4"
 sqlparse = ">=0.2.0"
 
 [[package]]
@@ -1118,7 +1118,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "bfd6df596ab7ab3cd804dd671eef5e5687e3a06963fce0f34b1da18dd97ed6a9"
+content-hash = "58b9e5f044114e2c63dbe7bfeddf2b03e162856a879e0950e987e3af164f5cc8"
 
 [metadata.files]
 anyascii = [
@@ -1197,8 +1197,8 @@ django-basic-auth-ip-whitelist = [
     {file = "django_basic_auth_ip_whitelist-0.5a0-py3-none-any.whl", hash = "sha256:047bafc88c69f5aace60ca4a262d7e6e56f9767196e31623025743b08265ed22"},
 ]
 django-debug-toolbar = [
-    {file = "django-debug-toolbar-3.2.4.tar.gz", hash = "sha256:644bbd5c428d3283aa9115722471769cac1bec189edf3a0c855fd8ff870375a9"},
-    {file = "django_debug_toolbar-3.2.4-py3-none-any.whl", hash = "sha256:6b633b6cfee24f232d73569870f19aa86c819d750e7f3e833f2344a9eb4b4409"},
+    {file = "django-debug-toolbar-3.7.0.tar.gz", hash = "sha256:1e3acad24e3d351ba45c6fa2072e4164820307332a776b16c9f06d1f89503465"},
+    {file = "django_debug_toolbar-3.7.0-py3-none-any.whl", hash = "sha256:80de23066b624d3970fd296cf02d61988e5d56c31aa0dc4a428970b46e2883a8"},
 ]
 django-filter = [
     {file = "django-filter-21.1.tar.gz", hash = "sha256:632a251fa8f1aadb4b8cceff932bb52fe2f826dd7dfe7f3eac40e5c463d6836e"},
