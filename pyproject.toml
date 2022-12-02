@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 boto3 = "^1.20.41"
-dj-database-url = "~0.5.0"
+dj-database-url = "~1.0.0"
 django = "~4.0"
 django-basic-auth-ip-whitelist = "~0.5a"
 django-storages = "^1.12.3"
