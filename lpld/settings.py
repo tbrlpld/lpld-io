@@ -360,6 +360,9 @@ WAGTAILMEDIA = {
 
 def show_toolbar(request):
     """Don't debug toolbar in pattern library."""
+    from debug_toolbar.middleware import show_toolbar as default_show_toolbar
+    if not default_show_toolbar(request):
+        return False
     if "pattern-library" in request.path:
         return False
     if "lpld-admin" in request.path:
