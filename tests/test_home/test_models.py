@@ -1,6 +1,7 @@
 import http
 
 import pytest
+import wagtail_factories
 
 from lpld.home import factories
 
@@ -9,6 +10,7 @@ from lpld.home import factories
 class TestHomePage:
     def test_page_loads(self, client):
         home_page = factories.HomePage()
+        wagtail_factories.SiteFactory(root_page=home_page)
 
         response = client.get(path=home_page.get_url())
 
