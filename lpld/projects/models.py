@@ -10,23 +10,6 @@ from wagtailmedia import edit_handlers as media_panels
 from lpld.core import models as core_models
 
 
-class ProjectTechnologyRelation(wagtail_models.Orderable):
-    project_page = cluster_fields.ParentalKey(
-        "projects.ProjectPage",
-        on_delete=models.CASCADE,
-        related_name="related_technologies",
-    )
-    technology = models.ForeignKey(
-        "technologies.Technology",
-        null=False,
-        blank=False,
-        on_delete=models.CASCADE,
-        related_name="related_projects",
-    )
-
-    panels = [panels.FieldPanel("technology")]
-
-
 class ProjectPage(core_models.BasePage):
     parent_page_types = ["home.HomePage"]
     template = "pages/project-page/project-page.html"
@@ -80,3 +63,20 @@ class ProjectPage(core_models.BasePage):
 
     def get_meta_description(self):
         return self.search_description or self.introduction or ""
+
+
+class ProjectTechnologyRelation(wagtail_models.Orderable):
+    project_page = cluster_fields.ParentalKey(
+        "projects.ProjectPage",
+        on_delete=models.CASCADE,
+        related_name="related_technologies",
+    )
+    technology = models.ForeignKey(
+        "technologies.Technology",
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        related_name="related_projects",
+    )
+
+    panels = [panels.FieldPanel("technology")]
