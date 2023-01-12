@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import typing
 
 import os
 from pathlib import Path
@@ -16,6 +17,10 @@ from pathlib import Path
 import dj_database_url  # type: ignore
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
+
+if typing.TYPE_CHECKING:
+    from django import http
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -358,11 +363,11 @@ WAGTAILMEDIA = {
 # DEBUG TOOLBAR
 
 
-def show_toolbar(request):
+def show_toolbar(request: "http.HttpRequest") -> bool:
     """Don't debug toolbar in pattern library."""
     from debug_toolbar.middleware import show_toolbar as default_show_toolbar
 
-    if not default_show_toolbar(request):
+    if not typing.cast(bool, default_show_toolbar(request)):
         return False
     if "pattern-library" in request.path:
         return False
