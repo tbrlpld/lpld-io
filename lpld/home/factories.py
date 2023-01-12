@@ -11,3 +11,12 @@ class HomePage(wagtail_factories.PageFactory):
     title = "Home"
     introduction = factory.Faker("sentences", nb=3)
     profile_image = factory.SubFactory(wagtail_factories.ImageFactory)
+
+    @factory.post_generation
+    def create_site_with_homepage_as_root(obj, create, extracted, **kwargs):
+        if not create:
+            return
+        site = wagtail_factories.SiteFactory(root_page=obj)
+        return site
+
+
