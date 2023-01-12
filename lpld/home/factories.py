@@ -18,5 +18,3 @@ class HomePage(wagtail_factories.PageFactory):
             return
         site = wagtail_factories.SiteFactory(root_page=obj, is_default_site=True)
         return site
-
-
