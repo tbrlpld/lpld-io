@@ -1,7 +1,7 @@
 import http
 
 import pytest
-import wagtail_factories
+from pytest_django import asserts
 
 from lpld.home import factories
 
@@ -14,3 +14,4 @@ class TestHomePage:
         response = client.get(path=home_page.get_url())
 
         assert response.status_code == http.HTTPStatus.OK
+        asserts.assertContains(response, home_page.title)

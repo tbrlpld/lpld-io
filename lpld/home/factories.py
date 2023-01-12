@@ -16,7 +16,7 @@ class HomePage(wagtail_factories.PageFactory):
     def create_site_with_homepage_as_root(obj, create, extracted, **kwargs):
         if not create:
             return
-        site = wagtail_factories.SiteFactory(root_page=obj)
+        site = wagtail_factories.SiteFactory(root_page=obj, is_default_site=True)
         return site
 
 
