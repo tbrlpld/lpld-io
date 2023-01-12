@@ -1,3 +1,4 @@
+import factory
 import wagtail_factories
 
 from lpld.home import models as home_models
@@ -8,3 +9,5 @@ class HomePage(wagtail_factories.PageFactory):
         model = home_models.HomePage
 
     title = "Home"
+    introduction = factory.Faker("sentences", nb=3)
+    profile_image = factory.SubFactory(wagtail_factories.ImageFactory)
