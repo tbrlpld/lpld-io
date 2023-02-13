@@ -7,7 +7,6 @@ import modelcluster.fields
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("core", "0002_project_tech_relation"),
         ("projects", "0001_initial"),

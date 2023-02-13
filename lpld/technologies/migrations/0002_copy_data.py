@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("technologies", "0001_initial"),
         ("core", "0002_project_tech_relation"),

@@ -4,7 +4,6 @@ from wagtail.images import models as image_models
 
 
 class CustomImage(image_models.AbstractImage):
-
     admin_form_fields = image_models.Image.admin_form_fields
 
 

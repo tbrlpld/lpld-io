@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("mediafiles", "0001_initial"),
         ("projects", "0003_alter_projectpage_image"),
