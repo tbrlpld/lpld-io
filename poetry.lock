@@ -263,14 +263,14 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-basic-auth-ip-whitelist"
-version = "0.5a0"
+version = "0.5"
 description = "Hide your Django site behind basic authentication mechanism with IP whitelisting support."
 category = "main"
 optional = false
 python-versions = ">=3.4"
 files = [
-    {file = "django-basic-auth-ip-whitelist-0.5a0.tar.gz", hash = "sha256:06c2e3800d492781d88aeafdb57e418e30354cb0dbbfc01ac3ce59f67f50d31a"},
-    {file = "django_basic_auth_ip_whitelist-0.5a0-py3-none-any.whl", hash = "sha256:047bafc88c69f5aace60ca4a262d7e6e56f9767196e31623025743b08265ed22"},
+    {file = "django-basic-auth-ip-whitelist-0.5.tar.gz", hash = "sha256:8e859303a802574a121a1787bdf96ca2c16140bb9003da96e28323e7a80d99fc"},
+    {file = "django_basic_auth_ip_whitelist-0.5-py3-none-any.whl", hash = "sha256:c64cc3e1bbf736d5e6d6c3468c16003cfc4d01cdfb92cd9e7bbe9fbcd5bdf9be"},
 ]
 
 [package.dependencies]
@@ -1549,4 +1549,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "036a5f8f1263dd877d819422121403aa7b3aadaeb316dace125556b4db09186e"
+content-hash = "a496445f6dc5b11f6b4667753c44bf7b18743e2113112d75a3a1cef3e0ce9d76"
