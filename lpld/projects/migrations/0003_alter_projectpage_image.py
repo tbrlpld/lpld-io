@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("images", "0001_initial"),
         ("projects", "0002_project_tech_relation"),

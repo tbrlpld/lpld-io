@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("technologies", "0002_copy_data"),
         ("projects", "0004_projectpage_video"),
