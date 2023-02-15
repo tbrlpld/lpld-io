@@ -305,6 +305,8 @@ BASIC_AUTH_LOGIN = os.environ.get("BASIC_AUTH_LOGIN")
 BASIC_AUTH_PASSWORD = os.environ.get("BASIC_AUTH_PASSWORD")
 if BASIC_AUTH_LOGIN and BASIC_AUTH_PASSWORD:
     MIDDLEWARE = ["baipw.middleware.BasicAuthIPWhitelistMiddleware"] + MIDDLEWARE
+    # Wagtail requires Authorization header to be present for the previews
+    BASIC_AUTH_DISABLE_CONSUMING_AUTHORIZATION_HEADER = True
 
 if not DEBUG:
     CSRF_COOKIE_SECURE = True
