@@ -11,6 +11,7 @@ services:
     volumes:
       - .:/app
       - ./data:/data
+      # Named volume to prevent the static assets build during image build from being overriden by the above project root bind mount.
       - frontend_assets:/app/lpld/static/comp:ro
   frontend:
     build:
@@ -21,8 +22,9 @@ services:
       - .env
     volumes:
       - .:/home/node/app
+      # Named volume to prevent the static assets build during image build from being overriden by the above project root bind mount.
       - frontend_assets:/home/node/app/lpld/static/comp:rw
-      # Anonymous volume to prevent the node_modules directory being overridden by the above mounting for the project root.
+      # Anonymous volume to prevent the node_modules directory being overridden by the above bind mounting for the project root.
       - /home/node/app/node_modules
 
 volumes:
