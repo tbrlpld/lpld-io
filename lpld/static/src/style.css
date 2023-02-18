@@ -15,5 +15,5 @@ p {
 }
 
 p > a {
-    @apply decoration-2 hover:decoration-dotted hover:text-neutral-600 active:text-neutral-700 underline underline-offset-2
+    @apply decoration-1 hover:decoration-2 hover:text-neutral-600 active:text-neutral-800 underline underline-offset-2
 }
