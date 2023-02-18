@@ -10,6 +10,10 @@ h2 {
     @apply font-bold text-3xl sm:text-4xl xl:text-5xl
 }
 
+p {
+    @apply text-neutral-500
+}
+
 p > a {
-    @apply decoration-2 hover:decoration-dotted hover:text-neutral-500 active:text-neutral-600 underline underline-offset-2
+    @apply decoration-2 hover:decoration-dotted hover:text-neutral-600 active:text-neutral-700 underline underline-offset-2
 }
