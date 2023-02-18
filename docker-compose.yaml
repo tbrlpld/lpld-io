@@ -1,7 +1,8 @@
 services:
   web:
-    image: lpld_web
-    build: .
+    build:
+      context: .
+      target: backend
     command: ["tail", "-f", "/dev/null"]
     env_file:
       - .env
@@ -10,3 +11,14 @@ services:
     volumes:
       - .:/app
       - ./data:/data
+  frontend:
+    build:
+      context: .
+      target: frontend
+    command: ["tail", "-f", "/dev/null"]
+    env_file:
+      - .env
+    volumes:
+      - .:/home/node/app
+      # Anonymous volume to prevent the node_modules directory being overridden by the above mounting for the project root.
+      - /home/node/app/node_modules
