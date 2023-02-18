@@ -1,5 +1,7 @@
 FROM node:14 as frontend
 
+WORKDIR /home/node/app
+
 COPY package.json package-lock.json ./
 RUN npm ci --no-optional --no-audit --progress=false
 
@@ -8,7 +10,7 @@ COPY . .
 # Compile static files
 RUN npm run build:css
 
-FROM python:3.9
+FROM python:3.9 as backend
 
 RUN mkdir /app && mkdir /data
 RUN useradd -m lpld -s /bin/bash && \
@@ -42,7 +44,7 @@ USER lpld
 
 COPY --chown=lpld:lpld . .
 
-COPY --chown=lpld:lpld --from=frontend ./lpld/static/comp ./lpld/static/comp
+COPY --chown=lpld:lpld --from=frontend /home/node/app/lpld/static/comp /app/lpld/static/comp
 
 RUN SECRET_KEY=none ./manage.py collectstatic --noinput --clear
 

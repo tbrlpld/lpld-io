@@ -60,14 +60,18 @@ This is basically what happens on Heroku.
 
 So far, the front-end tooling only consists of Tailwind CSS.
 
-I am running the front-end tolling locally, not in the container.
-That means I have at least two shells running when working on the front-end.
-
-To install the front-end dependencies locally just use `npm`.
+I have now switched to the option to run the frontend tooling in a container.
+When you run `docker compose up` the `web` and `frontend` containers are both starting.
+Just as with the `web` container, the `frontend` container is just idling after start.
+If you want it to do something, you gonna want to open a shell in the container and run the tooling there.
 
 ```console
-npm install
+docker compose exec frontend bash
 ```
+
+Typically, I will I have at least two shells running when working on the front-end.
+One is running the web server and one the frontend tooling.
+Both are inside their respective containers.
 
 Then, run the tooling in watch mode with:
 
@@ -81,9 +85,12 @@ If you ever want to build the production ready config, use:
 npm run build:css
 ```
 
-The production configuration of the front-end stuff is build during the container build.
-But, when you start the development orcestra as configured in `docker-compose.yml` then the local project directory is mounted and overrides what is build in the container.
-So you should at least run the production build step once locally.
+The production configuration of the frontend assets is build during the container build.
+But, when you start the development orchestra as configured in `docker-compose.yml` then the local project directory is mounted into the containers.
+This would override the assets in `./lpld/static/comp` that were compiled during image build.
+To prevent that from happening, while still allowing the assets build in the `frontend` container to show up in the `web` container, a named volume `frontend_assets` is used.
+Only the `frontend` container writes to the volume, while the `web` container reads from it.
+With this setup, you don't have to run the frontend tooling if you don't need it, but if you do the new changes will show up in the `web` container during runtime.
 
 ## Deployment
 
