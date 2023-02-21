@@ -22,12 +22,16 @@
                             onclick="if (this.paused) {this.play()} else {this.pause()}"
                         >Animation of {{ page.title }}</video>
                     {% elif page.image %}
-                        {% image page.image width-768 as project_image %}
+                        {% image page.image width-384 as project_image_384 %}
+                        {% image page.image width-768 as project_image_768 %}
                         <img
-                            src="{{ project_image.url }}"
+                            srcset="{{ project_image_384.url }}, {{ project_image_768.url }} 2x"
+                            src="{{ project_image_384.url }}"
                             alt="Screenshot of {{ page.title }}"
                             class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md shadow-md lg:shadow-lg {% endif %}"
                             loading="lazy"
+                            width="{{ project_image_384.width }}"
+                            height="{{ project_image_384.height }}"
                         />
                     {% endif %}
                 </div>

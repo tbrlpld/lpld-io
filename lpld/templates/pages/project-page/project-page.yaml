@@ -28,10 +28,17 @@ context:
             name: "Javascript"
         - technology:
             name: "Javascript"
+    image: true
 
 tags:
   image:
-    "page.image width-768 as project_image":
-      target_var: "project_image"
+    "page.image width-384 as project_image_384":
+      target_var: "project_image_384"
+      raw:
+        url: "https://via.placeholder.com/384x512/"
+        width: 384
+        height: 512
+    "page.image width-768 as project_image_768":
+      target_var: "project_image_768"
       raw:
         url: "https://via.placeholder.com/768x1024/"
