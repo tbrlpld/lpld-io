@@ -13,27 +13,21 @@
                     loop
                 >Animation of {{ project.title }}</video>
             {% elif project.image %}
-                {% image project.image width-192 as project_image_192 %}
-                {% image project.image width-256 as project_image_256 %}
-                {% image project.image width-384 as project_image_384 %}
-                <img
-                    srcset="
-                            {{ project_image_192.url }} 192w,
-                            {{ project_image_256.url }} 256w,
-                            {{ project_image_384.url }} 384w
-                        "
-                    sizes="
-                            (min-width: 640px) 256px,
-                            (min-width: 1280px) 384px,
-                            192px
-                        "
-                    src="{{ project_image_384.url }}"
-                    alt="Screenshot of {{ project.title }}"
-                    class="bg-blue-500 {% if project.image_shadow %} rounded shadow-md {% endif %}"
-                    loading="lazy"
-                    width="{{ project_image_192.width }}"
-                    height="{{ project_image_192.height }}"
-                />
+                <picture>
+                    {% image project.image width-192 as project_image_192 %}
+                    {% image project.image width-256 as project_image_256 %}
+                    {% image project.image width-384 as project_image_384 %}
+                    <source media="(min-width: 1280px)" srcset="{{ project_image_384.url }}">
+                    <source media="(min-width: 640px)" srcset="{{ project_image_256.url }}">
+                    <img
+                        src="{{ project_image_192.url }}"
+                        alt="Screenshot of {{ project.title }}"
+                        class="{% if project.image_shadow %} rounded shadow-md {% endif %}"
+                        loading="lazy"
+                        width="{{ project_image_192.width }}"
+                        height="{{ project_image_192.height }}"
+                    />
+                </picture>
             {% endif %}
         </div>
     {% endif %}
