@@ -7,23 +7,27 @@ context:
 
 tags:
   image:
+    "project.image width-96 as project_image_96":
+      target_var: "project_image_96"
+      raw:
+        url: "https://source.unsplash.com/96x120?ocean"
+        width: 96
+        height: 120
+    "project.image width-128 as project_image_128":
+      target_var: "project_image_128"
+      raw:
+        url: "https://source.unsplash.com/128x160?ocean"
     "project.image width-192 as project_image_192":
       target_var: "project_image_192"
       raw:
         url: "https://source.unsplash.com/192x240?ocean"
-        width: 192
-        height: 240
     "project.image width-256 as project_image_256":
       target_var: "project_image_256"
       raw:
         url: "https://source.unsplash.com/256x320?ocean"
-        width: 256
-        height: 320
     "project.image width-384 as project_image_384":
       target_var: "project_image_384"
       raw:
         url: "https://source.unsplash.com/384x480?ocean"
-        width: 384
-        height: 480
 
 
