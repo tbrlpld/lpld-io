@@ -29,8 +29,10 @@
                         "
                     src="{{ project_image_384.url }}"
                     alt="Screenshot of {{ project.title }}"
-                    class="{% if project.image_shadow %} rounded shadow-md {% endif %}"
+                    class="bg-blue-500 {% if project.image_shadow %} rounded shadow-md {% endif %}"
                     loading="lazy"
+                    width="{{ project_image_192.width }}"
+                    height="{{ project_image_192.height }}"
                 />
             {% endif %}
         </div>
