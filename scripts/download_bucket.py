@@ -18,8 +18,15 @@ client = session.client(
 )
 
 response = client.list_objects(Bucket=bucket_name)
+print(response["Contents"])
 for obj in response["Contents"]:
     filepath = obj["Key"]
+
+    if filepath.endswith("/"):
+        # We can ignore the directory entries we get in the response. The directories
+        # get created as parents of files anyhow.
+        continue
+
     local_filepath = target_directory / filepath
 
     # Create sub-directories if necessary
