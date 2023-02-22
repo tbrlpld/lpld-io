@@ -12,6 +12,9 @@ RUN npm run build:css
 
 FROM python:3.9 as backend
 
+# Make bash default shell
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 RUN mkdir /app && mkdir /data
 RUN useradd -m lpld -s /bin/bash && \
     chown -R lpld /app && \
