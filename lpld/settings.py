@@ -355,6 +355,10 @@ WAGTAIL_SEARCH_BACKENDS = {
 WAGTAIL_ENABLE_UPDATE_CHECK = False
 
 WAGTAILIMAGES_IMAGE_MODEL = "images.CustomImage"
+WAGTAILIMAGES_FORMAT_CONVERSIONS = {
+    "png": "png",
+    "webp": "webp",  # To disable the default webp to png conversion
+}
 
 WAGTAILMEDIA = {
     "MEDIA_MODEL": "mediafiles.CustomMedia",

@@ -27,16 +27,61 @@ context:
 
 tags:
   image:
+    # Profile image
+    "page.profile_image fill-96x96 format-png as profile_fallback":
+      target_var: "profile_fallback"
+      raw:
+        url: "https://via.placeholder.com/96/"
+        width: 96
+        height: 96
+    "page.profile_image fill-96x96 as profile_96":
+      target_var: "profile_96"
+      raw:
+        url: "https://via.placeholder.com/96/"
+    "page.profile_image fill-128x128 as profile_128":
+      target_var: "profile_128"
+      raw:
+        url: "https://via.placeholder.com/128/"
+    "page.profile_image fill-192x192 as profile_192":
+      target_var: "profile_192"
+      raw:
+        url: "https://via.placeholder.com/192/"
+    "page.profile_image fill-256x256 as profile_256":
+      target_var: "profile_256"
+      raw:
+        url: "https://via.placeholder.com/256/"
+    "page.profile_image fill-384x384 as profile_384":
+      target_var: "profile_384"
+      raw:
+        url: "https://via.placeholder.com/384/"
+    "page.profile_image fill-512x512 as profile_512":
+      target_var: "profile_512"
+      raw:
+        url: "https://via.placeholder.com/512/"
+    # Project images
+    "project.image width-96 format-png as project_image_fallback":
+      target_var: "project_image_fallback"
+      raw:
+        url: "https://via.placeholder.com/96x120/"
+        width: 96
+        height: 120
+    "project.image width-96 as project_image_96":
+      target_var: "project_image_96"
+      raw:
+        url: "https://via.placeholder.com/96x120/"
+    "project.image width-128 as project_image_128":
+      target_var: "project_image_128"
+      raw:
+        url: "https://via.placeholder.com/128x160/"
     "project.image width-192 as project_image_192":
       target_var: "project_image_192"
       raw:
-        url: "https://via.placeholder.com/192/192"
+        url: "https://via.placeholder.com/192x240/"
     "project.image width-256 as project_image_256":
       target_var: "project_image_256"
       raw:
-        url: "https://via.placeholder.com/256/256"
+        url: "https://via.placeholder.com/256x320/"
     "project.image width-384 as project_image_384":
       target_var: "project_image_384"
       raw:
-        url: "https://via.placeholder.com/384/384"
-
+        url: "https://via.placeholder.com/384x480/"
