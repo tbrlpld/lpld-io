@@ -7,12 +7,16 @@ context:
 
 tags:
   image:
-    "project.image width-96 as project_image_96":
-      target_var: "project_image_96"
+    "project.image width-96 format-png as project_image_fallback":
+      target_var: "project_image_fallback"
       raw:
         url: "https://via.placeholder.com/96x120/"
         width: 96
         height: 120
+    "project.image width-96 as project_image_96":
+      target_var: "project_image_96"
+      raw:
+        url: "https://via.placeholder.com/96x120/"
     "project.image width-128 as project_image_128":
       target_var: "project_image_128"
       raw:

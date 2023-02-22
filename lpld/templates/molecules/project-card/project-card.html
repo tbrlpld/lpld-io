@@ -14,6 +14,7 @@
                 >Animation of {{ project.title }}</video>
             {% elif project.image %}
                 <picture>
+                    {% image project.image width-96 format-png as project_image_fallback %}
                     {% image project.image width-96 as project_image_96 %}
                     {% image project.image width-128 as project_image_128 %}
                     {% image project.image width-192 as project_image_192 %}
@@ -23,12 +24,12 @@
                     <source media="(min-width: 640px)" srcset="{{ project_image_128.url }}, {{ project_image_256.url }} 2x">
                     <img
                         srcset="{{ project_image_96.url }}, {{ project_image_192.url }} 2x"
-                        src="{{ project_image_96.url }}"
+                        src="{{ project_image_fallback.url }}"
                         alt="Screenshot of {{ project.title }}"
                         class="w-full {% if project.image_shadow %} rounded shadow-md {% endif %}"
                         loading="lazy"
-                        width="{{ project_image_96.width }}"
-                        height="{{ project_image_96.height }}"
+                        width="{{ project_image_fallback.width }}"
+                        height="{{ project_image_fallback.height }}"
                     />
                 </picture>
             {% endif %}
