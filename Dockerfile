@@ -12,14 +12,15 @@ RUN npm run build:css
 
 FROM python:3.9 as backend
 
-# Make bash default shell
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
 RUN mkdir /app && mkdir /data
 RUN useradd -m lpld -s /bin/bash && \
     chown -R lpld /app && \
     chown -R lpld /data
 WORKDIR /app
+
+# Enable Heroku Exec: https://devcenter.heroku.com/articles/exec#using-with-docker
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
+    apt update -y && apt install -y iproute2 openssh-server
 
 ENV POETRY_HOME=/home/lpld/poetry
 ENV PATH=${POETRY_HOME}/bin:$PATH \
