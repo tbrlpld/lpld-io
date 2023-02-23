@@ -24,9 +24,9 @@
                     {% elif page.image %}
                         <picture>
                             {% image page.image width-384 as project_image_fallback %}
-                            {% image page.image width-384 format-webp as project_image_384 %}
-                            {% image page.image width-768 format-webp as project_image_768 %}
-                            <source srcset="{{ project_image_384.url }}, {{ project_image_768.url }} 2x" type="image/webp">
+                            {% image_url page.image "width-384|format-webp" as project_image_384 %}
+                            {% image_url page.image "width-768|format-webp" as project_image_768 %}
+                            <source srcset="{{ project_image_384 }}, {{ project_image_768 }} 2x" type="image/webp">
                             <img
                                 src="{{ project_image_fallback.url }}"
                                 alt="Screenshot of {{ page.title }}"
