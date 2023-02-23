@@ -28,33 +28,33 @@ context:
 tags:
   image:
     # Profile image
-    "page.profile_image fill-96x96 format-png as profile_fallback":
+    "page.profile_image fill-96x96 as profile_fallback":
       target_var: "profile_fallback"
       raw:
         url: "https://via.placeholder.com/96/"
         width: 96
         height: 96
-    "page.profile_image fill-96x96 as profile_96":
+    "page.profile_image fill-96x96 format-webp as profile_96":
       target_var: "profile_96"
       raw:
         url: "https://via.placeholder.com/96/"
-    "page.profile_image fill-128x128 as profile_128":
+    "page.profile_image fill-128x128 format-webp as profile_128":
       target_var: "profile_128"
       raw:
         url: "https://via.placeholder.com/128/"
-    "page.profile_image fill-192x192 as profile_192":
+    "page.profile_image fill-192x192 format-webp as profile_192":
       target_var: "profile_192"
       raw:
         url: "https://via.placeholder.com/192/"
-    "page.profile_image fill-256x256 as profile_256":
+    "page.profile_image fill-256x256 format-webp as profile_256":
       target_var: "profile_256"
       raw:
         url: "https://via.placeholder.com/256/"
-    "page.profile_image fill-384x384 as profile_384":
+    "page.profile_image fill-384x384 format-webp as profile_384":
       target_var: "profile_384"
       raw:
         url: "https://via.placeholder.com/384/"
-    "page.profile_image fill-512x512 as profile_512":
+    "page.profile_image fill-512x512 format-webp as profile_512":
       target_var: "profile_512"
       raw:
         url: "https://via.placeholder.com/512/"
