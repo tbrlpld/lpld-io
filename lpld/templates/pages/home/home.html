@@ -7,16 +7,16 @@
             <h1 class="inline-block">{{ page.title }}</h1>
             <div class="relative w-24 sm:w-32 md:w-48 lg:w-64 aspect-square rounded-full overflow-hidden bg-neutral-200 isolate">
                 <picture>
-                    {% image page.profile_image fill-96x96 format-png as profile_fallback %}
-                    {% image page.profile_image fill-96x96 as profile_96 %}
-                    {% image page.profile_image fill-128x128 as profile_128 %}
-                    {% image page.profile_image fill-192x192 as profile_192 %}
-                    {% image page.profile_image fill-256x256 as profile_256 %}
-                    {% image page.profile_image fill-384x384 as profile_384 %}
-                    {% image page.profile_image fill-512x512 as profile_512 %}
-                    <source media="(min-width: 1024px)" srcset="{{ profile_256.url }}, {{ profile_512.url }} 2x">
-                    <source media="(min-width: 768px)" srcset="{{ profile_192.url }}, {{ profile_384.url }} 2x">
-                    <source media="(min-width: 640px)" srcset="{{ profile_128.url }}, {{ profile_256.url }} 2x">
+                    {% image page.profile_image fill-96x96 as profile_fallback %}
+                    {% image page.profile_image fill-96x96 format-webp as profile_96 %}
+                    {% image page.profile_image fill-128x128 format-webp as profile_128 %}
+                    {% image page.profile_image fill-192x192 format-webp as profile_192 %}
+                    {% image page.profile_image fill-256x256 format-webp as profile_256 %}
+                    {% image page.profile_image fill-384x384 format-webp as profile_384 %}
+                    {% image page.profile_image fill-512x512 format-webp as profile_512 %}
+                    <source media="(min-width: 1024px)" srcset="{{ profile_256.url }}, {{ profile_512.url }} 2x" type="image/webp">
+                    <source media="(min-width: 768px)" srcset="{{ profile_192.url }}, {{ profile_384.url }} 2x" type="image/webp">
+                    <source media="(min-width: 640px)" srcset="{{ profile_128.url }}, {{ profile_256.url }} 2x" type="image/webp">
                     <img
                         srcset="{{ profile_96.url }}, {{ profile_192.url }} 2x"
                         src="{{ profile_fallback.url }}"
