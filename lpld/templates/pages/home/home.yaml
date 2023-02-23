@@ -59,29 +59,29 @@ tags:
       raw:
         url: "https://via.placeholder.com/512/"
     # Project images
-    "project.image width-96 format-png as project_image_fallback":
+    "project.image width-96 as project_image_fallback":
       target_var: "project_image_fallback"
       raw:
         url: "https://via.placeholder.com/96x120/"
         width: 96
         height: 120
-    "project.image width-96 as project_image_96":
+    "project.image width-96 format-webp as project_image_96":
       target_var: "project_image_96"
       raw:
         url: "https://via.placeholder.com/96x120/"
-    "project.image width-128 as project_image_128":
+    "project.image width-128 format-webp as project_image_128":
       target_var: "project_image_128"
       raw:
         url: "https://via.placeholder.com/128x160/"
-    "project.image width-192 as project_image_192":
+    "project.image width-192 format-webp as project_image_192":
       target_var: "project_image_192"
       raw:
         url: "https://via.placeholder.com/192x240/"
-    "project.image width-256 as project_image_256":
+    "project.image width-256 format-webp as project_image_256":
       target_var: "project_image_256"
       raw:
         url: "https://via.placeholder.com/256x320/"
-    "project.image width-384 as project_image_384":
+    "project.image width-384 format-webp as project_image_384":
       target_var: "project_image_384"
       raw:
         url: "https://via.placeholder.com/384x480/"
