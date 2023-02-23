@@ -21,11 +21,17 @@ from wagtail import urls as wagtail_urls
 from wagtail.admin import urls as wagtail_admin_urls
 from wagtail.contrib.sitemaps import views as sitemap_views
 from wagtail.documents import urls as wagtail_docs_urls
+from wagtail.images.views import serve
 
 from lpld.core import views as core_views
 
 urlpatterns = [
     urls.path("docs/", urls.include(wagtail_docs_urls)),
+    urls.re_path(
+        r"^images/([^/]*)/(\d*)/([^/]*)/[^/]*$",
+        serve.ServeView.as_view(),
+        name="wagtailimages_serve",
+    ),
     urls.path("lpld-admin/", urls.include(wagtail_admin_urls)),
     urls.path("robots.txt", core_views.RobotsView.as_view()),
     urls.path("sitemap.xml", sitemap_views.sitemap),
