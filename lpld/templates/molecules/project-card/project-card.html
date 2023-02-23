@@ -20,10 +20,10 @@
                     {% image project.image width-192 format-webp as project_image_192 %}
                     {% image project.image width-256 format-webp as project_image_256 %}
                     {% image project.image width-384 format-webp as project_image_384 %}
-                    <source media="(min-width: 1280px)" srcset="{{ project_image_192.url }}, {{ project_image_384.url }} 2x">
-                    <source media="(min-width: 640px)" srcset="{{ project_image_128.url }}, {{ project_image_256.url }} 2x">
+                    <source media="(min-width: 1280px)" srcset="{{ project_image_192.url }}, {{ project_image_384.url }} 2x" type="image/webp">
+                    <source media="(min-width: 640px)" srcset="{{ project_image_128.url }}, {{ project_image_256.url }} 2x" type="image/webp">
+                    <source srcset="{{ project_image_96.url }}, {{ project_image_192.url }} 2x" type="image/webp">
                     <img
-                        srcset="{{ project_image_96.url }}, {{ project_image_192.url }} 2x"
                         src="{{ project_image_fallback.url }}"
                         alt="Screenshot of {{ project.title }}"
                         class="w-full {% if project.image_shadow %} rounded shadow-md {% endif %}"
