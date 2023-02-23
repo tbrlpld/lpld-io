@@ -29,7 +29,7 @@ urlpatterns = [
     urls.path("docs/", urls.include(wagtail_docs_urls)),
     urls.re_path(
         r"^images/([^/]*)/(\d*)/([^/]*)/[^/]*$",
-        serve.ServeView.as_view(),
+        serve.ServeView.as_view(action="redirect"),
         name="wagtailimages_serve",
     ),
     urls.path("lpld-admin/", urls.include(wagtail_admin_urls)),
