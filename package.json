@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "run-p build:*",
-    "build:js": "cp lpld/static/src/main.js lpld/static/comp/main.js",
+    "build:js": "esbuild lpld/static/src/main.js --bundle --minify --outfile=lpld/static/comp/main.js",
     "build:css": "NODE_ENV=production tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --minify",
     "watch:css": "tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --watch"
   },
