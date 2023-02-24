@@ -9,7 +9,7 @@
     "build:css": "NODE_ENV=production npm run tailwindcss -- --minify",
     "esbuild": "esbuild lpld/static/src/main.js --outfile=lpld/static/comp/main.js --bundle",
     "standard": "standard",
-    "standard:fix": "npm run standard --fix",
+    "standard:fix": "npm run standard -- --fix",
     "tailwindcss": "tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "run-p watch:*",
