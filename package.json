@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "run-p build:*",
+    "build:js": "npm run esbuild -- --minify --target=es5",
+    "build:css": "NODE_ENV=production npm run tailwindcss -- --minify",
+    "esbuild": "esbuild lpld/static/src/main.js --outfile=lpld/static/comp/main.js --bundle",
+    "standard": "standard",
+    "standard:fix": "npm run standard -- --fix",
+    "tailwindcss": "tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "NODE_ENV=production npx tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --minify",
-    "watch:css": "npx tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --watch"
+    "watch": "run-p watch:*",
+    "watch:js": "npm run esbuild -- --watch",
+    "watch:css": "npm run tailwindcss -- --watch"
   },
   "repository": {
     "type": "git",
@@ -19,7 +27,12 @@
   },
   "homepage": "https://github.com/tbrlpld/lpld#readme",
   "devDependencies": {
-    "tailwindcss": "^3.2.4",
-    "@tailwindcss/forms": "^0.5"
+    "@tailwindcss/forms": "^0.5",
+    "npm-run-all": "^4.1.5",
+    "standard": "^17.0.0",
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "esbuild": "0.17.10"
   }
 }

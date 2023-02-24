@@ -1,4 +1,4 @@
-FROM node:14 as frontend
+FROM node:18 as frontend
 
 WORKDIR /home/node/app
 
@@ -8,7 +8,7 @@ RUN npm ci --no-optional --no-audit --progress=false
 # The whole project is needed to allow purging of the unused CSS classes.
 COPY . .
 # Compile static files
-RUN npm run build:css
+RUN npm run build
 
 FROM python:3.9 as backend
 
