@@ -71,6 +71,9 @@ jobs:
       - name: Run pytest
         run: docker-compose -f docker-compose.ci.yaml exec -T web pytest
 
+      - name: Run standard.js
+        run: docker-compose -f docker-compose.ci.yaml exec -T frontend npm run standard
+
       - name: Stop docker stack
         run: docker-compose -f docker-compose.ci.yaml stop
 
