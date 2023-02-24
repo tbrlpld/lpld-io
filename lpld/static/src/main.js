@@ -1,1 +1,1 @@
-console.log("Hello")
+// Main entry point
