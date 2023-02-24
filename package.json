@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "run-p build:*",
-    "build:js": "esbuild lpld/static/src/main.js --bundle --minify --outfile=lpld/static/comp/main.js --target=es5",
-    "build:css": "NODE_ENV=production tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --minify",
-    "watch:css": "tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --watch"
+    "build:js": "npm run esbuild -- --minify --target=es5",
+    "build:css": "NODE_ENV=production npm run tailwindcss -- --minify",
+    "esbuild": "esbuild lpld/static/src/main.js --outfile=lpld/static/comp/main.js --bundle",
+    "tailwindcss": "tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "run-p watch:*",
+    "watch:js": "npm run esbuild -- --watch",
+    "watch:css": "npm run tailwindcss -- --watch"
   },
   "repository": {
     "type": "git",
