@@ -9,3 +9,8 @@ services:
       DB_DIR: "/data"
       USE_SQLITE: "true"
     command: ["tail", "-f", "/dev/null"]
+  frontend:
+    build:
+      context: .
+      target: frontend
+    command: ["tail", "-f", "/dev/null"]
