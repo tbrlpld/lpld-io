@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "run-p build:*",
     "build:js": "cp lpld/static/src/main.js lpld/static/comp/main.js",
-    "build:css": "NODE_ENV=production npx tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --minify",
-    "watch:css": "npx tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --watch"
+    "build:css": "NODE_ENV=production tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --minify",
+    "watch:css": "tailwindcss -i lpld/static/src/style.css -o lpld/static/comp/style.css --watch"
   },
   "repository": {
     "type": "git",
