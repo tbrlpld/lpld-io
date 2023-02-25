@@ -122,6 +122,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "lpld.core.context_processors.sentry_settings",
             ],
             "libraries": {
                 "lpldutils": "lpld.templatetags.lpldutils",
