@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
         <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
+        <script src="{% static "main.js" %}" async defer></script>
         {# When page is displayed in the preview panel, open links in new tab. #}
         {% if request.in_preview_panel %}
             <base target="_blank">
@@ -20,7 +21,6 @@
         {% block body %}
             {{ pattern_library_rendered_pattern }}
         {% endblock body %}
-        <script src="{% static "main.js" %}" async defer></script>
         {{ sentry_settings|json_script:"sentry-settings" }}
     </body>
 </html>
