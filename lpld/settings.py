@@ -388,6 +388,9 @@ DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": "lpld.settings.show_toolbar"}
 
 SENTRY_DSN = os.environ.get("SENTRY_DSN")
 SENTRY_TEST = os.environ.get("SENTRY_TEST", "False").lower() == "true"
+SENTRY_SAMPLE_RATE = float(os.environ.get("SENTRY_SAMPLE_RATE", "1.0"))
+SENTRY_ENVIRONMENT = os.environ.get("SENTRY_ENVIRONMENT", "development")
+HEROKU_RELEASE_VERSION = os.environ.get("HEROKU_RELEASE_VERSION", "")
 
 if SENTRY_DSN:
     sentry_sdk.init(
@@ -396,12 +399,12 @@ if SENTRY_DSN:
         # Set traces_sample_rate to 1.0 to capture 100%
         # of transactions for performance monitoring.
         # We recommend adjusting this value in production.
-        traces_sample_rate=float(os.environ.get("SENTRY_SAMPLE_RATE", "1.0")),
+        traces_sample_rate=SENTRY_SAMPLE_RATE,
         # If you wish to associate users to errors (assuming you are using
         # django.contrib.auth) you may enable sending PII data.
         send_default_pii=True,
         # Define Sentry environment
-        environment=os.environ.get("SENTRY_ENVIRONMENT", "development"),
+        environment=SENTRY_ENVIRONMENT,
         # Define release version
-        release=os.environ.get("HEROKU_RELEASE_VERSION", ""),
+        release=HEROKU_RELEASE_VERSION,
     )
