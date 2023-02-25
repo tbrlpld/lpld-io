@@ -402,7 +402,7 @@ if SENTRY_DSN:
         traces_sample_rate=SENTRY_SAMPLE_RATE,
         # If you wish to associate users to errors (assuming you are using
         # django.contrib.auth) you may enable sending PII data.
-        send_default_pii=True,
+        send_default_pii=False,
         # Define Sentry environment
         environment=SENTRY_ENVIRONMENT,
         # Define release version
