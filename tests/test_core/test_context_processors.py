@@ -15,8 +15,10 @@ def test_sentry_settings(settings, rf):
     context = context_processors.sentry_settings(request)
 
     assert context == {
-        "SENTRY_DSN": SENTRY_DSN,
-        "SENTRY_SAMPLE_RATE": SENTRY_SAMPLE_RATE,
-        "SENTRY_ENVIRONMENT": SENTRY_ENVIRONMENT,
-        "HEROKU_RELEASE_VERSION": HEROKU_RELEASE_VERSION,
+        "sentry_settings": {
+            "SENTRY_DSN": SENTRY_DSN,
+            "SENTRY_SAMPLE_RATE": SENTRY_SAMPLE_RATE,
+            "SENTRY_ENVIRONMENT": SENTRY_ENVIRONMENT,
+            "HEROKU_RELEASE_VERSION": HEROKU_RELEASE_VERSION,
+        },
     }
