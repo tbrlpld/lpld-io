@@ -379,6 +379,22 @@ Django = "*"
 testing = ["django-modelcluster"]
 
 [[package]]
+name = "django-plausible-proxy"
+version = "0.3.0"
+description = "Django module to proxy requests to Plausible Analytics."
+category = "main"
+optional = false
+python-versions = ">=3.7.8,<4.0.0"
+files = [
+    {file = "django-plausible-proxy-0.3.0.tar.gz", hash = "sha256:a780f609feb750f466bc4db08658733f68185ef648611777c8f9f0deef0b9008"},
+    {file = "django_plausible_proxy-0.3.0-py3-none-any.whl", hash = "sha256:74853c69dc6322cb555339189edd967ba75b4a84e51bf666304d41902975d3a7"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+requests = ">=2,<3"
+
+[[package]]
 name = "django-storages"
 version = "1.13.2"
 description = "Support for many storage backends in Django"
@@ -1545,4 +1561,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "3c4823e168b5c47a43d0e0868dc945d32cd9b05505533be56d0b1ccae78237b1"
+content-hash = "1f3959db2b91436f063415c2c45b2f92aa078c9645d593f22a70aade69c15d01"

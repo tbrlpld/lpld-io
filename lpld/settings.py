@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     "wagtail",
     "heroicons",
     "modelcluster",
+    "plausible_proxy",
     "slippers",
     "taggit",
     "wagtailmedia",
@@ -414,3 +415,4 @@ if SENTRY_DSN:
 # ANALYTICS
 
 PLAUSIBLE_DOMAIN = os.environ.get("PLAUSIBLE_DOMAIN", "")
+PLAUSIBLE_SCRIPT_PREFIX = "-/plsbl"
