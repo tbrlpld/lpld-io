@@ -1,6 +1,12 @@
 from django.conf import settings
 
 
+def plausible_settings(request):
+    return {
+        "PLAUSIBLE_DOMAIN": settings.PLAUSIBLE_DOMAIN,
+    }
+
+
 def sentry_settings(request):
     return {
         "sentry_settings": {
