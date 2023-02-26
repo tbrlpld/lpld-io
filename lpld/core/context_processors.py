@@ -3,7 +3,9 @@ from django.conf import settings
 
 def plausible_settings(request):
     return {
-        "PLAUSIBLE_DOMAIN": settings.PLAUSIBLE_DOMAIN,
+        "plausible_settings": {
+            "PLAUSIBLE_DOMAIN": settings.PLAUSIBLE_DOMAIN,
+        },
     }
 
 

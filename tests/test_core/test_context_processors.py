@@ -8,7 +8,11 @@ def test_plausible_settings(settings, rf):
 
     context = context_processors.plausible_settings(request)
 
-    assert context == { "PLAUSIBLE_DOMAIN": PLAUSIBLE_DOMAIN }
+    assert context == {
+        "plausible_settings": {
+            "PLAUSIBLE_DOMAIN": PLAUSIBLE_DOMAIN,
+        },
+    }
 
 
 def test_sentry_settings(settings, rf):
