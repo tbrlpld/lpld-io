@@ -68,10 +68,12 @@ if settings.SENTRY_TEST:
     urlpatterns.append(urls.path("-/sentry-test/", trigger_error))  # type: ignore
 
 
-urlpatterns.extend([
-    urls.path("", urls.include(wagtail_urls)),
-    urls.path("", urls.include("plausible_proxy.urls")),
-])
+urlpatterns.extend(
+    [
+        urls.path("", urls.include(wagtail_urls)),
+        urls.path("", urls.include("plausible_proxy.urls")),
+    ]
+)
 
 
 handler400 = core_views.handle_400
