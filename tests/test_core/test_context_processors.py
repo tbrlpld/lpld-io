@@ -1,6 +1,20 @@
 from lpld.core import context_processors
 
 
+def test_plausible_settings(settings, rf):
+    PLAUSIBLE_DOMAIN: str = "example.com"
+    settings.PLAUSIBLE_DOMAIN = PLAUSIBLE_DOMAIN
+    request = rf.get("/")
+
+    context = context_processors.plausible_settings(request)
+
+    assert context == {
+        "plausible_settings": {
+            "PLAUSIBLE_DOMAIN": PLAUSIBLE_DOMAIN,
+        },
+    }
+
+
 def test_sentry_settings(settings, rf):
     SENTRY_DSN: str = "https://example.com"
     SENTRY_SAMPLE_RATE: float = 1.0

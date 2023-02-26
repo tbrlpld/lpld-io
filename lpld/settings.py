@@ -122,6 +122,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "lpld.core.context_processors.plausible_settings",
                 "lpld.core.context_processors.sentry_settings",
             ],
             "libraries": {
@@ -408,3 +409,8 @@ if SENTRY_DSN:
         # Define release version
         release=HEROKU_RELEASE_VERSION,
     )
+
+
+# ANALYTICS
+
+PLAUSIBLE_DOMAIN = os.environ.get("PLAUSIBLE_DOMAIN", "")
