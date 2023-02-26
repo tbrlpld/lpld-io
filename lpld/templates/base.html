@@ -1,4 +1,4 @@
-{% load static %}
+{% load plausible static %}
 <!DOCTYPE html>
 <html lang="en" class="antialiased bg-neutral-50 text-neutral-700">
     <head>
@@ -13,7 +13,7 @@
         <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
         <script src="{% static "main.js" %}" async defer></script>
         {% if plausible_settings.PLAUSIBLE_DOMAIN %}
-            <script defer data-domain="{{ plausible_settings.PLAUSIBLE_DOMAIN }}" src="https://plausible.io/js/script.js"></script>
+            {% plausible domain=plausible_settings.PLAUSIBLE_DOMAIN script="script.js" %}
         {% endif %}
         {# When page is displayed in the preview panel, open links in new tab. #}
         {% if request.in_preview_panel %}
