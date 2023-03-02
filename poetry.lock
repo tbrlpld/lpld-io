@@ -1483,22 +1483,22 @@ testing = ["black (==22.3.0)", "coverage (==5.0.3)", "factory-boy (==2.12.0)", "
 
 [[package]]
 name = "wagtailmedia"
-version = "0.12.0"
+version = "0.13.0"
 description = "A module for Wagtail that provides functionality similar to wagtail.documents module, but for audio and video files."
 category = "main"
 optional = false
 python-versions = "*"
 files = [
-    {file = "wagtailmedia-0.12.0-py2.py3-none-any.whl", hash = "sha256:0807515c5d89782666b613de2e4aedab19e9dd358097fad2cb79633c0b5416d3"},
-    {file = "wagtailmedia-0.12.0.tar.gz", hash = "sha256:1d39622c3d7d0191e58ffedf45d05fbef851e3905955513012a72ae4d46a12b0"},
+    {file = "wagtailmedia-0.13.0-py2.py3-none-any.whl", hash = "sha256:112977ab0f2e00fc0e9c023d9635a58435ee70e7e59293c66b9320a13159f6b0"},
+    {file = "wagtailmedia-0.13.0.tar.gz", hash = "sha256:2bd42d565a5eb491dbf45bd3bda2cf628217b42e2c707d92d068ecb30a03a396"},
 ]
 
 [package.dependencies]
 Django = ">=3.2"
-wagtail = ">=2.15"
+wagtail = ">=4.1"
 
 [package.extras]
-testing = ["coverage (>=3.7.0)", "mock (>=1.0.0)", "tox (>=3.24,<4.0)"]
+testing = ["coverage (>=7.0,<8.0)", "tox (>=4.0,<5.0)"]
 
 [[package]]
 name = "webencodings"
@@ -1561,4 +1561,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "11ee309d9cfe7c29166efff85e96aafa4414949ebfc04e55d131d248ec78df4a"
+content-hash = "242120c07975efb9ddb5a28f93cd3af3406377eb007eabfcf81dc2f827ef8321"
