@@ -515,17 +515,17 @@ pytz = "*"
 
 [[package]]
 name = "djhtml"
-version = "1.5.2"
+version = "3.0.2"
 description = "Django/Jinja template indenter"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "djhtml-1.5.2.tar.gz", hash = "sha256:b54c4ab6effaf3dbe87d616ba30304f1dba22f07127a563df4130a71acc290ea"},
+    {file = "djhtml-3.0.2.tar.gz", hash = "sha256:f260cdfe7033b21ebc01961db7e1c8832fd5830ec9af1b0e57f3e1f58deb1bd0"},
 ]
 
 [package.extras]
-dev = ["black", "flake8", "isort", "nox", "pre-commit"]
+dev = ["nox", "pre-commit"]
 
 [[package]]
 name = "draftjs-exporter"
@@ -1561,4 +1561,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "3f8e114cb0b0a49127ad5e81d60376a97e0272b648001294993a7c10c6a49706"
+content-hash = "11ee309d9cfe7c29166efff85e96aafa4414949ebfc04e55d131d248ec78df4a"
