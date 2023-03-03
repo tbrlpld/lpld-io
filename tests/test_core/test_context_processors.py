@@ -7,12 +7,12 @@ if typing.TYPE_CHECKING:
 
 
 def test_plausible_settings(
-    settings: conf.LazySettings,
-    rf: test.RequestFactory,
+    settings: "conf.LazySettings",
+    rf: "test.RequestFactory",
 ) -> None:
     plausible_domain: str = "example.com"
     settings.PLAUSIBLE_DOMAIN = plausible_domain
-    request: http.HttpRequest = rf.get("/")
+    request: "http.HttpRequest" = rf.get("/")
 
     context: dict = context_processors.plausible_settings(request)
 
@@ -24,8 +24,8 @@ def test_plausible_settings(
 
 
 def test_sentry_settings(
-    settings: conf.LazySettings,
-    rf: test.RequestFactory,
+    settings: "conf.LazySettings",
+    rf: "test.RequestFactory",
 ) -> None:
     sentry_dsn: str = "https://example.com"
     sentry_sample_rate: float = 1.0
@@ -37,7 +37,7 @@ def test_sentry_settings(
     settings.SENTRY_ENVIRONMENT = sentry_environment
     settings.SENTRY_TEST = sentry_test
     settings.HEROKU_RELEASE_VERSION = heroku_release_version
-    request: http.HttpRequest = rf.get("/")
+    request: "http.HttpRequest" = rf.get("/")
 
     context: dict = context_processors.sentry_settings(request)
 
