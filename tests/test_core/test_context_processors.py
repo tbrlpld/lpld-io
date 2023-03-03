@@ -1,41 +1,52 @@
+import typing
+
 from lpld.core import context_processors
 
+if typing.TYPE_CHECKING:
+    from django import conf, http, test
 
-def test_plausible_settings(settings, rf):
-    PLAUSIBLE_DOMAIN: str = "example.com"
-    settings.PLAUSIBLE_DOMAIN = PLAUSIBLE_DOMAIN
-    request = rf.get("/")
 
-    context = context_processors.plausible_settings(request)
+def test_plausible_settings(
+    settings: "conf.LazySettings",
+    rf: "test.RequestFactory",
+) -> None:
+    plausible_domain: str = "example.com"
+    settings.PLAUSIBLE_DOMAIN = plausible_domain
+    request: "http.HttpRequest" = rf.get("/")
+
+    context: dict = context_processors.plausible_settings(request)
 
     assert context == {
         "plausible_settings": {
-            "PLAUSIBLE_DOMAIN": PLAUSIBLE_DOMAIN,
+            "PLAUSIBLE_DOMAIN": plausible_domain,
         },
     }
 
 
-def test_sentry_settings(settings, rf):
-    SENTRY_DSN: str = "https://example.com"
-    SENTRY_SAMPLE_RATE: float = 1.0
-    SENTRY_ENVIRONMENT: str = "test"
-    SENTRY_TEST: bool = True
-    HEROKU_RELEASE_VERSION: str = "1"
-    settings.SENTRY_DSN = SENTRY_DSN
-    settings.SENTRY_SAMPLE_RATE = SENTRY_SAMPLE_RATE
-    settings.SENTRY_ENVIRONMENT = SENTRY_ENVIRONMENT
-    settings.SENTRY_TEST = SENTRY_TEST
-    settings.HEROKU_RELEASE_VERSION = HEROKU_RELEASE_VERSION
-    request = rf.get("/")
+def test_sentry_settings(
+    settings: "conf.LazySettings",
+    rf: "test.RequestFactory",
+) -> None:
+    sentry_dsn: str = "https://example.com"
+    sentry_sample_rate: float = 1.0
+    sentry_environment: str = "test"
+    sentry_test: bool = True
+    heroku_release_version: str = "1"
+    settings.SENTRY_DSN = sentry_dsn
+    settings.SENTRY_SAMPLE_RATE = sentry_sample_rate
+    settings.SENTRY_ENVIRONMENT = sentry_environment
+    settings.SENTRY_TEST = sentry_test
+    settings.HEROKU_RELEASE_VERSION = heroku_release_version
+    request: "http.HttpRequest" = rf.get("/")
 
-    context = context_processors.sentry_settings(request)
+    context: dict = context_processors.sentry_settings(request)
 
     assert context == {
         "sentry_settings": {
-            "SENTRY_DSN": SENTRY_DSN,
-            "SENTRY_SAMPLE_RATE": SENTRY_SAMPLE_RATE,
-            "SENTRY_ENVIRONMENT": SENTRY_ENVIRONMENT,
-            "SENTRY_TEST": SENTRY_TEST,
-            "HEROKU_RELEASE_VERSION": HEROKU_RELEASE_VERSION,
+            "SENTRY_DSN": sentry_dsn,
+            "SENTRY_SAMPLE_RATE": sentry_sample_rate,
+            "SENTRY_ENVIRONMENT": sentry_environment,
+            "SENTRY_TEST": sentry_test,
+            "HEROKU_RELEASE_VERSION": heroku_release_version,
         },
     }
