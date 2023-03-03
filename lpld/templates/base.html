@@ -1,13 +1,14 @@
-{% load plausible static %}
+{% load lpldutils plausible static %}
 <!DOCTYPE html>
 <html lang="en" class="antialiased bg-neutral-50 text-neutral-700">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width; initial-scale=1">
-        <title>{% block title %}{{ page.title_tag_content }}{% endblock title %}</title>
+        {% sentry_meta %}
         {% if page.meta_description %}
             <meta name="description" content="{{ page.meta_description }}">
         {% endif %}
+        <title>{% block title %}{{ page.title_tag_content }}{% endblock title %}</title>
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
         <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
