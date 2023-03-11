@@ -173,11 +173,9 @@ DATABASE_URL = os.environ.get(
     "DATABASE_URL",
     SQLITE_URL,
 )
-if os.environ.get("USE_SQLITE", "false") == "true":
-    # Force use of SQLite with environment variable.
-    DATABASE_URL = SQLITE_URL
-DATABASES = {}
-DATABASES["default"] = dj_database_url.parse(DATABASE_URL)
+DATABASES = {
+    "default": dj_database_url.parse(DATABASE_URL),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
