@@ -1,7 +1,9 @@
 services:
   web:
     image: lpld_web
-    build: .
+    build:
+      context: .
+      target: backend-development
     ports:
       - "8000:8000"
     environment:
