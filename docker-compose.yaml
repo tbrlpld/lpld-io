@@ -2,7 +2,7 @@ services:
   web:
     build:
       context: .
-      target: backend
+      target: backend-development
     command: ["tail", "-f", "/dev/null"]
     env_file:
       - .env

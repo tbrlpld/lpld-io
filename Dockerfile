@@ -10,7 +10,7 @@ COPY . .
 # Compile static files
 RUN npm run build
 
-FROM python:3.9 as backend
+FROM python:3.9 as backend-production
 
 RUN mkdir /app && mkdir /data
 RUN useradd -m lpld -s /bin/bash && \
@@ -42,7 +42,7 @@ RUN chown -R lpld:lpld ${POETRY_HOME}
 # Install Python dependencies
 COPY pyproject.toml .
 COPY poetry.lock .
-RUN poetry install --no-root --no-interaction --no-ansi
+RUN poetry install --no-root --no-interaction --no-ansi --without dev
 
 USER lpld
 
@@ -54,3 +54,12 @@ RUN SECRET_KEY=none ./manage.py collectstatic --noinput --clear
 
 EXPOSE 8000
 CMD ./scripts/run.sh
+
+
+FROM backend-production AS backend-development
+
+USER root
+
+RUN poetry install --no-root --no-interaction --no-ansi --with dev
+
+USER lpld
