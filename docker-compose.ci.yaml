@@ -8,7 +8,6 @@ services:
       - "8000:8000"
     environment:
       SECRET_KEY: "thisisnotasecrectkey"
-      DB_DIR: "/data"
     command: ["tail", "-f", "/dev/null"]
   frontend:
     build:

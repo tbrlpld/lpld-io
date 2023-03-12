@@ -167,11 +167,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # https://github.com/jacobian/dj-database-url
 
-DB_DIR = os.environ.get("DB_DIR", BASE_DIR)
-SQLITE_URL = f"sqlite:///{ Path(DB_DIR).joinpath('db.sqlite3') }"
+SQLITE_FILE = os.environ.get("SQLITE_FILE", BASE_DIR / "db.sqlite3")
 DATABASE_URL = os.environ.get(
     "DATABASE_URL",
-    SQLITE_URL,
+    f"sqlite:///{ SQLITE_FILE }",
 )
 DATABASES = {
     "default": dj_database_url.parse(DATABASE_URL),

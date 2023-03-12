@@ -146,13 +146,16 @@ But, luckily, now there is [Litestream](https://litestream.io/).
 Litestream makes it easy to replicate and restore SQLite database to and from persistent storage such as S3.
 For the replication and restoration to work you need to create a S3 bucket at some hosting provider and set the following environment variables:
 
-* `DB_DIR` - the directory where the database file `db.sqlite3` is stored locally (it will be created if it does not exist),
+* `SQLITE_FILE` - the filename for the SQLite database,
 * `LITESTREAM_BUCKET_HOST` - the S3 bucket host domain, e.g `my-bucket.nyc3.digitaloceanspaces.com`,
 * `LITESTREAM_KEY_ID` and `LITESTREAM_ACCESS_KEY` - the access credentials for the bucket.
 
 The replication is handled in the `./scripts/run.sh` script by wrapping the Gunicorn server process in the Litestream process.
 This is the recommended way to [run Litestream in a container](https://litestream.io/guides/docker/).
-The restoration is handled in the `./scripts/release.sh` script. This script is run by Heroku on every container restart.
+The restoration is handled in the `./scripts/release.sh` script.
+Because the release and run command are run in different containers on Heroku, the release commands need to be run in the run script too.
+The initial run of the release commands in the release phase is to make sure that the app is in a releasable state.
+The run of the release commands in the run phase is actually applying the changes to the live environment.
 
 ### Scale down Heroku Dynos
 
