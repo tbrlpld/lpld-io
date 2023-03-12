@@ -3,8 +3,9 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if [ $USE_SQLITE != "true" ]; then
-    ./manage.py check --deploy --fail-level WARNING
-    ./manage.py createcachetable
-    ./manage.py migrate --noinput
-fi
+echo "Restoring the SQLite database from bucket."
+litestream restore -config litestream.yml -if-db-not-exists -if-replica-exists "$SQLITE_FILE"
+
+./manage.py check --deploy --fail-level WARNING
+./manage.py createcachetable
+./manage.py migrate --noinput

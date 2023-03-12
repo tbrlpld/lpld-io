@@ -27,8 +27,8 @@ ENV PATH=${POETRY_HOME}/bin:$PATH \
     # Ensure dependencies are available globally (without having to mess with the poetry's venvs)
     POETRY_VIRTUALENVS_CREATE=false \
     DJANGO_SETTINGS_MODULE=lpld.settings \
-    DB_DIR=/data \
-    USE_SQLITE=false
+    SQLITE_FILE=/data/db.sqlite3 \
+    PORT=8000
 RUN env
 
 # Install litestream (https://litestream.io/install/debian/)

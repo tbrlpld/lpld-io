@@ -8,8 +8,6 @@ services:
       - "8000:8000"
     environment:
       SECRET_KEY: "thisisnotasecrectkey"
-      DB_DIR: "/data"
-      USE_SQLITE: "true"
     command: ["tail", "-f", "/dev/null"]
   frontend:
     build:
