@@ -15,4 +15,4 @@ echo "Wrapping the command in the litestream exec to replicate database."
 CMD="litestream replicate -config litestream.yml --exec '$CMD'"
 
 echo "Running: $CMD"
-#exec $(eval $CMD)
+exec $(eval $CMD)
