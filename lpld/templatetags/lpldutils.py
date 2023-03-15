@@ -12,7 +12,7 @@ def split(value, splitter=" "):
 
 
 @register.simple_tag()
-def sentry_meta():
+def sentry_meta() -> str:
     """
     Generate meta tags for Sentry trace propagation.
 
