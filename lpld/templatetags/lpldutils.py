@@ -20,12 +20,6 @@ def sentry_meta():
     together and to be able to show the full trace (from backend to frontend) in the
     Sentry UI.
 
-    # noqa: E501
-    The meta generation is copied from: https://github.com/getsentry/sentry-python/blob/ff60906fcb9af3db9cda245288f2e49f70ee432f/sentry_sdk/hub.py#L737-L748b
-    This is needed because the `trace_propagation_meta` method is not yet released.
-
     """
-    meta = ""
-    for name, content in sentry_sdk.Hub.current.iter_trace_propagation_headers():
-        meta += f'<meta name="{name}" content="{content}">'
+    meta = sentry_sdk.Hub.current.trace_propagation_meta()
     return safestring.mark_safe(meta)
