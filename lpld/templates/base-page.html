@@ -11,9 +11,7 @@
             {% endblock content %}
         </main>
         {% block contact %}
-            <section id="contact" class="mt-16 pt-24 md:pt-44 pb-44">
-                {% include "organisms/contact/contact.html" %}
-            </section>
+            {% include "organisms/contact/contact.html" with id="contact" class="mt-16 pt-24 md:pt-44 pb-44" %}
         {% endblock contact %}
     </div>
     {% block footer  %}

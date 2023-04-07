@@ -1,5 +1,8 @@
 {% load slippers heroicons %}
-<section>
+<section
+    {% if id %}id="{{ id }}"{% endif %}
+    {% if class %}class="{{ class }}"{% endif %}
+>
     <h2 class="max-w-md x-large:max-w-lg">Let's build something together</h2>
 
     <div class="py-32 x-large:py-44 text-center">
