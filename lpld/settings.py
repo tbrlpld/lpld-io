@@ -415,3 +415,16 @@ if SENTRY_DSN:
 
 PLAUSIBLE_DOMAIN = os.environ.get("PLAUSIBLE_DOMAIN", "")
 PLAUSIBLE_SCRIPT_PREFIX = "-/plsbl"
+
+
+# MARKDOWN
+
+WAGTAILMARKDOWN = {
+    "extensions": ["toc", "sane_lists"],
+    "extension_configs": {
+        "toc": {
+            "anchorlink": True,
+            "anchorlink_class": "anchor-link",
+        },
+    },
+}
