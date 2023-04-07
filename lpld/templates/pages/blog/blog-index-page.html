@@ -3,5 +3,12 @@
 
 {% block content %}
     <h1>{{ page.title }}</h1>
-    <p>My page content</p>
+
+    {% if index_entries %}
+        <ol>
+            {% for entry in index_entries  %}
+                <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+            {% endfor %}
+        </ol>
+    {% endif %}
 {% endblock %}

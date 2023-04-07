@@ -18,6 +18,22 @@ class TestBlogIndexPage:
         assert response.status_code == http.HTTPStatus.OK
         asserts.assertContains(response, page.title)
 
+    def test_get_index_entries_no_child_pages(self):
+        page = factories.BlogIndexPage()
+
+        assert page.get_index_entries() == tuple()
+
+    def test_get_index_entries_with_child_pages(self):
+        page = factories.BlogIndexPage()
+        child_page = factories.BlogPage(parent=page)
+
+        assert page.get_index_entries() == tuple([
+            {
+                'title': child_page.title,
+                'url': child_page.get_url(),
+            },
+        ])
+
 
 @pytest.mark.django_db
 class TestBlogPage:
