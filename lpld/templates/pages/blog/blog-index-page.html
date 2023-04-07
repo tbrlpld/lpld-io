@@ -1,14 +1,16 @@
 {% extends "base-page.html" %}
-
+{% load slippers %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
+    <section class="pt-32 xl:pt-48">
+        {% #heading level="1" size="lg" extra_class="max-w-lg xl:max-w-3xl" %}{{ page.title }}{% /heading %}
 
-    {% if index_entries %}
-        <ol>
-            {% for entry in index_entries  %}
-                <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-            {% endfor %}
-        </ol>
-    {% endif %}
+        {% if index_entries %}
+            <ol>
+                {% for entry in index_entries  %}
+                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </section>
 {% endblock %}

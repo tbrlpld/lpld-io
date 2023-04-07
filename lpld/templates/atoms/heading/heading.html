@@ -1,0 +1,18 @@
+{% load slippers %}
+{% var level=level|default:"1" %}
+{% var size=size|default:"lg" %}
+{% spaceless %}
+    <h{{ level }}
+        class="
+            font-bold
+            {% if size == 'lg' %}
+                text-4xl sm:text-5xl xl:text-6xl
+            {% elif size == 'md' %}
+                text-4xl xl:text-5xl
+            {% endif %}
+            {{ extra_class }}
+        "
+    >
+        {{ children }}
+    </h{{ level }}>
+{% endspaceless %}
