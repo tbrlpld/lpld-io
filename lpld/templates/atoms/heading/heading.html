@@ -8,7 +8,9 @@
             {% if size == 'lg' %}
                 text-4xl sm:text-5xl xl:text-6xl
             {% elif size == 'md' %}
-                text-4xl xl:text-5xl
+                text-3xl sm:text-4xl xl:text-5xl
+            {% elif size == 'sm' %}
+                text-2xl sm:text-3xl xl:text-4xl
             {% endif %}
             {{ extra_class }}
         "

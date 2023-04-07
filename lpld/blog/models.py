@@ -3,6 +3,7 @@ from wagtail.admin import panels
 from wagtailmarkdown import blocks as wagtailmarkdown_blocks
 
 from lpld.core import models as core_models
+from lpld.core import blocks
 
 
 class BlogIndexPage(core_models.BasePage):
@@ -31,7 +32,11 @@ class BlogPage(core_models.BasePage):
     subpage_types = []
 
     body = wagtail_fields.StreamField(
-        block_types=[('markdown', wagtailmarkdown_blocks.MarkdownBlock())],
+        block_types=[
+            ('markdown', wagtailmarkdown_blocks.MarkdownBlock()),
+            ('heading', blocks.HeadingBlock()),
+            ('subheading', blocks.SubheadingBlock()),
+        ],
         null=True,
         blank=True,
         use_json_field=True,
