@@ -34,8 +34,6 @@ class BlogPage(core_models.BasePage):
     body = wagtail_fields.StreamField(
         block_types=[
             ('markdown', wagtailmarkdown_blocks.MarkdownBlock()),
-            ('heading', blocks.HeadingBlock()),
-            ('subheading', blocks.SubheadingBlock()),
         ],
         null=True,
         blank=True,
