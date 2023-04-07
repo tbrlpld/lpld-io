@@ -50,6 +50,7 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
+    "lpld.blog",
     "lpld.core",
     "lpld.home",
     "lpld.images",
@@ -81,6 +82,7 @@ INSTALLED_APPS = [
     "plausible_proxy",
     "slippers",
     "taggit",
+    "wagtailmarkdown",
     "wagtailmedia",
     "widget_tweaks",
 ]
