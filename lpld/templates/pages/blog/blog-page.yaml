@@ -1,3 +1,11 @@
 context:
   page:
-    title: 'My blog post title'
+    title: 'My long blog post title that wraps'
+    body:
+      - 'dummy'
+      - 'dummy'
+
+tags:
+  include_block:
+    "block":
+      template_name: "organisms/prose/prose.html"
