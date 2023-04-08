@@ -6,3 +6,4 @@ components:
   tech_pill: "atoms/tech-pill/tech-pill.html"
   # Molecules
   # Organisms
+  prose: "organisms/prose/prose.html"

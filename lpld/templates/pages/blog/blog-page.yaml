@@ -8,4 +8,4 @@ context:
 tags:
   include_block:
     "block":
-      template_name: "organisms/prose/prose.html"
+      template_name: "organisms/prose/prose-content-html.html"
