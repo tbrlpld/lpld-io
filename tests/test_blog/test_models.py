@@ -3,8 +3,8 @@ import http
 import pytest
 from pytest_django import asserts
 
-from lpld.home import factories as home_factories
 from lpld.blog import factories
+from lpld.home import factories as home_factories
 
 
 @pytest.mark.django_db
@@ -27,12 +27,14 @@ class TestBlogIndexPage:
         page = factories.BlogIndexPage()
         child_page = factories.BlogPage(parent=page)
 
-        assert page.get_index_entries() == tuple([
-            {
-                'title': child_page.title,
-                'url': child_page.get_url(),
-            },
-        ])
+        assert page.get_index_entries() == tuple(
+            [
+                {
+                    "title": child_page.title,
+                    "url": child_page.get_url(),
+                },
+            ]
+        )
 
 
 @pytest.mark.django_db

@@ -1,30 +1,30 @@
 {% load slippers %}
 {% var large=large|default:False %}
 <a class="
-    bg-neutral-800
-    active:bg-black
-    hover:cursor-pointer
-    decoration-2
-    decoration-solid
-    font-bold
-    inline-block
-    no-underline
-    hover:underline
-    px-4
-    py-3
-    rounded
-    text-center
-    text-neutral-100
-    underline-offset-2
-    {% if large %}
-        underline-offset-3
-        px-6 xl:px-8
-        py-6 xl:py-8
-        text-xl
-    {% endif %}
-    {{ extra_class }}
-    "
-    {% attrs href target %}
+          bg-neutral-800
+          active:bg-black
+          hover:cursor-pointer
+          decoration-2
+          decoration-solid
+          font-bold
+          inline-block
+          no-underline
+          hover:underline
+          px-4
+          py-3
+          rounded
+          text-center
+          text-neutral-100
+          underline-offset-2
+          {% if large %}
+              underline-offset-3
+              px-6 xl:px-8
+              py-6 xl:py-8
+              text-xl
+          {% endif %}
+          {{ extra_class }}
+         "
+   {% attrs href target %}
 >
     {{ children }}
 </a>
