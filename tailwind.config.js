@@ -25,7 +25,17 @@ module.exports = {
       },
       textUnderlineOffset: {
         3: '3px'
-      }
+      },
+      typography: ({ theme }) => ({
+        // Add a custom prose color theme that is heavily based on the "neutral" theme.
+        // https://tailwindcss.com/docs/typography-plugin#adding-custom-color-themes
+        'neutral-500': {
+          css: {
+            '--tw-prose-body': theme('colors.neutral.500'),
+            ...theme('css'),
+          }
+        }
+      })
     }
   },
   plugins: [
