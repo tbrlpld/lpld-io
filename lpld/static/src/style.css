@@ -29,28 +29,3 @@
     text-decoration: inherit;
     font-weight: inherit;
 }
-
-/*
-
-h1 {
-    @apply heading-lg
-}
-
-h2 {
-    @apply heading-md
-}
-
-h3 {
-    @apply heading-md
-}
-*/
-
-/*
-p {
-    @apply text-neutral-500
-}
-
-p > a {
-    @apply decoration-1 hover:decoration-2 hover:text-neutral-800 active:text-neutral-900 underline underline-offset-2
-}
-*/
