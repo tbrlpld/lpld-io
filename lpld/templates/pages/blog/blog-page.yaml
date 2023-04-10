@@ -2,10 +2,10 @@ context:
   page:
     title: 'My long blog post title that wraps'
     body:
-      - 'dummy'
-      - 'dummy'
+      - block_type: "markdown"
+      - block_type: "markdown"
 
 tags:
   include_block:
     "block":
-      template_name: "organisms/prose/prose-content-html.html"
+      template_name: "organisms/prose/prose-content-markdown.html"

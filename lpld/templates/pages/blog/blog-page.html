@@ -6,7 +6,9 @@
         {% #heading level="1" size="lg" extra_class="max-w-lg xl:max-w-3xl mb-24" %}{{ page.title }}{% /heading %}
 
         {% for block in page.body %}
-            {% include_block block %}
+            <section class="mt-28">
+                {% include_block block %}
+            </section>
         {% endfor %}
     </article>
 {% endblock content %}
