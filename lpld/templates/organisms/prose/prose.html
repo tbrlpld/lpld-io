@@ -5,6 +5,9 @@
             prose-h2:heading-md xl:prose-h2:heading-md
             prose-h3:heading-sm xl:prose-h3:heading-sm
             prose-a:link
+            {% if large == True %}
+                text-xl sm:text-2xl lg:text-3xl prose-a:decoration-2 hover:prose-a:decoration-3
+            {% endif %}
             {{ extra_class }}
            ">
     {{ children }}

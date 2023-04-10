@@ -30,12 +30,13 @@
                 </picture>
             </div>
         </div>
+
         <div class="
                     max-w-sm md:max-w-md lg:max-w-lg
                     mt-8 lg:mt-16
                    ">
-            {% #prose extra_class="text-xl sm:text-2xl lg:text-3xl prose-a:decoration-2 hover:prose-a:decoration-3" %}
-            {{ page.introduction|richtext }}
+            {% #prose large=True %}
+                {{ page.introduction|richtext }}
             {% /prose %}
         </div>
     </section>
