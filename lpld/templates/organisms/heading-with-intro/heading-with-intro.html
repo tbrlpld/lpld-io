@@ -1,0 +1,11 @@
+{% load slippers %}
+
+<div>
+    {% #heading level="1" size="lg" extra_class="max-w-lg xl:max-w-3xl" %}{{ heading }}{% /heading %}
+
+    <div class="pt-6 md:pt-8 xl:pt-12">
+        {% #prose large=True extra_class="max-w-full" %}
+            {{ introduction }}
+        {% /prose %}
+    </div>
+</div>
