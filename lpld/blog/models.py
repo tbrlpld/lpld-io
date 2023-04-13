@@ -1,4 +1,3 @@
-from django.db import models
 from wagtail import fields as wagtail_fields
 from wagtail.admin import panels
 from wagtailmarkdown import blocks as wagtailmarkdown_blocks
@@ -33,7 +32,7 @@ class BlogPage(core_models.BasePage):
     parent_page_types = ["blog.BlogIndexPage"]
     subpage_types = []
 
-    introduction = models.TextField(max_length=500, null=False, blank=True)
+    introduction = wagtail_fields.RichTextField(max_length=500, null=False, blank=True)
     body = wagtail_fields.StreamField(
         block_types=[
             ("markdown", wagtailmarkdown_blocks.MarkdownBlock()),
