@@ -16,3 +16,4 @@ class BlogPage(wagtail_factories.PageFactory):
         model = blog_models.BlogPage
 
     title = factory.Sequence(lambda n: f"Blog Page {n}")
+    introduction = factory.Faker("paragraph", nb_sentences=3)
