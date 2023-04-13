@@ -8,7 +8,7 @@ from lpld.core import models as core_models
 class BlogIndexPage(core_models.BasePage):
     template = "pages/blog/blog-index-page.html"
     parent_page_types = ["home.HomePage"]
-    subpage_types = ["blog.BlogPage"]
+    subpage_types = ["blog.BlogPostPage"]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
@@ -27,8 +27,8 @@ class BlogIndexPage(core_models.BasePage):
         return tuple(index_entries)
 
 
-class BlogPage(core_models.BasePage):
-    template = "pages/blog/blog-page.html"
+class BlogPostPage(core_models.BasePage):
+    template = "pages/blog/blog-post-page.html"
     parent_page_types = ["blog.BlogIndexPage"]
     subpage_types = []
 
