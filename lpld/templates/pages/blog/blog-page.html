@@ -3,7 +3,7 @@
 
 {% block content %}
     <article class="pt-32 xl:pt-48">
-        {% #heading level="1" size="lg" extra_class="max-w-lg xl:max-w-3xl mb-24" %}{{ page.title }}{% /heading %}
+        {% heading_with_intro heading=page.title introduction=page.introduction|richtext %}
 
         {% for block in page.body %}
             <section class="mt-28">
