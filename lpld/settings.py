@@ -361,13 +361,42 @@ WAGTAILIMAGES_FORMAT_CONVERSIONS = {
     "webp": "webp",  # To disable the default webp to png conversion
 }
 
+WAGTAILADMIN_RICH_TEXT_EDITORS = {
+    "default": {
+        "WIDGET": "wagtail.admin.rich_text.DraftailRichTextArea",
+        "OPTIONS": {
+            "features": [
+                "bold",
+                "italic",
+                "ol",
+                "ul",
+                "link",
+                "document-link",
+                "hr",
+                "code",
+                "superscript",
+                "subscript",
+            ],
+        },
+    },
+}
+
+WAGTAILMARKDOWN = {
+    "extensions": ["toc", "sane_lists"],
+    "extension_configs": {
+        "toc": {
+            "anchorlink": True,
+            "anchorlink_class": "anchor-link",
+        },
+    },
+}
+
 WAGTAILMEDIA = {
     "MEDIA_MODEL": "mediafiles.CustomMedia",
 }
 
 
 # DEBUG TOOLBAR
-
 
 def show_toolbar(request: "http.HttpRequest") -> bool:
     """Don't debug toolbar in pattern library."""
@@ -417,14 +446,3 @@ PLAUSIBLE_DOMAIN = os.environ.get("PLAUSIBLE_DOMAIN", "")
 PLAUSIBLE_SCRIPT_PREFIX = "-/plsbl"
 
 
-# MARKDOWN
-
-WAGTAILMARKDOWN = {
-    "extensions": ["toc", "sane_lists"],
-    "extension_configs": {
-        "toc": {
-            "anchorlink": True,
-            "anchorlink_class": "anchor-link",
-        },
-    },
-}
