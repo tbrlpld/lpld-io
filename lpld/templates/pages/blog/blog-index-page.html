@@ -6,11 +6,9 @@
         {% #heading level="1" size="lg" extra_class="max-w-lg xl:max-w-3xl" %}{{ page.title }}{% /heading %}
 
         {% if index_entries %}
-            <ol>
-                {% for entry in index_entries  %}
-                    <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-                {% endfor %}
-            </ol>
+            <div class="mt-20 md:mt-32 max-w-xl">
+                {% include "molecules/link-listing/link-listing.html" with links=index_entries %}
+            </div>
         {% endif %}
     </section>
 {% endblock %}
