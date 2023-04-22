@@ -25,7 +25,7 @@ class TestBlogIndexPage:
 
     def test_get_index_entries_with_child_pages(self):
         page = factories.BlogIndexPage()
-        child_page = factories.BlogPage(parent=page)
+        child_page = factories.BlogPostPage(parent=page)
 
         assert page.get_index_entries() == tuple(
             [
@@ -38,11 +38,11 @@ class TestBlogIndexPage:
 
 
 @pytest.mark.django_db
-class TestBlogPage:
+class TestBlogPostPage:
     def test_page_loads(self, client):
         home_page = home_factories.HomePage()
         index_page = factories.BlogIndexPage(parent=home_page)
-        page = factories.BlogPage(parent=index_page)
+        page = factories.BlogPostPage(parent=index_page)
 
         response = client.get(path=page.get_url())
 

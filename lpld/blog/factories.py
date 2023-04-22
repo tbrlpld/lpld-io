@@ -11,9 +11,9 @@ class BlogIndexPage(wagtail_factories.PageFactory):
     title = factory.Sequence(lambda n: f"Blog {n}")
 
 
-class BlogPage(wagtail_factories.PageFactory):
+class BlogPostPage(wagtail_factories.PageFactory):
     class Meta:
-        model = blog_models.BlogPage
+        model = blog_models.BlogPostPage
 
     title = factory.Sequence(lambda n: f"Blog Page {n}")
     introduction = factory.Faker("paragraph", nb_sentences=3)

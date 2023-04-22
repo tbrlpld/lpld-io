@@ -1,3 +1,5 @@
+from typing import Any
+
 from wagtail import fields as wagtail_fields
 from wagtail.admin import panels
 from wagtailmarkdown import blocks as wagtailmarkdown_blocks
@@ -15,7 +17,7 @@ class BlogIndexPage(core_models.BasePage):
         context["index_entries"] = self.get_index_entries()
         return context
 
-    def get_index_entries(self) -> tuple[dict[str, str]]:
+    def get_index_entries(self) -> tuple[dict[str, Any], ...]:
         index_entries = []
         for child in self.get_children().only("title"):
             index_entries.append(

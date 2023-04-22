@@ -12,8 +12,8 @@ class TestBlogIndexPageFactory:
 
 
 @pytest.mark.django_db
-class TestBlogPageFactory:
+class TestBlogPostPageFactory:
     def test_factory(self):
-        factories.BlogPage()
+        factories.BlogPostPage()
 
         assert True
