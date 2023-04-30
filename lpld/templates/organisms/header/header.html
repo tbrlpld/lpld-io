@@ -3,10 +3,18 @@
     <a href="/" class="block w-12 md:w-16 text-neutral-700">
         {% include "atoms/logo/logo.svg" %}
     </a>
-    <nav>
-        <ul class="inline-block">
-            {% include "./_header-link.html" with href="/#projects" text="Projects" %}
-            {% include "./_header-link.html" with href="#contact" text="Contact" %}
-        </ul>
-    </nav>
+
+    {% if links %}
+        <nav>
+            <ul class="inline-block">
+                {% for link in links %}
+                    {% include "./_header-link.html" with href=link.url text=link.text %}
+                {% endfor %}
+                {% comment %}
+                    {% include "./_header-link.html" with href="/#projects" text="Projects" %}
+                    {% include "./_header-link.html" with href="#contact" text="Contact" %}
+                {% endcomment %}
+            </ul>
+        </nav>
+    {% endif %}
 </header>

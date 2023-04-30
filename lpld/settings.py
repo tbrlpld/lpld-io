@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.contrib.search_promotions",
+    "wagtail.contrib.settings",
     "wagtail.embeds",
     "wagtail.sites",
     "wagtail.users",
@@ -398,6 +399,7 @@ WAGTAILMEDIA = {
 
 # DEBUG TOOLBAR
 
+
 def show_toolbar(request: "http.HttpRequest") -> bool:
     """Don't debug toolbar in pattern library."""
     from debug_toolbar.middleware import show_toolbar as default_show_toolbar
@@ -444,5 +446,3 @@ if SENTRY_DSN:
 
 PLAUSIBLE_DOMAIN = os.environ.get("PLAUSIBLE_DOMAIN", "")
 PLAUSIBLE_SCRIPT_PREFIX = "-/plsbl"
-
-
