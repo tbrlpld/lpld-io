@@ -1,6 +1,5 @@
-{% load slippers %}
-{% #heading size="sm" level="2" extra_class="hover:underline hover:decoration-3" %}
-    <a href="{{ url }}">
-        {{ title }}
-    </a>
+{% load slippers heroicons %}
+{% #heading size="xs" level="2" extra_class="hover:underline hover:decoration-3" %}
+    <a href="{{ url }}">{{ title }}</a>
+    {% heroicon_solid "chevron-right" size=40 class="inline-block max-w-[1.4rem] sm:max-w-[1.7rem] xl:max-w-[2rem]" %}
 {% /heading %}
