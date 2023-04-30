@@ -1,5 +1,15 @@
-{% load slippers heroicons %}
+{% load slippers heroicons lpldutils %}
 {% #heading size="xs" level="2" extra_class="hover:underline hover:decoration-3" %}
-    <a href="{{ url }}">{{ title }}</a>
-    {% heroicon_solid "chevron-right" size=40 class="inline-block max-w-[1.4rem] sm:max-w-[1.7rem] xl:max-w-[2rem]" %}
+    <a href="{{ url }}">
+        {% for word in title|split  %}
+            {% if not forloop.last %}
+                {{ word }}
+            {% else %}
+                <span class="whitespace-nowrap">
+                    <span>{{ word }}</span>
+                    {% heroicon_outline "chevron-right" size=30 stroke_width=4 stroke_linecap="square" stroke_linejoin="round" class="inline-block max-w-[1rem] sm:max-w-[1.1rem] xl:max-w-[1.5rem]" %}
+                </span>
+            {% endif %}
+        {% endfor %}
+    </a>
 {% /heading %}
