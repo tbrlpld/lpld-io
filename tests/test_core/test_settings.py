@@ -7,10 +7,16 @@ from lpld.core import settings as settings_utils
 
 @pytest.mark.django_db
 class TestGetPrimaryNavigationLinks:
-    def test_contains_project_and_contact_links(self, rf):
+    @pytest.fixture
+    def primary_nav_setting(self, settings):
+        settings.ALLOWED_HOSTS = ["example.com"]
+        site = wagtail_factories.SiteFactory(hostname="example.com")
+        primary_nav_setting = model_factories.PrimaryNavigationSettingFactory(site=site)
+        return primary_nav_setting
+
+    def test_contains_project_and_contact_links(self, rf, primary_nav_setting):
         """Making sure these two links are returned even without any other links defined."""
-        setting = model_factories.PrimaryNavigationSettingFactory()
-        request = rf.get("/", HTTP_HOST=setting.site.hostname)
+        request = rf.get("/", HTTP_HOST=primary_nav_setting.site.hostname)
 
         links = settings_utils.get_primary_navigation_links(request)
 
@@ -18,13 +24,10 @@ class TestGetPrimaryNavigationLinks:
         assert links[0]["text"] == "Projects"
         assert links[1]["text"] == "Contact"
 
-    def test_contains_links_from_setting(self, rf, settings):
+    def test_contains_links_from_setting(self, rf, primary_nav_setting):
         """Making sure links from the setting are returned."""
-        settings.ALLOWED_HOSTS = ["example.com"]
-        site = wagtail_factories.SiteFactory(hostname="example.com")
-        setting = model_factories.PrimaryNavigationSettingFactory(site=site)
-        link = model_factories.PrimaryNavigationLinkFactory(primary_navigation=setting)
-        request = rf.get("/", HTTP_HOST=setting.site.hostname)
+        link = model_factories.PrimaryNavigationLinkFactory(primary_navigation=primary_nav_setting)
+        request = rf.get("/", HTTP_HOST=primary_nav_setting.site.hostname)
 
         links = settings_utils.get_primary_navigation_links(request)
 
