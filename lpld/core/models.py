@@ -87,7 +87,7 @@ class AbstractLink(models.Model):
 
 
 @settings_models.register_setting
-class PrimaryNavigation(
+class PrimaryNavigationSetting(
     cluster_models.ClusterableModel,
     settings_models.BaseSiteSetting,
 ):
@@ -97,8 +97,8 @@ class PrimaryNavigation(
 
 
 class PrimaryNavigationLink(wagtail_models.Orderable, AbstractLink):
-    setting = cluster_models.ParentalKey(
-        PrimaryNavigation,
+    primary_navigation = cluster_models.ParentalKey(
+        PrimaryNavigationSetting,
         null=False,
         blank=False,
         related_name="links",
