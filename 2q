@@ -1,0 +1,11 @@
+Add tests for the link model
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch blog
+# Your branch is ahead of 'origin/blog' by 2 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	new file:   tests/test_core/test_models.py
+#

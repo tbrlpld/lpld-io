@@ -34,7 +34,7 @@ class BasePage(wagtail_models.Page):
                 "text": link.text,
                 "url": link.url,
             }
-            for link in PrimaryNavigation.for_request(request).links.all()
+            for link in PrimaryNavigationSetting.for_request(request).links.all()
         ]
         links.append(
             {
