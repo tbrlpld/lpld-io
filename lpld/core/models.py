@@ -7,6 +7,9 @@ from wagtail.admin import panels
 from wagtail.contrib.settings import models as settings_models
 
 
+from lpld.core import settings as settings_utils
+
+
 class BasePage(wagtail_models.Page):
     class Meta(wagtail_models.Page.Meta):
         abstract = True
@@ -27,32 +30,11 @@ class BasePage(wagtail_models.Page):
     def get_meta_description(self):
         return self.search_description or ""
 
-    @staticmethod
-    def get_primary_navigation_links(request):
-        links = [
-            {
-                "text": link.text,
-                "url": link.url,
-            }
-            for link in PrimaryNavigationSetting.for_request(request).links.all()
-        ]
-        links.append(
-            {
-                "text": "Projects",
-                "url": "/#projects",
-            }
-        )
-        links.append(
-            {
-                "text": "Contact",
-                "url": "#contact",
-            }
-        )
-        return links
-
     def get_context(self, request):
         context = super().get_context(request)
-        context["primary_navigation_links"] = self.get_primary_navigation_links(request)
+        context["primary_navigation_links"] = (
+            settings_utils.get_primary_navigation_links(request)
+        )
         return context
 
 

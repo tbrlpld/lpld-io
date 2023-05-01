@@ -3,6 +3,7 @@ from django.apps import apps
 
 def get_primary_navigation_links(request):
     links = []
+
     PrimaryNavigationSetting = apps.get_model("core.PrimaryNavigationSetting")
     links.extend([
         {
@@ -11,17 +12,14 @@ def get_primary_navigation_links(request):
         }
         for link in PrimaryNavigationSetting.for_request(request).links.all()
     ])
-    links.append(
-        {
-            "text": "Projects",
-            "url": "/#projects",
-        }
-    )
-    links.append(
-        {
-            "text": "Contact",
-            "url": "#contact",
-        }
-    )
+
+    links.append({
+        "text": "Projects",
+        "url": "/#projects",
+    })
+    links.append({
+        "text": "Contact",
+        "url": "#contact",
+    })
     return links
 
