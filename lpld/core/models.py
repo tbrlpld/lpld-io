@@ -1,13 +1,10 @@
 from django.db import models
 from django.utils import functional as func_utils
 
-from modelcluster import models as cluster_models
 from wagtail import models as wagtail_models
 from wagtail.admin import panels
-from wagtail.contrib.settings import models as settings_models
 
-
-from lpld.core import settings as settings_utils
+from lpld.navigation import utils as nav_utils
 
 
 class BasePage(wagtail_models.Page):
@@ -32,9 +29,9 @@ class BasePage(wagtail_models.Page):
 
     def get_context(self, request):
         context = super().get_context(request)
-        context["primary_navigation_links"] = (
-            settings_utils.get_primary_navigation_links(request)
-        )
+        context[
+            "primary_navigation_links"
+        ] = nav_utils.get_primary_navigation_links(request)
         return context
 
 
@@ -66,23 +63,3 @@ class AbstractLink(models.Model):
 
     class Meta:
         abstract = True
-
-
-@settings_models.register_setting
-class PrimaryNavigationSetting(
-    cluster_models.ClusterableModel,
-    settings_models.BaseSiteSetting,
-):
-    panels = [
-        panels.InlinePanel("links", label="Link"),
-    ]
-
-
-class PrimaryNavigationLink(wagtail_models.Orderable, AbstractLink):
-    primary_navigation = cluster_models.ParentalKey(
-        PrimaryNavigationSetting,
-        null=False,
-        blank=False,
-        related_name="links",
-        on_delete=models.CASCADE,
-    )

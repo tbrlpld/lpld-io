@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "lpld.home",
     "lpld.images",
     "lpld.mediafiles",
+    "lpld.navigation",
     "lpld.projects",
     "lpld.technologies",
     "lpld.utils",
