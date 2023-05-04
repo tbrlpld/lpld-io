@@ -1,8 +1,4 @@
-context:
-  links:
-    - text: Home
-      url: /
-    - text: About
-      url: /about
-    - text: Contact
-      url: /contact
+tags:
+  primary_navigation:
+    "":
+      template_name: 'molecules/navigation/primary-navigation.html'

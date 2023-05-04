@@ -9,7 +9,7 @@ def get_primary_navigation_links(request):
         [
             {
                 "text": link.text,
-                "url": link.url,
+                "href": link.url,
             }
             for link in PrimaryNavigationSetting.for_request(request).links.all()
         ]
@@ -18,13 +18,13 @@ def get_primary_navigation_links(request):
     links.append(
         {
             "text": "Projects",
-            "url": "/#projects",
+            "href": "/#projects",
         }
     )
     links.append(
         {
             "text": "Contact",
-            "url": "#contact",
+            "href": "#contact",
         }
     )
     return links

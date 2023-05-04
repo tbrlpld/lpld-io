@@ -35,4 +35,4 @@ class TestGetPrimaryNavigationLinks:
 
         assert len(links) == 3
         assert links[0]["text"] == link.text
-        assert links[0]["url"] == link.url
+        assert links[0]["href"] == link.url
