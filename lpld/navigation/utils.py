@@ -9,7 +9,7 @@ def get_primary_navigation_links(request):
         [
             {
                 "text": link.text,
-                "href": link.url,
+                "href": link.href,
             }
             for link in PrimaryNavigationSetting.for_request(request).links.all()
         ]

@@ -58,7 +58,7 @@ class AbstractLink(models.Model):
         return self.text_override or self.page.title
 
     @property
-    def url(self):
+    def href(self):
         return self.page.get_url()
 
     class Meta:

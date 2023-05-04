@@ -11,7 +11,7 @@ class TestPrimaryNavigationLink:
         link = nav_factories.PrimaryNavigationLinkFactory(page=page)
 
         assert link.text == "foo"
-        assert link.url == page.url
+        assert link.href == page.get_url()
 
     def test_text_override(self):
         link = nav_factories.PrimaryNavigationLinkFactory(text_override="bar")
