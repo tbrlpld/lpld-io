@@ -2,7 +2,6 @@ from django import template
 
 from lpld.navigation import utils as navigation_utils
 
-
 register = template.Library()
 
 
