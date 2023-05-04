@@ -36,6 +36,42 @@ class TestBlogIndexPage:
             ]
         )
 
+    def test_get_index_entries_only_returns_published_pages(self):
+        index_page = factories.BlogIndexPage()
+        factories.BlogPostPage(parent=index_page, live=False)
+        published_post = factories.BlogPostPage(parent=index_page)
+
+        entries = index_page.get_index_entries()
+
+        assert entries == tuple(
+            [
+                {
+                    "title": published_post.title,
+                    "url": published_post.get_url(),
+                },
+            ]
+        )
+
+    def test_get_index_entries_only_returns_public_pages(self):
+        index_page = factories.BlogIndexPage()
+        private_post = factories.BlogPostPage(parent=index_page)
+        private_post.view_restrictions.create(
+            restriction_type="password",
+            password="password",
+        )
+        public_post = factories.BlogPostPage(parent=index_page)
+
+        entries = index_page.get_index_entries()
+
+        assert entries == tuple(
+            [
+                {
+                    "title": public_post.title,
+                    "url": public_post.get_url(),
+                },
+            ]
+        )
+
 
 @pytest.mark.django_db
 class TestBlogPostPage:
