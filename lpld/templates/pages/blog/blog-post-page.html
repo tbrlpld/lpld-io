@@ -1,6 +1,10 @@
 {% extends "base-page.html" %}
 {% load wagtailcore_tags slippers %}
 
+{% block extra_html_class %}
+    scroll-pt-12
+{% endblock extra_html_class %}
+
 {% block content %}
     <article class="pt-32 xl:pt-48">
         {% heading_with_intro heading=page.title introduction=page.introduction|richtext %}
