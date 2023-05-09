@@ -37,7 +37,12 @@ class BlogPostPage(core_models.BasePage):
     introduction = wagtail_fields.RichTextField(max_length=500, null=False, blank=True)
     body = wagtail_fields.StreamField(
         block_types=[
-            ("markdown", wagtailmarkdown_blocks.MarkdownBlock()),
+            (
+                "markdown",
+                wagtailmarkdown_blocks.MarkdownBlock(
+                    template="organisms/prose/prose-markdown-block.html",
+                )
+            ),
         ],
         null=True,
         blank=True,

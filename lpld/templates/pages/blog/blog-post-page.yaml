@@ -12,4 +12,4 @@ context:
 tags:
   include_block:
     "block":
-      template_name: "organisms/prose/prose-content-markdown.html"
+      template_name: "organisms/prose/prose-markdown.html"
