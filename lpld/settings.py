@@ -50,8 +50,9 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
-    "lpld.blog",
+    "lpld.articles",
     "lpld.core",
+    "lpld.index",
     "lpld.home",
     "lpld.images",
     "lpld.mediafiles",

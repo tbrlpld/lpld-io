@@ -1,6 +1,6 @@
 context:
   page:
-    title: 'My long blog post title that wraps'
+    title: 'My long article post title that wraps'
     introduction: |
       This is the introduction to this amazing post.
       It is so amazing that it needs to be on two lines.
