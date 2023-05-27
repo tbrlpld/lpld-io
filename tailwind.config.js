@@ -32,13 +32,13 @@ module.exports = {
         'neutral-500': {
           css: {
             '--tw-prose-body': theme('colors.neutral.500'),
-            ...theme('css'),
+            ...theme('css')
           }
         }
       })
     }
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    require('@tailwindcss/typography')
   ]
 }
