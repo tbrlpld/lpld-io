@@ -9,7 +9,7 @@ from lpld.core import models as core_models
 # Create your models here.
 class ArticlePage(core_models.BasePage):
     template = "pages/article/article-page.html"
-    parent_page_types = ["index.IndexPage"]
+    parent_page_types = ["home.HomePage", "index.IndexPage"]
     subpage_types = []
 
     introduction = wagtail_fields.RichTextField(max_length=500, null=False, blank=True)
