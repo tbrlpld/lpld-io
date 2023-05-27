@@ -1,4 +1,3 @@
-from django.db import models
 from wagtail import fields as wagtail_fields
 from wagtail.admin import panels
 from wagtailmarkdown import blocks as wagtailmarkdown_blocks
@@ -19,7 +18,7 @@ class ArticlePage(core_models.BasePage):
                 "markdown",
                 wagtailmarkdown_blocks.MarkdownBlock(
                     template="organisms/prose/prose-markdown-block.html",
-                )
+                ),
             ),
         ],
         null=True,
