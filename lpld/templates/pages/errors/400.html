@@ -1,19 +1,18 @@
-{% extends "base.html" %}
+{% extends "pages/errors/error-base.html" %}
 
 {% block title %}
     Bad request
 {% endblock title %}
 
-{% block body %}
-    <main class="flex flex-col h-screen md:items-center justify-center p-12">
-        <div>
-            <h1>That does not look right.</h1>
-            <p class="mt-8">
-                Your request can not be processed.
-            </p>
-            <p class="mt-2">
-                Go back to the <a href="/">homepage</a> and try something else.
-            </p>
-        </div>
-    </main>
-{% endblock body %}
+{% block heading %}
+    That does not look right.
+{% endblock heading %}
+
+{% block content %}
+    <p class="mt-8">
+        Your request can not be processed.
+    </p>
+    <p class="mt-2">
+        Go back to the <a href="/" class="link">homepage</a> and try something else.
+    </p>
+{% endblock content %}

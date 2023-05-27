@@ -1,12 +1,8 @@
-{% load static %}
+{% load static navigation %}
 <header class="flex py-4 md:py-8 justify-between items-center">
-    <a href="/" class="block w-12 md:w-16">
+    <a href="/" class="block w-12 md:w-16 text-neutral-700">
         {% include "atoms/logo/logo.svg" %}
     </a>
-    <nav>
-        <ul class="inline-block">
-            {% include "./_header-link.html" with href="/#projects" text="Projects" %}
-            {% include "./_header-link.html" with href="#contact" text="Contact" %}
-        </ul>
-    </nav>
+
+    {% primary_navigation %}
 </header>

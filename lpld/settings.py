@@ -50,10 +50,13 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
+    "lpld.articles",
     "lpld.core",
+    "lpld.index",
     "lpld.home",
     "lpld.images",
     "lpld.mediafiles",
+    "lpld.navigation",
     "lpld.projects",
     "lpld.technologies",
     "lpld.utils",
@@ -67,6 +70,7 @@ INSTALLED_APPS = [
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.contrib.search_promotions",
+    "wagtail.contrib.settings",
     "wagtail.embeds",
     "wagtail.sites",
     "wagtail.users",
@@ -81,6 +85,7 @@ INSTALLED_APPS = [
     "plausible_proxy",
     "slippers",
     "taggit",
+    "wagtailmarkdown",
     "wagtailmedia",
     "widget_tweaks",
 ]
@@ -128,6 +133,7 @@ TEMPLATES = [
             ],
             "libraries": {
                 "lpldutils": "lpld.templatetags.lpldutils",
+                "navigation": "lpld.templatetags.navigation",
             },
         },
     },
@@ -357,6 +363,36 @@ WAGTAIL_ENABLE_UPDATE_CHECK = False
 WAGTAILIMAGES_IMAGE_MODEL = "images.CustomImage"
 WAGTAILIMAGES_FORMAT_CONVERSIONS = {
     "webp": "webp",  # To disable the default webp to png conversion
+}
+
+WAGTAILADMIN_RICH_TEXT_EDITORS = {
+    "default": {
+        "WIDGET": "wagtail.admin.rich_text.DraftailRichTextArea",
+        "OPTIONS": {
+            "features": [
+                "bold",
+                "italic",
+                "ol",
+                "ul",
+                "link",
+                "document-link",
+                "hr",
+                "code",
+                "superscript",
+                "subscript",
+            ],
+        },
+    },
+}
+
+WAGTAILMARKDOWN = {
+    "extensions": ["toc", "sane_lists"],
+    "extension_configs": {
+        "toc": {
+            "anchorlink": True,
+            "anchorlink_class": "anchor-link",
+        },
+    },
 }
 
 WAGTAILMEDIA = {

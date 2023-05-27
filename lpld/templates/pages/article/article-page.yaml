@@ -1,0 +1,15 @@
+context:
+  page:
+    title: 'My long article post title that wraps'
+    introduction: |
+      This is the introduction to this amazing post.
+      It is so amazing that it needs to be on two lines.
+      And it can even contain links like <a href="https://www.example.com">this</a>.
+    body:
+      - block_type: "markdown"
+      - block_type: "markdown"
+
+tags:
+  include_block:
+    "block":
+      template_name: "organisms/prose/prose-markdown.html"

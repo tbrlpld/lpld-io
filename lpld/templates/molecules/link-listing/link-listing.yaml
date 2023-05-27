@@ -1,0 +1,8 @@
+context:
+  links:
+    - title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+      url: 'https://www.example.com'
+    - title: 'Morbi in metus vitae sem molestie rutrum convallis a nunc'
+      url: 'https://www.example.com'
+    - title: 'Cras tempus nisi in ullamcorper vestibulum'
+      url: 'https://www.example.com'

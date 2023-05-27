@@ -1,0 +1,8 @@
+context:
+  links:
+    - text: Home
+      href: /
+    - text: About
+      href: /about
+    - text: Contact
+      href: /contact

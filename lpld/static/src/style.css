@@ -1,19 +1,35 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-h1 {
-    @apply font-bold text-4xl sm:text-5xl xl:text-6xl
+@layer components {
+    .heading-lg {
+        @apply font-bold text-neutral-700 text-4xl sm:text-5xl xl:text-6xl
+    }
+
+    .heading-md {
+        @apply font-bold text-neutral-700 text-3xl sm:text-4xl xl:text-5xl
+    }
+
+    .heading-sm {
+        @apply font-bold text-neutral-700 text-2xl sm:text-3xl xl:text-4xl
+    }
+
+    .heading-xs {
+        @apply font-bold text-neutral-700 text-xl sm:text-2xl xl:text-3xl
+    }
+
+    .link {
+        @apply text-neutral-500 underline underline-offset-2 decoration-1 hover:decoration-2 hover:text-neutral-800 active:text-neutral-900
+    }
 }
 
-h2 {
-    @apply font-bold text-3xl sm:text-4xl xl:text-5xl
-}
-
-p {
-    @apply text-neutral-500
-}
-
-p > a {
-    @apply decoration-1 hover:decoration-2 hover:text-neutral-800 active:text-neutral-900 underline underline-offset-2
+.prose .anchor-link {
+    /*
+    Anchor links (in headings) in prose blocks should not get the prose link style, but keep the heading style.
+    This needs to be defined outside of a layer so it does not get tree-shaken, because the class is only used in the Markdown config.
+    */
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: inherit;
 }

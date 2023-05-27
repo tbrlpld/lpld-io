@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load slippers %}
+
+{% block body %}
+    <main class="flex flex-col h-screen md:items-center justify-center p-12">
+        <div>
+            {% #heading level="1" extra_class="inline-block" %}
+            {% block heading %}
+                This is the error.
+            {% endblock heading %}
+            {% /heading %}
+            <div class="text-neutral-500">
+                {% block content %}
+                    <p class="mt-8">
+                        There was an error.
+                    </p>
+                    <p class="mt-2">
+                        Go back to the <a href="/" class="link">homepage</a> and try something else.
+                    </p>
+                {% endblock content %}
+            </div>
+        </div>
+    </main>
+{% endblock body %}

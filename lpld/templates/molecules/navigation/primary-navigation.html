@@ -1,0 +1,11 @@
+{% if links %}
+    <nav>
+        <ul class="inline-block flex flex-row gap-6">
+            {% for link in links %}
+                <li class="inline-block">
+                    {% include "./_primary-nav-link.html" with href=link.url text=link.text %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}

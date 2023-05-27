@@ -4,16 +4,14 @@
 {% block body %}
     <div class="w-full max-w-screen-lg mx-auto px-4 sm:px-8 md:px-12">
         {% block header %}
-            {% include "organisms/header/header.html" %}
+            {% include "organisms/header/header.html" with links=primary_navigation_links %}
         {% endblock header %}
         <main>
             {% block content %}
             {% endblock content %}
         </main>
         {% block contact %}
-            <section id="contact" class="mt-16 pt-24 md:pt-44 pb-44">
-                {% include "organisms/contact/contact.html" %}
-            </section>
+            {% include "organisms/contact/contact.html" with id="contact" class="mt-16 pt-24 md:pt-44 pb-44" %}
         {% endblock contact %}
     </div>
     {% block footer  %}

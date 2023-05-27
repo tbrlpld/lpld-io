@@ -1,17 +1,19 @@
-{% extends "base.html" %}
+{% extends "pages/errors/error-base.html" %}
 
 {% block title %}
     Page does not exist
 {% endblock title %}
 
-{% block body %}
-    <main class="flex flex-col h-screen md:items-center justify-center p-12">
-        <div>
-            <h1>Whoops.<br/>Page not found.</h1>
-            <p class="mt-8">
-                This page does not exist.
-                Go back to the <a href="/">homepage</a>.
-            </p>
-        </div>
-    </main>
-{% endblock body %}
+
+{% block heading %}
+    Whoops.<br/>Page not found.
+{% endblock heading %}
+
+{% block content %}
+    <p class="mt-8">
+        The page you are looking for does not exist.
+    </p>
+    <p class="mt-2">
+        Go back to the <a href="/" class="link">homepage</a> and try something else.
+    </p>
+{% endblock content %}
