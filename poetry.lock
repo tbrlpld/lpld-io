@@ -532,13 +532,13 @@ pytz = "*"
 
 [[package]]
 name = "djhtml"
-version = "3.0.2"
+version = "3.0.6"
 description = "Django/Jinja template indenter"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "djhtml-3.0.2.tar.gz", hash = "sha256:f260cdfe7033b21ebc01961db7e1c8832fd5830ec9af1b0e57f3e1f58deb1bd0"},
+    {file = "djhtml-3.0.6.tar.gz", hash = "sha256:abfc4d7b4730432ca6a98322fbdf8ae9d6ba254ea57ba3759a10ecb293bc57de"},
 ]
 
 [package.extras]
@@ -1612,4 +1612,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "846d523cf34b427e4d657e8b6886254075ed366afdde0141b6eb1daeec6db1f4"
+content-hash = "f68ca49a0844d797f402ddb150d905c7dc797b36bce7f0bba9073febb269f25b"
