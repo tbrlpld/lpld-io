@@ -397,14 +397,14 @@ testing = ["django-modelcluster"]
 
 [[package]]
 name = "django-plausible-proxy"
-version = "0.3.0"
+version = "0.5.0"
 description = "Django module to proxy requests to Plausible Analytics."
 category = "main"
 optional = false
-python-versions = ">=3.7.8,<4.0.0"
+python-versions = ">=3.8,<4.0"
 files = [
-    {file = "django-plausible-proxy-0.3.0.tar.gz", hash = "sha256:a780f609feb750f466bc4db08658733f68185ef648611777c8f9f0deef0b9008"},
-    {file = "django_plausible_proxy-0.3.0-py3-none-any.whl", hash = "sha256:74853c69dc6322cb555339189edd967ba75b4a84e51bf666304d41902975d3a7"},
+    {file = "django_plausible_proxy-0.5.0-py3-none-any.whl", hash = "sha256:e1cb213dcfecf593b104c4197599273a5c34cdbc37c7f613912ac1dfbe6afdda"},
+    {file = "django_plausible_proxy-0.5.0.tar.gz", hash = "sha256:5a57d9afdf91fa0eec7322afbc339fcc24d20f6115d7a4af4f5c81c463b5ca92"},
 ]
 
 [package.dependencies]
@@ -1612,4 +1612,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "5969d2bc9220ecb6e9ae8bf9d38265b77646b794d33547af21f7a4d9b0a45187"
+content-hash = "28f9e8c756187ba361e742cda9ebd45f89c53a2316d5cd8ec023defbc306f570"
