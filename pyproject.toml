@@ -23,7 +23,7 @@ slippers = "^0.5.0"
 wagtail = "~4.2"
 wagtailmedia = "^0.13.0"
 wagtail-markdown = "^0.10"
-wagtail-factories = "^4.0.0"
+wagtail-factories = "^4.1.0"
 wagtail-storages = "^1.0.0rc1"
 whitenoise = "^6.5.0"
 
