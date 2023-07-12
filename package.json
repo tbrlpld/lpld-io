@@ -35,6 +35,6 @@
   "dependencies": {
     "@sentry/browser": "^7.57.0",
     "@sentry/tracing": "^7.57.0",
-    "esbuild": "0.17.19"
+    "esbuild": "0.18.11"
   }
 }
