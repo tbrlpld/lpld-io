@@ -3,6 +3,9 @@ services:
     build:
       context: .
       target: backend-development
+      # Platforms need to be specified for the build to work on Apple Silicon Macs.
+      platforms:
+        - linux/amd64
     command: ["tail", "-f", "/dev/null"]
     env_file:
       - .env
@@ -17,6 +20,9 @@ services:
     build:
       context: .
       target: frontend
+      # Platforms need to be specified for the build to work on Apple Silicon Macs.
+      platforms:
+        - linux/amd64
     command: ["tail", "-f", "/dev/null"]
     env_file:
       - .env
