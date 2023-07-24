@@ -1,4 +1,4 @@
-FROM node:18 as frontend
+FROM node:18-bookworm-slim as frontend
 
 WORKDIR /home/node/app
 
@@ -32,8 +32,9 @@ ENV PATH=${POETRY_HOME}/bin:$PATH \
 RUN env
 
 # Install litestream (https://litestream.io/install/debian/)
-RUN wget https://github.com/benbjohnson/litestream/releases/download/v0.3.9/litestream-v0.3.9-linux-amd64.deb
-RUN dpkg -i litestream-v0.3.9-linux-amd64.deb
+ARG PLATFORM=amd64
+RUN wget https://github.com/benbjohnson/litestream/releases/download/v0.3.9/litestream-v0.3.9-linux-$PLATFORM.deb
+RUN dpkg -i litestream-v0.3.9-linux-$PLATFORM.deb
 
 # Install poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
