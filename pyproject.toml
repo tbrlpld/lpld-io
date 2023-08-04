@@ -13,7 +13,7 @@ django-basic-auth-ip-whitelist = "~0.5"
 django-plausible-proxy = "~0.5"
 django-storages = "^1.13.2"
 django-widget-tweaks = "^1.4.8"
-factory-boy = "^3.2.0"
+factory-boy = "^3.3.0"
 gunicorn = "^20.1.0"
 heroicons = {extras = ["django"], version = "^1.4.0"}
 psycopg2 = "^2.9.6"
