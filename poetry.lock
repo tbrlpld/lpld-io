@@ -1434,18 +1434,18 @@ Wagtail = ">=4.1"
 
 [[package]]
 name = "wagtail-storages"
-version = "1.0.0rc1"
+version = "1.0.0"
 description = "Use AWS S3 with private documents in Wagtail."
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 files = [
-    {file = "wagtail-storages-1.0.0rc1.tar.gz", hash = "sha256:d1d5bfe82ed53321ae88428ce2c0a7eee8f4feab1fcfb520175ba981edb31013"},
-    {file = "wagtail_storages-1.0.0rc1-py3-none-any.whl", hash = "sha256:9b5a3a6b4e201fbf0880225245820482b1ca44d357cf02988a5ca7123b25a66a"},
+    {file = "wagtail-storages-1.0.0.tar.gz", hash = "sha256:cffbb1314131c6898ad4ec583c34db5845e2654bae0fa8b7d3b9e6529f023132"},
+    {file = "wagtail_storages-1.0.0-py3-none-any.whl", hash = "sha256:8056af5feaa66b837180652954eb471d61086cb5e10d67a58fc5129903535b5a"},
 ]
 
 [package.dependencies]
 django-storages = {version = "<2", extras = ["boto3"]}
-Wagtail = ">=2.15,<5.0"
+Wagtail = ">=4.1"
 
 [package.extras]
 testing = ["black (==22.3.0)", "coverage (==5.0.3)", "factory-boy (==2.12.0)", "flake8", "isort", "moto (==3.1.8)"]
@@ -1522,4 +1522,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "914499a79668295413e1ca8d05baac775847c4bd10384b99e3802641aec9c036"
+content-hash = "ae6989d5ca13126d75916a5048412541cf39e0d08ee48e9d72af3f7b1fcd3f73"
