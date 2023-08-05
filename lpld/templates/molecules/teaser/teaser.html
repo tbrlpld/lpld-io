@@ -2,7 +2,7 @@
 
 <a class="flex flex-row items-start group no-underline" href="{{ href }}">
     {% if video or image %}
-        <div class="shrink-0 w-24 sm:w-32 xl:w-48 {% if image_shadow %} px-0.5 sm:px-1 xl:px-2 {% endif %} ">
+        <div class="mr-4 shrink-0 w-24 sm:w-32 xl:w-48 {% if image_shadow %} px-0.5 sm:px-1 xl:px-2 {% endif %} ">
             {% if video %}
                 <video
                     src="{{ video.url }}"
@@ -36,7 +36,7 @@
         </div>
     {% endif %}
 
-    <div class="ml-4">
+    <div>
         <span class="text-neutral-700 group-hover:text-neutral-800 group-active:text-neutral-900">
             <h3 class="decoration-3 group-hover:underline underline-offset-2 mb-3 mt-2 text-xl sm:text-2xl font-bold">{{ title }}</h3>
         </span>
