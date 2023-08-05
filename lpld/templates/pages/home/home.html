@@ -50,5 +50,15 @@
                 </li>
             {% endfor %}
         </ul>
+
+        <div class="mt-16"></div>
+        {% #heading level="2" size="md" extra_class="max-w-lg lg:max-w-2xl" %}Teasers not dependent on project{% /heading %}
+        <ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
+            {% for teaser in page.project_teasers  %}
+                <li>
+                    {% include "molecules/teaser/teaser.html" with title=teaser.title introduction=teaser.introduction href=teaser.href %}
+                </li>
+            {% endfor %}
+        </ul>
     </section>
 {% endblock content  %}

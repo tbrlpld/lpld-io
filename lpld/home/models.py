@@ -1,3 +1,5 @@
+import dataclasses
+
 from django.apps import apps
 from django.db import models
 from django.utils import html as html_utils
@@ -42,3 +44,22 @@ class HomePage(core_models.BasePage):
     def get_introduction_without_tags(self):
         """Return introduction but without the HTMl tags."""
         return html_utils.strip_tags(self.introduction)
+
+    @property
+    def project_teasers(self):
+        ProjectPage = apps.get_model("projects", "ProjectPage")
+
+        @dataclasses.dataclass
+        class Teaser:
+            title: str
+            introduction: str
+            href: str
+
+        return [
+            Teaser(
+                title=project_page.title,
+                introduction=project_page.introduction,
+                href=project_page.get_url(),
+            )
+            for project_page in ProjectPage.objects.all()
+        ]
