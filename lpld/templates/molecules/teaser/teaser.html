@@ -1,0 +1,45 @@
+{% load l10n wagtailcore_tags wagtailimages_tags %}
+
+<a class="flex flex-row items-start group no-underline" href="{{ href }}">
+    {% if video or image %}
+        <div class="shrink-0 w-24 sm:w-32 xl:w-48 {% if image_shadow %} px-0.5 sm:px-1 xl:px-2 {% endif %} ">
+            {% if video %}
+                <video
+                    src="{{ video.url }}"
+                    width="{{ video.width | unlocalize }}"
+                    height="{{ video.height | unlocalize }}"
+                    class="w-full {% if image_shadow %} rounded shadow-md {% endif %}"
+                    autoplay
+                    loop
+                >Animation of {{ title }}</video>
+            {% elif image %}
+                <picture>
+                    {% image image width-96 as image_fallback %}
+                    {% image_url image "width-96|format-webp" as image_96 %}
+                    {% image_url image "width-128|format-webp" as image_128 %}
+                    {% image_url image "width-192|format-webp" as image_192 %}
+                    {% image_url image "width-256|format-webp" as image_256 %}
+                    {% image_url image "width-384|format-webp" as image_384 %}
+                    <source media="(min-width: 1280px)" srcset="{{ image_192 }}, {{ image_384 }} 2x" type="image/webp">
+                    <source media="(min-width: 640px)" srcset="{{ image_128 }}, {{ image_256 }} 2x" type="image/webp">
+                    <source srcset="{{ image_96 }}, {{ image_192 }} 2x" type="image/webp">
+                    <img
+                        src="{{ image_fallback.url }}"
+                        alt="Screenshot of {{ title }}"
+                        class="w-full {% if image_shadow %} rounded shadow-md {% endif %}"
+                        loading="lazy"
+                        width="{{ image_fallback.width }}"
+                        height="{{ image_fallback.height }}"
+                    />
+                </picture>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <div class="ml-4">
+        <span class="text-neutral-700 group-hover:text-neutral-800 group-active:text-neutral-900">
+            <h3 class="decoration-3 group-hover:underline underline-offset-2 mb-3 mt-2 text-xl sm:text-2xl font-bold">{{ title }}</h3>
+        </span>
+        <p class="text-sm sm:text-base xl:text-lg text-neutral-500">{{ introduction }}</p>
+    </div>
+</a>
