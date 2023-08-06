@@ -1,3 +1,4 @@
+from typing import Optional
 import dataclasses
 
 from django.apps import apps
@@ -6,6 +7,8 @@ from django.utils import html as html_utils
 
 from wagtail import fields
 from wagtail import images as wagtail_images
+from wagtail.images import models as images_models
+from wagtailmedia import models as media_models
 from wagtail.admin import panels
 
 from lpld.core import models as core_models
@@ -51,15 +54,21 @@ class HomePage(core_models.BasePage):
 
         @dataclasses.dataclass
         class Teaser:
-            title: str
+            heading: str
             introduction: str
             href: str
+            image: Optional[images_models.AbstractImage]
+            image_shadow: bool
+            video: Optional[media_models.AbstractMedia]
 
         return [
             Teaser(
-                title=project_page.title,
+                heading=project_page.title,
                 introduction=project_page.introduction,
                 href=project_page.get_url(),
+                image=project_page.image,
+                image_shadow=project_page.image_shadow,
+                video=project_page.video,
             )
             for project_page in ProjectPage.objects.all()
         ]

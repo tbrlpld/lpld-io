@@ -30,14 +30,14 @@ class TestHomePage:
             introduction="Introduction 2",
         )
 
-        projects = home_page.project_teasers
+        teasers = home_page.project_teasers
 
-        assert len(projects) == 2
-        project_1 = projects[0]
-        assert project_1.title == project_page_1.title
-        assert project_1.introduction == project_page_1.introduction
-        assert project_1.href == project_page_1.get_url()
-        project_2 = projects[1]
-        assert project_2.title == project_page_2.title
-        assert project_2.introduction == project_page_2.introduction
-        assert project_2.href == project_page_2.get_url()
+        assert len(teasers) == 2
+        teaser_1 = teasers[0]
+        assert teaser_1.heading == project_page_1.title
+        assert teaser_1.introduction == project_page_1.introduction
+        assert teaser_1.href == project_page_1.get_url()
+        teaser_2 = teasers[1]
+        assert teaser_2.heading == project_page_2.title
+        assert teaser_2.introduction == project_page_2.introduction
+        assert teaser_2.href == project_page_2.get_url()
