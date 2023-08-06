@@ -134,6 +134,7 @@ TEMPLATES = [
             "libraries": {
                 "lpldutils": "lpld.templatetags.lpldutils",
                 "navigation": "lpld.templatetags.navigation",
+                "templex": "lpld.templatetags.templex",
             },
         },
     },
