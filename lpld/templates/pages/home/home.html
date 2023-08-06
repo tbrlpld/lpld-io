@@ -1,4 +1,5 @@
 {% extends "base-page.html" %}
+{% load templex %}
 {% load slippers static templex wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
@@ -43,37 +44,6 @@
 
     <section id="projects" class="mt-16 lg:mt-32 pt-16 lg:mt-32">
         {% #heading level="2" size="md" extra_class="max-w-lg lg:max-w-2xl" %}These are things I have built before{% /heading %}
-        <ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
-            {% for project in projects  %}
-                <li class="  ">
-                    {% include "molecules/project-card/project-card.html" with project=project %}
-                </li>
-            {% endfor %}
-        </ul>
-
-        <div class="mt-16"></div>
-        {% #heading level="2" size="md" extra_class="max-w-lg lg:max-w-2xl" %}Teaser template, pass project data{% /heading %}
-        <ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
-            {% for project in projects  %}
-                <li>
-                    {% pageurl project as project_url %}
-                    {% include "molecules/teaser/teaser.html" with heading=project.title introduction=project.introduction href=project_url image=project.image video=project.video %}
-                </li>
-            {% endfor %}
-        </ul>
-
-        <div class="mt-16"></div>
-        {% #heading level="2" size="md" extra_class="max-w-lg lg:max-w-2xl" %}Teasers with explicit teaser data passing{% /heading %}
-        <ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
-            {% for teaser in page.project_teasers  %}
-                <li>
-                    {% include teaser.template with heading=teaser.heading introduction=teaser.introduction href=teaser.href image=teaser.image image_shadow=teaser.image_shadow video=teaser.video %}
-                </li>
-            {% endfor %}
-        </ul>
-
-        <div class="mt-16"></div>
-        {% #heading level="2" size="md" extra_class="max-w-lg lg:max-w-2xl" %}Teasers with include_templex{% /heading %}
         <ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
             {% for teaser in page.project_teasers  %}
                 <li>
