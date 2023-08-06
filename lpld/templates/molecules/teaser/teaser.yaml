@@ -1,7 +1,7 @@
 context:
   image: True
   image_shadow: True
-  title: "Remember Me"
+  heading: "Remember Me"
   introduction: "Developed for fun in my spare time."
   href: "https://example.com"
 
