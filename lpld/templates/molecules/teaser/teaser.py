@@ -7,6 +7,8 @@ from wagtailmedia import models as media_models
 
 @dataclasses.dataclass
 class Teaser:
+    template = "molecules/teaser/teaser.html"
+
     heading: str
     introduction: str
     href: str
