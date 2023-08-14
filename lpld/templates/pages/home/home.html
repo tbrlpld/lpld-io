@@ -1,6 +1,5 @@
 {% extends "base-page.html" %}
-{% load templex %}
-{% load slippers static templex wagtailcore_tags wagtailimages_tags %}
+{% load slippers static wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
     <section class="mt-44">
@@ -47,7 +46,7 @@
         <ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
             {% for teaser in page.project_teasers  %}
                 <li>
-                    {% include_templex teaser %}
+                    {{ teaser.render }}
                 </li>
             {% endfor %}
         </ul>
