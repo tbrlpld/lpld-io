@@ -24,7 +24,7 @@ wagtail = "~4.2"
 wagtailmedia = "^0.14.4"
 wagtail-markdown = "^0.11"
 wagtail-factories = "^4.1.0"
-wagtail-storages = "^1.0.0rc1"
+wagtail-storages = "^1.0.0"
 whitenoise = "^6.5.0"
 
 [tool.poetry.dev-dependencies]
