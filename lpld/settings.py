@@ -42,10 +42,16 @@ ALLOWED_HOSTS = [
 
 if DEBUG:
     # The internal ips settings is needed to activate the debug toolbar.
-    INTERNAL_IPS = [
+    # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#configure-internal-ips
+    # We also need to find the internal IPs when this is running in a container.
+    import socket  # only if you haven't already imported this
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    docker_ips = [ip[: ip.rfind(".")] + ".1" for ip in ips]
+    local_ips = ["127.0.0.1", "10.0.2.2"]
+    custom_ips = [
         ip.strip() for ip in os.environ.get("INTERNAL_IPS", "").split(",") if ip
     ]
-
+    INTERNAL_IPS = [*docker_ips, *local_ips, *custom_ips]
 
 # Application definition
 
