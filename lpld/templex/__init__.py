@@ -24,15 +24,19 @@ def templex(template: str):
 
         """
         def render_templex(self):
+            """Render the templex by passing its data into the template."""
             templex_template = django_template.loader.get_template(self.template)
             data_dict = dataclasses.asdict(self)
             return templex_template.render(data_dict)
 
         @functools.wraps(klass)
         def wrap(klass: Type) -> Type:
+            # Turn class into a dataclass.
             klass = dataclasses.dataclass(klass)
+            # Add the template property to the class if it doesn't already exist.
             if not hasattr(klass, "template"):
                 klass.template = template
+            # Add the render method to the class if it doesn't already exist.
             if not hasattr(klass, "render"):
                 klass.render = render_templex
             return klass
