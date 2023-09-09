@@ -43,12 +43,6 @@
 
     <section id="projects" class="mt-16 lg:mt-32 pt-16 lg:mt-32">
         {% #heading level="2" size="md" extra_class="max-w-lg lg:max-w-2xl" %}These are things I have built before{% /heading %}
-        <ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
-            {% for teaser in page.project_teasers  %}
-                <li>
-                    {{ teaser.render }}
-                </li>
-            {% endfor %}
-        </ul>
+        {{ page.project_teasers.render }}
     </section>
 {% endblock content  %}

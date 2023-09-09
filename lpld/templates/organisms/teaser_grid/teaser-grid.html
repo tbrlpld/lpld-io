@@ -1,0 +1,7 @@
+<ul class="mt-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12 sm:gap-y-16 ">
+    {% for teaser in teasers  %}
+        <li>
+            {{ teaser.render }}
+        </li>
+    {% endfor %}
+</ul>
