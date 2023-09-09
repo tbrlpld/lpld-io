@@ -437,11 +437,13 @@ def traces_sampler(context: dict) -> float:
     See also: https://docs.sentry.io/platforms/python/guides/django/configuration/sampling/#setting-a-sampling-function  # noqa: E501
     """
     if path := context["wsgi_environ"].get("PATH_INFO"):
-        if any((
-            path.startswith("/wp-"),
-            path.endswith(".php"),
-            path.endswith("wlwmanifest.xml"),
-        )):
+        if any(
+            (
+                path.startswith("/wp-"),
+                path.endswith(".php"),
+                path.endswith("wlwmanifest.xml"),
+            )
+        ):
             # Ignore spammy requests
             return 0.0
     return SENTRY_SAMPLE_RATE
