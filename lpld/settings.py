@@ -427,6 +427,28 @@ SENTRY_SAMPLE_RATE = float(os.environ.get("SENTRY_SAMPLE_RATE", "1.0"))
 SENTRY_ENVIRONMENT = os.environ.get("SENTRY_ENVIRONMENT", "development")
 HEROKU_RELEASE_VERSION = os.environ.get("HEROKU_RELEASE_VERSION", "")
 
+
+def traces_sampler(context: dict) -> float:
+    """
+    Define the sampling rate for Sentry transactions.
+
+    We are using this to ignore spammy requests.
+
+    See also: https://docs.sentry.io/platforms/python/guides/django/configuration/sampling/#setting-a-sampling-function  # noqa: E501
+    """
+    if path := context["wsgi_environ"].get("PATH_INFO"):
+        if any(
+            (
+                path.startswith("/wp-"),
+                path.endswith(".php"),
+                path.endswith("wlwmanifest.xml"),
+            )
+        ):
+            # Ignore spammy requests
+            return 0.0
+    return SENTRY_SAMPLE_RATE
+
+
 if SENTRY_DSN:
     sentry_sdk.init(
         dsn=SENTRY_DSN,
@@ -434,7 +456,8 @@ if SENTRY_DSN:
         # Set traces_sample_rate to 1.0 to capture 100%
         # of transactions for performance monitoring.
         # We recommend adjusting this value in production.
-        traces_sample_rate=SENTRY_SAMPLE_RATE,
+        # traces_sample_rate=SENTRY_SAMPLE_RATE,
+        traces_sampler=traces_sampler,
         # If you wish to associate users to errors (assuming you are using
         # django.contrib.auth) you may enable sending PII data.
         send_default_pii=False,
