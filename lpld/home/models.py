@@ -57,7 +57,7 @@ class HomePage(core_models.BasePage):
                 image_shadow=project_page.image_shadow,
                 video=project_page.video,
             )
-            for project_page in ProjectPage.objects.all()
+            for project_page in ProjectPage.objects.live().public()
         ]
 
 
