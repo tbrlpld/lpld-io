@@ -26,7 +26,12 @@ def templex(template: str):
         def render_templex(self):
             """Render the templex by passing its data into the template."""
             templex_template = django_template.loader.get_template(self.template)
-            data_dict = dataclasses.asdict(self)
+            # Shallow copy to avoid the resolution of nested templexes. We need the
+            # nested templexes to stay templexes so that they can be rendered later.
+            data_dict = dict(
+                (field.name, getattr(self, field.name))
+                for field in dataclasses.fields(self)
+            )
             return templex_template.render(data_dict)
 
         @functools.wraps(klass)
