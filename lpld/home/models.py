@@ -46,7 +46,7 @@ class HomePage(core_models.BasePage):
         return html_utils.strip_tags(self.introduction)
 
     @property
-    def project_teasers(self) -> teaser_grid.TeaserGrid:
+    def projects_teaser_grid(self) -> teaser_grid.TeaserGrid:
         ProjectPage = apps.get_model("projects", "ProjectPage")
 
         return teaser_grid.TeaserGrid(

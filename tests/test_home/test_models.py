@@ -30,7 +30,7 @@ class TestHomePage:
             introduction="Introduction 2",
         )
 
-        teaser_grid = home_page.project_teasers
+        teaser_grid = home_page.projects_teaser_grid
 
         assert len(teaser_grid.teasers) == 2
         teaser_1 = teaser_grid.teasers[0]
