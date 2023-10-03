@@ -1,3 +1,5 @@
+import dataclasses
+
 from django.apps import apps
 from django.db import models
 from django.utils import html as html_utils
@@ -7,6 +9,7 @@ from wagtail import images as wagtail_images
 from wagtail.admin import panels
 
 from lpld.core import models as core_models
+from lpld.templates.atoms.heading import heading
 from lpld.templates.molecules.teaser import teaser
 from lpld.templates.organisms.teaser_grid import teaser_grid
 
@@ -44,6 +47,10 @@ class HomePage(core_models.BasePage):
     def get_introduction_without_tags(self):
         """Return introduction but without the HTMl tags."""
         return html_utils.strip_tags(self.introduction)
+
+    @property
+    def page_title(self):
+        return heading.Heading(level=1, text=self.title)
 
     @property
     def projects_teaser_grid(self) -> teaser_grid.TeaserGrid:
