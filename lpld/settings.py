@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     "lpld.navigation",
     "lpld.projects",
     "lpld.technologies",
+    "lpld.templex",
     "lpld.utils",
     "django.contrib.admin",
     "django.contrib.auth",

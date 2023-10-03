@@ -23,8 +23,13 @@ def templex(template: str):
         surrounding scope.
 
         """
-        def render_templex(self):
-            """Render the templex by passing its data into the template."""
+        def render_templex(self, **kwargs):
+            """
+            Render the templex by passing its data into the template.
+
+            The context can be extended by passing keyword arguments to this method.
+
+            """
             templex_template = django_template.loader.get_template(self.template)
             # Shallow copy to avoid the resolution of nested templexes. We need the
             # nested templexes to stay templexes so that they can be rendered later.
@@ -32,6 +37,8 @@ def templex(template: str):
                 (field.name, getattr(self, field.name))
                 for field in dataclasses.fields(self)
             )
+            if kwargs:
+                data_dict.update(kwargs)
             return templex_template.render(data_dict)
 
         @functools.wraps(klass)
