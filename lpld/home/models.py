@@ -49,7 +49,7 @@ class HomePage(core_models.BasePage):
         return html_utils.strip_tags(self.introduction)
 
     @property
-    def page_title(self):
+    def title_templex(self):
         return heading.Heading(level=1, text=self.title)
 
     @property

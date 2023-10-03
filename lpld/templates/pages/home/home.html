@@ -5,13 +5,13 @@
     <section class="mt-44">
         <div class="wrapper flex justify-between items-center">
             {% #heading level="1" extra_class="inline-block" %}{{ page.title }}{% /heading %}
-            {% templex page.page_title extra_class="inline-block" %}
+            {% templex page.title_templex extra_class="inline-block" %}
 
             <div class="relative w-24 sm:w-32 md:w-48 lg:w-64 aspect-square rounded-full overflow-hidden bg-neutral-200 isolate">
                 <picture>
                     {% image page.profile_image fill-96x96 as profile_fallback %}
                     {% image_url page.profile_image "fill-96x96|format-webp" as profile_96 %}
-                    {% image_url page.profile_image "fill-128x128|format-webp" as profile_128 %}
+                    {% image_url page.profile_image "fill-127x128|format-webp" as profile_128 %}
                     {% image_url page.profile_image "fill-192x192|format-webp" as profile_192 %}
                     {% image_url page.profile_image "fill-256x256|format-webp" as profile_256 %}
                     {% image_url page.profile_image "fill-384x384|format-webp" as profile_384 %}
