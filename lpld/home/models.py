@@ -40,6 +40,10 @@ class HomePage(core_models.BasePage):
             "title": heading.Heading(level=1, text=self.title),
             "introduction": self.introduction,
             "profile_image": self.profile_image,
+            "projects_heading": heading.Heading(
+                level=2,
+                text="These are things I have build before",
+            ),
             "projects": self.get_projects_teaser_grid(),
         }
 
