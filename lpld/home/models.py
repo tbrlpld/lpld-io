@@ -36,10 +36,14 @@ class HomePage(core_models.BasePage):
     def get_context(self, request):
         context = super().get_context(request)
 
-        ProjectPage = apps.get_model("projects", "ProjectPage")
-        context["projects"] = ProjectPage.objects.all()
+        extra_context = {
+            "title": heading.Heading(level=1, text=self.title),
+            "introduction": self.introduction,
+            "profile_image": self.profile_image,
+            "projects": self.get_projects_teaser_grid(),
+        }
 
-        return context
+        return {**context, **extra_context}
 
     def get_meta_description(self):
         return self.search_description or self.get_introduction_without_tags() or ""
@@ -48,12 +52,7 @@ class HomePage(core_models.BasePage):
         """Return introduction but without the HTMl tags."""
         return html_utils.strip_tags(self.introduction)
 
-    @property
-    def title_templex(self):
-        return heading.Heading(level=1, text=self.title)
-
-    @property
-    def projects_teaser_grid(self) -> teaser_grid.TeaserGrid:
+    def get_projects_teaser_grid(self) -> teaser_grid.TeaserGrid:
         ProjectPage = apps.get_model("projects", "ProjectPage")
 
         return teaser_grid.TeaserGrid(
