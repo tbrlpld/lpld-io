@@ -1,11 +1,26 @@
 import dataclasses
 import functools
-from typing import Callable, Protocol, Type, cast
+from typing import Any, Callable, Protocol, Type, TypeVar, cast
 
 from django.template import loader
 
 
-def templex(template: str) -> Callable:
+@dataclasses.dataclass
+class DataclassProtocol(Protocol):
+    pass
+
+
+class TemplexProtocol(Protocol):
+    template: str
+    def render(self, **kwargs: dict) -> str:
+        ...
+
+
+T = TypeVar("T")
+TP = TypeVar("TP", bound="TemplexProtocol")
+
+
+def templex(template: str) -> Callable[[Type[T]], Type[TP]]:
     """
     Turn class into a templex object.
 
@@ -15,7 +30,7 @@ def templex(template: str) -> Callable:
 
     """
 
-    def wrapper(klass: Type) -> TemplexProtocol:
+    def wrapper(klass: Type[T]) -> Type[TP]:
         """
         The actual decorator.
 
@@ -42,26 +57,17 @@ def templex(template: str) -> Callable:
             return templex_template.render(data_dict)
 
         @functools.wraps(klass)
-        def wrap(klass: Type) -> TemplexProtocol:
+        def wrap(klass: Type[T]) -> Type[TP]:
             # Turn class into a dataclass.
             dataklass = dataclasses.dataclass(klass)
             # Add the template property to the class if it doesn't already exist.
             if not hasattr(dataklass, "template"):
-                dataklass.template = template
+                setattr(dataklass, "template", template)
             # Add the render method to the class if it doesn't already exist.
             if not hasattr(dataklass, "render"):
-                dataklass.render = render_templex
-            return cast(TemplexProtocol, dataklass)
+                setattr(dataklass, "render", render_templex)
+            return cast(Type[TP], dataklass)
 
         return wrap(klass)
 
     return wrapper
-
-
-@dataclasses.dataclass
-class DataclassProtocol(Protocol):
-    pass
-
-class TemplexProtocol(DataclassProtocol):
-    template: str
-    render: Callable
