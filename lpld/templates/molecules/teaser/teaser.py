@@ -1,3 +1,4 @@
+import dataclasses
 from typing import Optional
 
 from wagtail.images import models as images_models
@@ -7,6 +8,7 @@ from lpld import templex
 
 
 @templex.templex(template="molecules/teaser/teaser.html")
+@dataclasses.dataclass
 class Teaser:
     heading: str
     introduction: str
