@@ -10,6 +10,7 @@ from wagtail.admin import panels
 
 from lpld.core import models as core_models
 from lpld.templates.atoms.heading import heading
+from lpld.templates.molecules import section
 from lpld.templates.molecules.teaser import teaser
 from lpld.templates.organisms.teaser_grid import teaser_grid
 
@@ -44,17 +45,32 @@ class HomePage(core_models.BasePage):
                 level=2,
                 text="These are things I have build before",
             ),
-            "projects": self.get_projects_teaser_grid(),
+            "projects": self.get_projects_section(),
         }
 
         return {**context, **extra_context}
 
-    def get_meta_description(self):
+    def get_meta_description(self) -> str:
         return self.search_description or self.get_introduction_without_tags() or ""
 
-    def get_introduction_without_tags(self):
+    def get_introduction_without_tags(self) -> str:
         """Return introduction but without the HTMl tags."""
         return html_utils.strip_tags(self.introduction)
+
+    def get_projects_section(self) -> section.Section:
+        return section.Section(
+            html_id="projects",
+            html_class="mt-16 lg:mt-32 pt-16 lg:mt-32",
+            content=[
+                heading.Heading(
+                    level=2,
+                    text="These are things I have build before",
+                    size="md",
+                    extra_class="max-w-lg lg:max-w-2xl",
+                ),
+                self.get_projects_teaser_grid(),
+            ]
+        )
 
     def get_projects_teaser_grid(self) -> teaser_grid.TeaserGrid:
         ProjectPage = apps.get_model("projects", "ProjectPage")
