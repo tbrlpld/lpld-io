@@ -5,18 +5,14 @@ from django.template import loader
 
 
 class Templex(abc.ABC):
-    @property
-    @abc.abstractmethod
-    def template(self) -> str:
-        """
-        Subclassed must define a template attribute.
+    template: str
 
-        Will raise an error like this if not defined:
-        TypeError: Can't instantiate abstract class TeaserGrid with abstract methods
-        template
-
-        """
-        pass
+    def __init_subclass__(cls, **kwargs):
+        super().__init_subclass__(**kwargs)
+        if not hasattr(cls, 'template'):
+            raise TypeError(
+                f"Templex subclass '{cls.__name__}' must set 'template' attribute."
+            )
 
     def get_template(self) -> str:
         return self.template
