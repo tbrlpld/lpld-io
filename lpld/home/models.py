@@ -1,6 +1,5 @@
 import dataclasses
 
-from django.apps import apps
 from django.db import models
 from django.utils import html as html_utils
 
@@ -11,7 +10,6 @@ from wagtail.admin import panels
 from lpld.core import models as core_models
 from lpld.templates.atoms.heading import heading
 from lpld.templates.molecules import section
-from lpld.templates.molecules.teaser import teaser
 from lpld.templates.organisms.teaser_grid import teaser_grid
 
 
@@ -64,25 +62,6 @@ class HomePage(core_models.BasePage):
                     size="md",
                     extra_class="max-w-lg lg:max-w-2xl",
                 ),
-                self.get_projects_teaser_grid(),
+                teaser_grid.TeaserGrid.from_project_pages()
             ]
         )
-
-    def get_projects_teaser_grid(self) -> teaser_grid.TeaserGrid:
-        ProjectPage = apps.get_model("projects", "ProjectPage")
-
-        return teaser_grid.TeaserGrid(
-            teasers=[
-                teaser.Teaser(
-                    heading=project_page.title,
-                    introduction=project_page.introduction,
-                    href=project_page.get_url(),
-                    image=project_page.image,
-                    image_shadow=project_page.image_shadow,
-                    video=project_page.video,
-                )
-                for project_page in ProjectPage.objects.live().public()
-            ]
-        )
-
-
