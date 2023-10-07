@@ -7,9 +7,11 @@ from wagtailmedia import models as media_models
 from lpld import templex
 
 
-@templex.templex(template="molecules/teaser/teaser.html")
-@dataclasses.dataclass
-class Teaser:
+
+@dataclasses.dataclass(frozen=True)
+class Teaser(templex.Templex):
+    template="molecules/teaser/teaser.html"
+
     heading: str
     introduction: str
     href: str

@@ -3,10 +3,10 @@ import dataclasses
 from lpld import templex
 
 
-@templex.templex(template="molecules/section/section.html")
-@dataclasses.dataclass
-class Section:
-    content: list[templex.TemplexProtocol]
+@dataclasses.dataclass(frozen=True)
+class Section(templex.Templex):
+    template="molecules/section/section.html"
+    content: list[templex.Templex]
     html_id: str = ""
     html_class: str = ""
 
