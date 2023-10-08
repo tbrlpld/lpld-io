@@ -1,5 +1,5 @@
 import dataclasses
-from typing import Optional
+from typing import Union, Iterable
 
 from lpld import templex
 
@@ -8,9 +8,9 @@ from lpld import templex
 class Heading(templex.Templex):
     template = "atoms/heading/heading.html"
 
-    level: Optional[int]
+    text: str
+    level: int = 1
     size: str = ""
     extra_class: str = ""
-    text: str = ""
 
 

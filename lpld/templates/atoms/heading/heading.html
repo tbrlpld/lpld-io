@@ -1,4 +1,4 @@
-{% load slippers %}
+{% load slippers templex %}
 {% var level=level|default:"1" %}
 {% var size=size|default:"lg" %}
 {% spaceless %}
@@ -17,7 +17,7 @@
               {{ extra_class }}
              "
     >
-        {{ children }}
         {{ text }}
+        {{ children }}
     </h{{ level }}>
 {% endspaceless %}

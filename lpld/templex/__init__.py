@@ -1,7 +1,11 @@
+from typing import TYPE_CHECKING, Union, Iterable
 import abc
 import dataclasses
 
 from django.template import loader
+
+if TYPE_CHECKING:
+    from django.utils import safestring
 
 
 class Templex(abc.ABC):
@@ -17,7 +21,7 @@ class Templex(abc.ABC):
     def get_template(self) -> str:
         return self.template
 
-    def render(self, **kwargs: dict) -> str:
+    def render(self, **kwargs: dict) -> "safestring.SafeString":
         """
         Render the templex by passing its data into the template.
 
@@ -38,3 +42,6 @@ class Templex(abc.ABC):
             data_dict.update(kwargs)
         templex_template = loader.get_template(self.get_template())
         return templex_template.render(data_dict)
+
+
+TemplexRenderable = Union[str, Templex, Iterable[Templex]]

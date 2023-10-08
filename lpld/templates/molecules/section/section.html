@@ -4,7 +4,5 @@
     {% if html_id %}id="{{ html_id }}"{% endif %}
     {% if html_class %}class="{{ html_class }}"{% endif %}
 >
-    {% for item in content %}
-        {% templex item %}
-    {% endfor %}
+    {% templex content %}
 </section>

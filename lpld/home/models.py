@@ -36,7 +36,7 @@ class HomePage(core_models.BasePage):
         context = super().get_context(request)
 
         extra_context = {
-            "title": heading.Heading(level=1, text=self.title),
+            "title": heading.Heading(text=self.title),
             "introduction": self.introduction,
             "profile_image": self.profile_image,
             "projects": self.get_projects_section(),
@@ -57,8 +57,8 @@ class HomePage(core_models.BasePage):
             html_class="mt-16 lg:mt-32 pt-16 lg:mt-32",
             content=[
                 heading.Heading(
-                    level=2,
                     text="These are things I have build before",
+                    level=2,
                     size="md",
                     extra_class="max-w-lg lg:max-w-2xl",
                 ),
