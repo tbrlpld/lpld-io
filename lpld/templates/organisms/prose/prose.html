@@ -1,3 +1,4 @@
+{% load templex %}
 <div class="
             prose
             xl:prose-xl
@@ -12,6 +13,5 @@
             {% endif %}
             {{ extra_class }}
            ">
-    {{ children }}
+    {% templex children %}
 </div>
-
