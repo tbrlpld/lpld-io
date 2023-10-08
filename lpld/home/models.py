@@ -6,10 +6,12 @@ from django.utils import html as html_utils
 from wagtail import fields
 from wagtail import images as wagtail_images
 from wagtail.admin import panels
+from wagtail.templatetags import wagtailcore_tags
 
 from lpld.core import models as core_models
 from lpld.templates.atoms.heading import heading
 from lpld.templates.molecules import section
+from lpld.templates.organisms import prose
 from lpld.templates.organisms.teaser_grid import teaser_grid
 
 
@@ -37,7 +39,9 @@ class HomePage(core_models.BasePage):
 
         extra_context = {
             "title": heading.Heading(text=self.title),
-            "introduction": self.introduction,
+            "introduction": prose.Prose(
+                children=wagtailcore_tags.richtext(self.introduction),
+            ),
             "profile_image": self.profile_image,
             "projects": self.get_projects_section(),
         }
