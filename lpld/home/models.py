@@ -55,7 +55,7 @@ class HomePage(core_models.BasePage):
         return section.Section(
             html_id="projects",
             html_class="mt-16 lg:mt-32 pt-16 lg:mt-32",
-            content=[
+            children=[
                 heading.Heading(
                     text="These are things I have build before",
                     level=2,

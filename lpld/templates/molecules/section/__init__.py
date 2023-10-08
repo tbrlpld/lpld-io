@@ -7,7 +7,7 @@ from lpld import templex
 class Section(templex.Templex):
     template="molecules/section/section.html"
 
-    content: list[templex.Templex]
+    children: templex.TemplexRenderable
     html_id: str = ""
     html_class: str = ""
 

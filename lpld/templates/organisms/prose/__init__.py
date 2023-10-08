@@ -1,6 +1,4 @@
-from typing import Iterable, Union
 import dataclasses
-
 
 from lpld import templex
 
@@ -9,4 +7,4 @@ from lpld import templex
 class Prose(templex.Templex):
     template = "organisms/prose/prose.html"
 
-    children: Union[str, template.Templex, Iterable[templex.Templex]]
+    children: templex.TemplexRenderable
