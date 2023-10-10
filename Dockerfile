@@ -10,7 +10,7 @@ COPY . .
 # Compile static files
 RUN npm run build
 
-FROM python:3.9 as backend-production
+FROM python:3.10 as backend-production
 
 RUN mkdir /app && mkdir /data
 RUN useradd -m lpld -s /bin/bash && \
