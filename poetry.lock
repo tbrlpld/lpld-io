@@ -324,17 +324,17 @@ taggit = ["django-taggit (>=0.20)"]
 
 [[package]]
 name = "django-pattern-library"
-version = "1.0.0"
+version = "1.1.0"
 description = "A module for Django that allows to build pattern libraries for your projects."
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = ">=3.8,<4.0"
 files = [
-    {file = "django-pattern-library-1.0.0.tar.gz", hash = "sha256:3da0a4606af60846b6d864acf7a88e97e0b2619732befa85fb31e7969f0e5ae8"},
-    {file = "django_pattern_library-1.0.0-py3-none-any.whl", hash = "sha256:b4e48cf8f6d07a88a514777ce995edab7e153c9719349764ea57bf28660e3a59"},
+    {file = "django_pattern_library-1.1.0-py3-none-any.whl", hash = "sha256:0ade8446f5f3dc9fa88fe0e64c65b7e2e22e2195b05fbbd3f4e84311f634c53c"},
+    {file = "django_pattern_library-1.1.0.tar.gz", hash = "sha256:beca4d9df9004cc3e46b14de20943bca919d5940b41d490f5be491533a51c459"},
 ]
 
 [package.dependencies]
-Django = ">=3.2,<4.2"
+Django = ">=3.2,<5.0"
 Markdown = ">=3.1,<4.0"
 PyYAML = ">=5.1,<7.0"
 
@@ -1474,4 +1474,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "black (==22.3.0)", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "f9c8bcfd275473525a6d7fc14acde5d8a585d55b4522588339eaa1d620d72d8b"
+content-hash = "a6c0286c2e607fffe8af89801d54cb7748fce7e7beb3d35bc1d092e97159f1e0"
