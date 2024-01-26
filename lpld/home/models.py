@@ -1,12 +1,18 @@
-from django.apps import apps
+import dataclasses
+
 from django.db import models
 from django.utils import html as html_utils
 
 from wagtail import fields
 from wagtail import images as wagtail_images
 from wagtail.admin import panels
+from wagtail.templatetags import wagtailcore_tags
 
 from lpld.core import models as core_models
+from lpld.templates.atoms.heading import heading
+from lpld.templates.molecules import section
+from lpld.templates.organisms import prose
+from lpld.templates.organisms.teaser_grid import teaser_grid
 
 
 class HomePage(core_models.BasePage):
@@ -31,14 +37,35 @@ class HomePage(core_models.BasePage):
     def get_context(self, request):
         context = super().get_context(request)
 
-        ProjectPage = apps.get_model("projects", "ProjectPage")
-        context["projects"] = ProjectPage.objects.all()
+        extra_context = {
+            "title": heading.Heading(text=self.title),
+            "introduction": prose.Prose(
+                children=wagtailcore_tags.richtext(self.introduction),
+            ),
+            "profile_image": self.profile_image,
+            "projects": self.get_projects_section(),
+        }
 
-        return context
+        return {**context, **extra_context}
 
-    def get_meta_description(self):
+    def get_meta_description(self) -> str:
         return self.search_description or self.get_introduction_without_tags() or ""
 
-    def get_introduction_without_tags(self):
+    def get_introduction_without_tags(self) -> str:
         """Return introduction but without the HTMl tags."""
         return html_utils.strip_tags(self.introduction)
+
+    def get_projects_section(self) -> section.Section:
+        return section.Section(
+            html_id="projects",
+            html_class="mt-16 lg:mt-32 pt-16 lg:mt-32",
+            children=[
+                heading.Heading(
+                    text="These are things I have build before",
+                    level=2,
+                    size="md",
+                    extra_class="max-w-lg lg:max-w-2xl",
+                ),
+                teaser_grid.TeaserGrid.from_project_pages()
+            ]
+        )

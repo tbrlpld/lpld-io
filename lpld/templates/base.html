@@ -31,7 +31,9 @@
     </head>
     <body>
         {% block body %}
-            {{ pattern_library_rendered_pattern }}
+            <div class="p-12">
+                {{ pattern_library_rendered_pattern }}
+            </div>
         {% endblock body %}
         {{ sentry_settings|json_script:"sentry-settings" }}
     </body>

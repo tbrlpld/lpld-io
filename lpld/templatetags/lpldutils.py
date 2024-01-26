@@ -23,3 +23,10 @@ def sentry_meta() -> str:
     """
     meta = sentry_sdk.Hub.current.trace_propagation_meta()
     return safestring.mark_safe(meta)
+
+
+@register.simple_tag(takes_context=False)
+def include_templex(templex):
+    if not hasattr(templex, "render"):
+        raise Exception(f"Object {templex} is not a templex object.")
+    return templex.render()
