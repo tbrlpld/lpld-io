@@ -33,7 +33,7 @@
     "tailwindcss": "^3.3.5"
   },
   "dependencies": {
-    "@sentry/browser": "^7.77.0",
+    "@sentry/browser": "^7.99.0",
     "@sentry/tracing": "^7.77.0",
     "esbuild": "0.19.5"
   }
