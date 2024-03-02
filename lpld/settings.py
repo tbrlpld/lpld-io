@@ -304,6 +304,22 @@ if "AWS_STORAGE_BUCKET_NAME" in os.environ:
     if "AWS_S3_ENDPOINT_URL" in os.environ:
         AWS_S3_ENDPOINT_URL = os.environ["AWS_S3_ENDPOINT_URL"]
 
+    # Specify the addressing style for the bucket.
+    #
+    # Possible values are:
+    # "virtual" - Bucket name is included in the hostname.
+    # "path" - Bucket name is included in the URI name.
+    # By default, Boto3 will attempt to use "virtual" and fallback to "path".
+    # See also: https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#using-a-configuration-file  # noqa: E501
+    #
+    # There is an oddity when you specify `AWS_S3_ENDPOINT_URL`. When the addressing
+    # style is manually set to "virtual", then the bucket name is injected as the first
+    # part of the endpoint host, with after the `//`. So, when combining "virtual"
+    # addressing style and the `AWS_S3_ENDPOINT_URL` setting, don't include the bucket
+    # name in the `AWS_S3_ENDPOINT_URL`.
+    if "AWS_S3_ADDRESSING_STYLE" in os.environ:
+        AWS_S3_ADDRESSING_STYLE = os.environ["AWS_S3_ADDRESSING_STYLE"]
+
 
 # SECURITY
 
