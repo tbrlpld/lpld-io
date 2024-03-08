@@ -29,9 +29,6 @@ class BasePage(wagtail_models.Page):
 
     def get_context(self, request):
         context = super().get_context(request)
-        context["primary_navigation_links"] = nav_utils.get_primary_navigation_links(
-            request
-        )
         return context
 
 
