@@ -13,10 +13,4 @@ def get_primary_navigation_links(request):
 
     PrimaryNavigationSetting = apps.get_model("navigation.PrimaryNavigationSetting")
     links.extend(list(PrimaryNavigationSetting.for_request(request).links.all()))
-    links.extend(
-        [
-            Link(text="Projects", href="/#projects"),
-            Link(text="Contact", href="#contact"),
-        ]
-    )
     return links
