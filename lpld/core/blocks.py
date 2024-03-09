@@ -20,3 +20,24 @@ class SubheadingBlock(blocks.StructBlock):
     class Meta:
         template = "atoms/heading/subheading-block.html"
         icon = "title"
+
+
+class SectionBlock(blocks.StructBlock):
+    heading = HeadingBlock()
+    body = blocks.StreamBlock(
+        local_blocks=[
+            ("paragraph", blocks.RichTextBlock(features=["link", "bold", "italics"])),
+            # ("paragraph", blocks.RichTextBlock(features=["link", "bold", "italics"])), ]
+        ],
+        min_num=0,
+        required=False,
+    )
+
+    panels = [
+        panels.FieldPanel("heading"),
+        panels.FieldPanel("body"),
+    ]
+
+    class Meta:
+        template = "molecules/section/section-block.html"
+        icon = "bars"

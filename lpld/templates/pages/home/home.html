@@ -40,4 +40,9 @@
             {% /prose %}
         </div>
     </section>
+    <div>
+        {% for block in page.body %}
+            {% include_block block %}
+        {% endfor %}
+    </div>
 {% endblock content  %}
