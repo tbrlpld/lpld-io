@@ -28,14 +28,6 @@ class HomePage(core_models.BasePage):
         panels.FieldPanel("profile_image"),
     ]
 
-    def get_context(self, request):
-        context = super().get_context(request)
-
-        ProjectPage = apps.get_model("projects", "ProjectPage")
-        context["projects"] = ProjectPage.objects.all()
-
-        return context
-
     def get_meta_description(self):
         return self.search_description or self.get_introduction_without_tags() or ""
 
