@@ -1,8 +1,6 @@
 {% load wagtailcore_tags wagtailadmin_tags %}
 <section>
     {% include_block value.heading %}
-    {% component value.bound_blocks.heading fallback_render_method=True %}
-    {% component heading fallback_render_method=True %}
 
     {% for block in value.body %}
         {% include_block block %}

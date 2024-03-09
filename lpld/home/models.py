@@ -27,7 +27,9 @@ class HomePage(core_models.BasePage):
             ("section", core_blocks.SectionBlock()),
             ("heading", core_blocks.HeadingBlock()),
             ("subheading", core_blocks.SubheadingBlock()),
-
+            ("page_link", core_blocks.PageLinkBlock()),
+            ("link", core_blocks.LinkBlock()),
+            ("link_list", core_blocks.LinkStream()),
         ],
         null=False,
         blank=True,

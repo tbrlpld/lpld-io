@@ -1,7 +1,7 @@
 {% load slippers heroicons lpldutils %}
 {% #heading size="xs" level="2" extra_class="hover:underline hover:decoration-3" %}
-    <a href="{{ url }}">
-        {% for word in title|split  %}
+    <a href="{{ href }}">
+        {% for word in text|split  %}
             {% if not forloop.last %}
                 {{ word }}
             {% else %}
