@@ -1,20 +1,11 @@
-{% load slippers heroicons %}
+{% load slippers %}
 <section
     {% if id %}id="{{ id }}"{% endif %}
     {% if class %}class="{{ class }}"{% endif %}
 >
-    {% #heading level="2" size="md" extra_class="max-w-md xl:max-w-2xl" %}Let's build something together{% /heading %}
+    {% #heading level="2" size="md" extra_class="sr-only" %}Contact{% /heading %}
 
-    <div class="py-32 x-large:py-44 text-center">
-        {% #button_link href="mailto:tibor@lpld.io" large=True %}
-        {% spaceless %}
-            {% heroicon_solid "mail" size=40 class="inline-block h-6 xl:h-8 w-6 xl:w-8 mr-3 xl:mr-4" %}
-            <span>Send me an email</span>
-        {% endspaceless %}
-        {% /button_link %}
-    </div>
-
-    <ul class="flex flex-row justify-between items-center max-w-md mx-auto px-8 w-auto">
+    <ul class="flex flex-row flex-wrap justify-center items-center mx-auto gap-8 md:gap-16">
         <li>
             {% social_link alt="Email" href="mailto:tibor@lpld.io" heroicon="mail" %}
         </li>
