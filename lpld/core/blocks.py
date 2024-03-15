@@ -102,9 +102,9 @@ class SectionBlock(blocks.StructBlock):
     body = blocks.StreamBlock(
         local_blocks=[
             ("paragraph", blocks.RichTextBlock(features=["link", "bold", "italics"])),
-            # ("paragraph", blocks.RichTextBlock(features=["link", "bold", "italics"])), ]
+            ("link_list", LinkStream())
         ],
-        min_num=0,
+        min_rum=1,
         required=False,
     )
 
