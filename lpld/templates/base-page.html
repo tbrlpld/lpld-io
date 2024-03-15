@@ -10,11 +10,12 @@
             {% block content %}
             {% endblock content %}
         </main>
+    </div>
+    {% block footer  %}
+        <div class="grow"></div>
         {% block contact %}
             {% include "organisms/contact/contact.html" with id="contact" class="mt-16 py-16" %}
         {% endblock contact %}
-    </div>
-    {% block footer  %}
         {% include "organisms/footer/footer.html" %}
     {% endblock footer %}
 {% endblock body %}
