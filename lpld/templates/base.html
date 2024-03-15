@@ -20,6 +20,8 @@
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
         <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <script src="{% static "main.js" %}" async defer></script>
         {% if plausible_settings.PLAUSIBLE_DOMAIN %}
             {% plausible domain=plausible_settings.PLAUSIBLE_DOMAIN script="script.js" %}

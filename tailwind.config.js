@@ -14,10 +14,17 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          'Helvetica',
-          'Helvetica Neue',
-          'Arial',
-          ...defaultTheme.fontFamily.sans
+          [
+            'InterVariable',
+            'Helvetica',
+            'Helvetica Neue',
+            'Arial',
+            ...defaultTheme.fontFamily.sans
+          ],
+          {
+            fontFeatureSettings: '"cv11", "ss01"',
+            fontVariationSettings: '"opsz" 32'
+          },
         ]
       },
       textDecorationThickness: {
