@@ -40,7 +40,7 @@
 
             <div>
                 <div class="flex flex-row flex-wrap gap-4 items-center justify-center lg:justify-start pt-8 lg:pt-12 xl:pt-16 ">
-                    {% with button_classes="lg:font-bold lg:p-5 lg:text-lg w-36 lg:w-48" %}
+                    {% with button_classes="lg:font-bold lg:p-5 w-36 lg:w-48" %}
                         {% if page.repo_url %}
                             <div>
                                 {% #button_link href=page.repo_url extra_class=button_classes %}See the code{% /button_link %}
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="pt-12 flex flex-row justify-center">
-                    {% #prose extra_class="xl:text-lg text-neutral-500" %}
+                    {% #prose extra_class="text-neutral-500" %}
                     {{ page.description|richtext }}
                     {% /prose %}
                 </div>
