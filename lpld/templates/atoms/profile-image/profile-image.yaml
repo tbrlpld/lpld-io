@@ -1,15 +1,4 @@
-context:
-  page:
-    title: "Tibor Leupold"
-    title_emphasis: "Full-stack developer"
-    introduction: >
-      <p>I am Tibor. I am a full-stack developer. I value great user experience, progressive enhancement, and sweating the details.</p>
-      <p>I truly love to work across the entire stack of making software – from idea development, visual and experience design, through data modeling, implementation, and delivery, to project organization, testing, and documentation.</p>
-
 tags:
-  primary_navigation:
-    "":
-      raw: ""
   image:
     # Profile image
     "image fill-96x96 as profile_fallback":
@@ -35,7 +24,7 @@ tags:
       raw: "https://via.placeholder.com/128/"
     'image "fill-192x192|format-webp" as profile_192':
       target_var: "profile_192"
-      #      raw: "https://via.placeholder.com/192/"
+#      raw: "https://via.placeholder.com/192/"
       raw: "/static/img/profile.jpg"
     'image "fill-256x256|format-webp" as profile_256':
       target_var: "profile_256"
