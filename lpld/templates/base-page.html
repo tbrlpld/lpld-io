@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block body %}
-    <div class="w-full max-w-screen-lg mx-auto px-4 sm:px-8 md:px-12">
+    <div class="flex flex-col min-h-screen w-full max-w-screen-lg mx-auto px-4 sm:px-8 md:px-12">
         {% block header %}
             {% include "organisms/header/header.html" with links=primary_navigation_links %}
         {% endblock header %}
@@ -10,12 +10,12 @@
             {% block content %}
             {% endblock content %}
         </main>
+        {% block footer  %}
+            <div class="grow"></div>
+            {% block contact %}
+                {% include "organisms/contact/contact.html" with id="contact" class="mt-16 py-16" %}
+            {% endblock contact %}
+            {% include "organisms/footer/footer.html" %}
+        {% endblock footer %}
     </div>
-    {% block footer  %}
-        <div class="grow"></div>
-        {% block contact %}
-            {% include "organisms/contact/contact.html" with id="contact" class="mt-16 py-16" %}
-        {% endblock contact %}
-        {% include "organisms/footer/footer.html" %}
-    {% endblock footer %}
 {% endblock body %}
