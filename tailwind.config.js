@@ -39,6 +39,7 @@ module.exports = {
         'neutral-500': {
           css: {
             '--tw-prose-body': theme('colors.neutral.500'),
+            '--tw-prose-headings': theme('colors.neutral.600'),
             ...theme('css')
           }
         }
