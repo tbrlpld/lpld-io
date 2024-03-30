@@ -77,3 +77,6 @@ tags:
     'project.image "width-384|format-webp" as project_image_384':
       target_var: "project_image_384"
       raw: "https://via.placeholder.com/384x480/"
+  primary_navigation:
+    "":
+      raw: ""
