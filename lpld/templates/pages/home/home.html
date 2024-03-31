@@ -7,11 +7,10 @@
             {% include "atoms/profile-image/profile-image.html" with image=page.profile_image %}
 
             <div class="mt-4"></div>
-            <h1 class="text-center">
-                <span>{{ page.title }}</span>
-                <br>
-                <strong>{{ page.title_emphasis }}</strong>
-            </h1>
+            <hgroup class="text-center">
+                <h1>{{ page.title }}</h1>
+                <p><strong>{{ page.subtitle }}</strong></p>
+            </hgroup>
         </div>
 
         <div class="
