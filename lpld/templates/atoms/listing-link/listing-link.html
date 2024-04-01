@@ -1,17 +1,16 @@
 {% load slippers heroicons lpldutils %}
 {% spaceless %}
-    <a href="{{ href }}" class="inline-flex items-center gap-x-1 hover:underline hover:decoration-2">
-        {{ text }}
-        {% heroicon_outline "chevron-right" stroke_width=2 %}
-        {% comment %}
+    <a href="{{ href }}" class="hover:underline hover:decoration-2 group">
         {% for word in text|split  %}
             {% if not forloop.last %}
                 {{ word }}
             {% else %}
-                <span>{{ word }}</span>
-                {% heroicon_outline "chevron-right" size=16 stroke_width=2 %}
+                {# Span wrapper to avoid line-break between icon and last word. #}
+                <span class="inline-flex items-center decoration-2 group-hover:underline ">
+                    {{ word }}
+                    {% heroicon_mini "chevron-right" %}
+                </span>
             {% endif %}
         {% endfor %}
-        {% endcomment %}
     </a>
 {% endspaceless %}
