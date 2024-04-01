@@ -1,7 +1,7 @@
 <ul role="list" class="border-neutral-200 divide-y border-t border-b">
     {% for link in links %}
         <li class="py-6 md:py-8">
-            {% include "atoms/listing-link/listing-link.html" with text=link.text href=link.href %}
+            {% include "atoms/chevron-link/chevron-link.html" with text=link.text href=link.href %}
         </li>
     {% endfor %}
 </ul>
