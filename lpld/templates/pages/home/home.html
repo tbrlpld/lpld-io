@@ -3,19 +3,32 @@
 
 {% block content %}
     <section class="mt-44">
-        <div class="flex flex-col justify-between items-center">
-            {% include "atoms/profile-image/profile-image.html" with image=page.profile_image %}
+{# CENTER VERTICAL   #}
+{#        <div class="flex flex-col justify-between items-center">#}
+{#            {% include "atoms/profile-image/profile-image.html" with image=page.profile_image %}#}
+{##}
+{#            <div class="mt-4"></div>#}
+{#            <hgroup class="text-center">#}
+{#                <h1>{{ page.title }}</h1>#}
+{#                <p><strong>{{ page.subtitle }}</strong></p>#}
+{#            </hgroup>#}
+{#        </div>#}
 
-            <div class="mt-4"></div>
-            <hgroup class="text-center">
+{#  LEFT ALIGNED      #}
+        <div class="flex items-center">
+            <div class="mr-4 flex-shrink-0">
+                {% include "atoms/profile-image/profile-image.html" with image=page.profile_image %}
+            </div>
+            <hgroup class="">
                 <h1>{{ page.title }}</h1>
-                <p><strong>{{ page.subtitle }}</strong></p>
+                <p class=""><strong>{{ page.subtitle }}</strong></p>
             </hgroup>
         </div>
 
+
         <div class="
                     max-w-sm md:max-w-md lg:max-w-lg
-                    mt-8 lg:mt-16
+                    mt-12 lg:mt-16
                    ">
             {% #prose %}
                 {{ page.introduction|richtext }}
