@@ -23,17 +23,25 @@
         </div>
     </section>
     <div>
-        <section>
-            <h2>Currently</h2>
+        <section class="mt-16">
+            <h2 class="font-bold mb-4">Currently</h2>
             {% #prose %}
                 <p>
-                    Currently, I am working with <a href="https://torchbox.com/">Torchbox</a> for clients like <a href="https://interactive.wharton.upenn.edu/">Wharton Business School</a>, <a href="https://foundation.mozilla.org/en/">Mozilla Foundation</a> and the
+                    At the moment, I am working with <a href="https://torchbox.com/">Torchbox</a> for clients like <a href="https://interactive.wharton.upenn.edu/">Wharton Business School</a>, <a href="https://foundation.mozilla.org/en/">Mozilla Foundation</a> and the
                     <a href="https://training.nih.gov">National Institutes of Health</a>.
                 </p>
                 <p>
-                    Additionally, I work on <a href="https://github.com/tbrlpld/laces">Laces</a>, a Django package that aims to simplify the handling of templates and data by bundling them in renderable components.
+                    Additionally, I am working on <a href="https://github.com/tbrlpld/laces">Laces</a>, a Django package that aims to simplify the handling of templates and data by bundling them in renderable components.
                 </p>
             {% /prose %}
+        </section>
+        <section class="mt-16">
+            <h2 class="mb-4 font-bold">Writings</h2>
+            <ul>
+                <li><a href="https://example.com">How to depend on abstractions rather than implementations</a></li>
+                <li><a href="https://example.com">Django, Docker and frontend assets</a></li>
+                <li><a href="https://example.com">Another 100 days of code</a></li>
+            </ul>
         </section>
         {% for block in page.body %}
             {% include_block block %}
