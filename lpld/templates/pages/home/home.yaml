@@ -3,8 +3,8 @@ context:
     title: "Tibor Leupold"
     subtitle: "Full-stack developer"
     introduction: >
-      <p>I am Tibor. I am a full-stack developer. I value great user experience, progressive enhancement, and sweating the details.</p>
-      <p>I truly love to work across the entire stack of making software – from idea development, visual and experience design, through data modeling, implementation, and delivery, to project organization, testing, and documentation.</p>
+      <p>I am Tibor, a full-stack developer. I value great user experience, progressive enhancement, and sweating the details.</p>
+      <p>I love to work across the entire stack of making software – from idea development, visual and experience design, through data modeling, implementation, and delivery, to project organization, testing, and documentation.</p>
 
 tags:
   primary_navigation:
