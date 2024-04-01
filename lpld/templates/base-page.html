@@ -12,10 +12,11 @@
         </main>
         {% block footer  %}
             <div class="grow"></div>
-            {% block contact %}
-                {% include "organisms/contact/contact.html" with id="contact" class="mt-16 py-16" %}
-            {% endblock contact %}
-            {% include "organisms/footer/footer.html" %}
+            <div>
+                <hr class="mt-32 mb-20 border-neutral-200">
+                {% include "organisms/contact/contact.html" with id="contact" class="my-20" %}
+                {% include "organisms/footer/footer.html" with extra_class="mb-10" %}
+            </div>
         {% endblock footer %}
     </div>
 {% endblock body %}
