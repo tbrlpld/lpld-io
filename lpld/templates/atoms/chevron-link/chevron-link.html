@@ -1,12 +1,12 @@
 {% load slippers heroicons lpldutils %}
 {% spaceless %}
-    <a href="{{ href }}" class="hover:underline hover:decoration-2 group">
+    <a href="{{ href }}" class="link group">
         {% for word in text|split  %}
             {% if not forloop.last %}
                 {{ word }}
             {% else %}
                 {# Span wrapper to avoid line-break between icon and last word. #}
-                <span class="inline-flex items-center decoration-2 group-hover:underline ">
+                <span class="inline-flex items-center underline decoration-1 group-hover:decoration-2">
                     {{ word }}
                     {% heroicon_mini "chevron-right" %}
                 </span>
