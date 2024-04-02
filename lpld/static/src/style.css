@@ -6,7 +6,7 @@
 
 @layer components {
     .link {
-        @apply font-medium text-neutral-500 underline  decoration-1 hover:decoration-2 hover:text-neutral-800 active:text-neutral-900
+        @apply font-medium text-neutral-500 underline underline-offset-[0.1em] decoration-1 hover:decoration-2 hover:text-neutral-800 active:text-neutral-900
     }
 }
 
