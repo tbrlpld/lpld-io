@@ -2,52 +2,50 @@
 {% load slippers static wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-    <section class="mt-44">
-{# CENTER VERTICAL   #}
-{#        <div class="flex flex-col justify-between items-center">#}
-{#            {% include "atoms/profile-image/profile-image.html" with image=page.profile_image %}#}
-{##}
-{#            <div class="mt-4"></div>#}
-{#            <hgroup class="text-center">#}
-{#                <h1>{{ page.title }}</h1>#}
-{#                <p><strong>{{ page.subtitle }}</strong></p>#}
-{#            </hgroup>#}
-{#        </div>#}
+    <div class="mx-auto max-w-xl my-44">
+        <section>
+            {# CENTER VERTICAL   #}
+            {#        <div class="flex flex-col justify-between items-center">#}
+            {#            {% include "atoms/profile-image/profile-image.html" with image=page.profile_image %}#}
+            {##}
+            {#            <div class="mt-4"></div>#}
+            {#            <hgroup class="text-center">#}
+            {#                <h1>{{ page.title }}</h1>#}
+            {#                <p><strong>{{ page.subtitle }}</strong></p>#}
+            {#            </hgroup>#}
+            {#        </div>#}
 
-{#  LEFT ALIGNED      #}
-        <div class="flex items-center">
-            <div class="mr-4 flex-shrink-0">
-                {% include "atoms/profile-image/profile-image.html" with image=page.profile_image %}
+            {#  LEFT ALIGNED      #}
+            <div class="flex items-center">
+                <div class="mr-4 flex-shrink-0">
+                    {% include "atoms/profile-image/profile-image.html" with image=page.profile_image %}
+                </div>
+                <hgroup class="">
+                    <h1>{{ page.title }}</h1>
+                    <p class="text-neutral-600"><strong>{{ page.subtitle }}</strong></p>
+                </hgroup>
             </div>
-            <hgroup class="">
-                <h1>{{ page.title }}</h1>
-                <p class="text-neutral-600"><strong>{{ page.subtitle }}</strong></p>
-            </hgroup>
-        </div>
 
+            <div class="mt-16">
+                {% #prose %}
+                    {{ page.introduction|richtext }}
+                {% /prose %}
+            </div>
+        </section>
 
-        <div class="
-                    max-w-sm md:max-w-md lg:max-w-lg
-                    mt-12 lg:mt-16
-                   ">
-            {% #prose %}
-                {{ page.introduction|richtext }}
-            {% /prose %}
-        </div>
-    </section>
-    <div>
         <section class="mt-16">
             <h2 class="mb-4 font-bold text-neutral-600">Currently</h2>
             {% #prose %}
-                <p>
-                    At the moment, I am working with <a href="https://torchbox.com/">Torchbox</a> for clients like <a href="https://interactive.wharton.upenn.edu/">Wharton Business School</a>, <a href="https://foundation.mozilla.org/en/">Mozilla Foundation</a> and the
-                    <a href="https://training.nih.gov">National Institutes of Health</a>.
-                </p>
-                <p>
-                    Additionally, I am working on <a href="https://github.com/tbrlpld/laces">Laces</a>, a Django package that aims to simplify the handling of templates and data by bundling them in renderable components.
-                </p>
+            <p>
+                At the moment, I am working with <a href="https://torchbox.com/">Torchbox</a> for clients like <a href="https://interactive.wharton.upenn.edu/">Wharton Business School</a>, <a href="https://foundation.mozilla.org/en/">Mozilla Foundation</a> and the
+                <a href="https://training.nih.gov">National Institutes of Health</a>.
+            </p>
+            <p>
+                Additionally, I am working on <a href="https://github.com/tbrlpld/laces">Laces</a>, a Django package that aims to simplify the handling of templates and data by bundling them in renderable components.
+            </p>
             {% /prose %}
         </section>
+
         <section class="mt-16">
             <h2 class="mb-4 font-bold text-neutral-600">Writings</h2>
             <ul class="flex flex-col gap-3">
@@ -56,6 +54,7 @@
                 <li><a href="https://example.com" class="link block">Another 100 days of code</a></li>
             </ul>
         </section>
+
         {% for block in page.body %}
             {% include_block block %}
         {% endfor %}
