@@ -6,7 +6,7 @@ authors = ["Tibor Leupold <tibor@lpld.io>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-boto3 = "^1.28.40"
+boto3 = "^1.34.137"
 dj-database-url = "~2.1.0"
 django = "~4.1"
 django-basic-auth-ip-whitelist = "~0.5"
