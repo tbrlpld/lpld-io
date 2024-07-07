@@ -15,6 +15,11 @@ class HomePage(core_models.BasePage):
     max_count = 1
     template = "pages/home/home.html"
 
+    subtitle = models.CharField(
+        max_length=50,
+        blank=True,
+        null=False,
+    )
     introduction = fields.RichTextField(features=["link"], null=True, blank=True)
     profile_image = models.ForeignKey(
         wagtail_images.get_image_model_string(),
@@ -33,6 +38,7 @@ class HomePage(core_models.BasePage):
 
 
     content_panels = core_models.BasePage.content_panels + [
+        panels.FieldPanel("subtitle"),
         panels.FieldPanel("introduction"),
         panels.FieldPanel("profile_image"),
         panels.FieldPanel("body"),
