@@ -4,7 +4,9 @@
         {% include_block value.heading %}
     </div>
 
-    {% for block in value.body %}
-        {% include_block block %}
-    {% endfor %}
+    <div class="flex flex-col gap-4">
+        {% for block in value.body %}
+            {% include_block block %}
+        {% endfor %}
+    </div>
 </section>
