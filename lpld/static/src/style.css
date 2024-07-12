@@ -8,6 +8,14 @@
     .link {
         @apply font-medium text-neutral-500 underline underline-offset-[0.1em] decoration-1 hover:decoration-2 hover:text-neutral-800 active:text-neutral-900
     }
+
+    .heading {
+        @apply font-bold text-neutral-600 tracking-tight
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply heading
+    }
 }
 
 .prose .anchor-link {
@@ -15,7 +23,7 @@
     Anchor links (in headings) in prose blocks should not get the prose link style, but keep the heading style.
     This needs to be defined outside of a layer so it does not get tree-shaken, because the class is only used in the Markdown config.
     */
+    @apply font-bold;
     color: inherit;
     text-decoration: inherit;
-    font-weight: inherit;
 }
