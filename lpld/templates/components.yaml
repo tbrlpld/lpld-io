@@ -8,4 +8,5 @@ components:
   # Organisms
   heading_with_intro: "organisms/heading-with-intro/heading-with-intro.html"
   prose: "organisms/prose/prose.html"
+  content_centered: "organisms/layout/content-centered.html"
 

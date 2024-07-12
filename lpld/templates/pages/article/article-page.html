@@ -6,9 +6,7 @@
 {% endblock extra_html_class %}
 
 {% block content %}
-    <article>
-        <div class="h-44 max-h-[30dvh]">{# Spacer #}</div>
-
+    {% #content_centered %}
         {% heading_with_intro heading=page.title introduction=page.introduction|richtext %}
 
         {% for block in page.body %}
@@ -16,7 +14,5 @@
                 {% include_block block %}
             </section>
         {% endfor %}
-
-        <div class="h-32 sm:h-44 max-h-[30dvh]">{# Spacer #}</div>
-    </article>
+    {% /content_centered %}
 {% endblock content %}

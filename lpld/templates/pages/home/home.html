@@ -2,9 +2,7 @@
 {% load slippers static wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-    <div class="mx-auto max-w-xl">
-        <div class="h-44 max-h-[30dvh]">{# Spacer #}</div>
-
+    {% #content_centered %}
         <section>
             <div class="flex items-center">
                 {% if page.profile_image %}
@@ -50,7 +48,5 @@
         {% for block in page.body %}
             {% include_block block %}
         {% endfor %}
-
-        <div class="h-32 sm:h-44 max-h-[30dvh]">{# Spacer #}</div>
-    </div>
+    {% /content_centered %}
 {% endblock content  %}
