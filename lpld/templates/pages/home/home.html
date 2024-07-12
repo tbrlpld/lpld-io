@@ -25,19 +25,21 @@
 
         <section class="mt-16">
             <h2 class="mb-4">Currently</h2>
+
             {% #prose %}
-            <p>
-                At the moment, I am working with <a href="https://torchbox.com/">Torchbox</a> for clients like <a href="https://interactive.wharton.upenn.edu/">Wharton Business School</a>, <a href="https://foundation.mozilla.org/en/">Mozilla Foundation</a> and the
-                <a href="https://training.nih.gov">National Institutes of Health</a>.
-            </p>
-            <p>
-                Additionally, I am working on <a href="https://github.com/tbrlpld/laces">Laces</a>, a Django package that aims to simplify the handling of templates and data by bundling them in renderable components.
-            </p>
+                <p>
+                    At the moment, I am working with <a href="https://torchbox.com/">Torchbox</a> for clients like <a href="https://interactive.wharton.upenn.edu/">Wharton Business School</a>, <a href="https://foundation.mozilla.org/en/">Mozilla Foundation</a> and the
+                    <a href="https://training.nih.gov">National Institutes of Health</a>.
+                </p>
+                <p>
+                    Additionally, I am working on <a href="https://github.com/tbrlpld/laces">Laces</a>, a Django package that aims to simplify the handling of templates and data by bundling them in renderable components.
+                </p>
             {% /prose %}
         </section>
 
         <section class="mt-16">
             <h2 class="mb-4">Writings</h2>
+
             <ul class="flex flex-col gap-3">
                 <li><a href="https://example.com" class="link block">How to depend on abstractions rather than implementations</a></li>
                 <li><a href="https://example.com" class="link block">Django, Docker and frontend assets</a></li>
@@ -46,7 +48,9 @@
         </section>
 
         {% for block in page.body %}
-            {% include_block block %}
+            <div class="mt-16">
+                {% include_block block %}
+            </div>
         {% endfor %}
     {% /content_centered %}
 {% endblock content  %}

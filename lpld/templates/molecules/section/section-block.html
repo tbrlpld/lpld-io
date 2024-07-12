@@ -1,6 +1,8 @@
 {% load wagtailcore_tags wagtailadmin_tags %}
 <section>
-    {% include_block value.heading %}
+    <div class="mb-4">
+        {% include_block value.heading %}
+    </div>
 
     {% for block in value.body %}
         {% include_block block %}

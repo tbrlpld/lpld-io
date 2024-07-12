@@ -96,12 +96,24 @@ class LinkBlock(LinkStream):
         return bound_block.block.get_context(bound_block.value)
 
 
+class SimpleProseRichtext(blocks.RichTextBlock):
+    def __init__(self, *args, **kwargs):
+        if "features" not in kwargs:
+            kwargs["features"] = ["link", "bold", "italics"]
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        template = "organisms/prose/prose-richtext.html"
+
+    def get_context(self, value, parent_context=None) -> dict[str, str]:
+        return {"richtext_value": value}
+
 
 class SectionBlock(blocks.StructBlock):
     heading = HeadingBlock()
     body = blocks.StreamBlock(
         local_blocks=[
-            ("paragraph", blocks.RichTextBlock(features=["link", "bold", "italics"])),
+            ("paragraph", SimpleProseRichtext()),
             ("link_list", LinkStream())
         ],
         min_rum=1,
