@@ -10,4 +10,5 @@ components:
   prose: "organisms/prose/prose.html"
   content_centered: "organisms/layout/content-centered.html"
   content_full: "organisms/layout/content-full.html"
+  content_vertical_spacing: "organisms/layout/content-vertical-spacing.html"
 

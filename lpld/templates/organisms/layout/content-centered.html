@@ -1,7 +1,8 @@
+{% load slippers %}
 <div class="mx-auto max-w-xl">
-    <div class="h-36 max-h-[30dvh]">{# Spacer #}</div>
+    {% #content_vertical_spacing %}
 
     {{ children }}
 
-    <div class="h-36 sm:h-48  max-h-[30dvh]">{# Spacer #}</div>
+    {% /content_vertical_spacing %}
 </div>
