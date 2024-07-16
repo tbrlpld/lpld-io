@@ -44,6 +44,9 @@ class HomePage(core_models.BasePage):
         panels.FieldPanel("body"),
     ]
 
+    def get_title_tag_parts(self) -> list[str]:
+        return [self.title, self.subtitle, self.get_title_tag_last_part()]
+
     def get_meta_description(self):
         return self.search_description or self.get_introduction_without_tags() or ""
 
