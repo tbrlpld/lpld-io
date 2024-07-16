@@ -2,72 +2,74 @@
 {% load l10n wagtailcore_tags wagtailimages_tags slippers %}
 
 {% block content %}
-    <section class="pt-32 xl:pt-48">
-        {% heading_with_intro heading=page.title introduction=page.introduction %}
+    {% #content_full %}
+        <section>
+            {% heading_with_intro heading=page.title introduction=page.introduction %}
 
-        <div class="flex flex-col lg:flex-row pt-4 lg:pt-8 xl:pt-12">
-            {% if page.video or page.image %}
-                <div class="flex items-start justify-center  lg:pr-8 px-2 py-3 shrink-0">
-                    {% if page.video %}
-                        <video
-                            src="{{ page.video.url }}"
-                            width="{{ page.video.width | unlocalize }}"
-                            height="{{ page.video.height | unlocalize }}"
-                            class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md shadow-md lg:shadow-lg {% endif %}"
-                            autoplay
-                            loop
-                            controlslist="nodownload nofullscreen noremoteplayback"
-                            onclick="if (this.paused) {this.play()} else {this.pause()}"
-                        >Animation of {{ page.title }}</video>
-                    {% elif page.image %}
-                        <picture>
-                            {% image page.image width-384 as project_image_fallback %}
-                            {% image_url page.image "width-384|format-webp" as project_image_384 %}
-                            {% image_url page.image "width-768|format-webp" as project_image_768 %}
-                            <source srcset="{{ project_image_384 }}, {{ project_image_768 }} 2x" type="image/webp">
-                            <img
-                                src="{{ project_image_fallback.url }}"
-                                alt="Screenshot of {{ page.title }}"
+            <div class="flex flex-col lg:flex-row pt-4 lg:pt-8 xl:pt-12">
+                {% if page.video or page.image %}
+                    <div class="flex items-start justify-center  lg:pr-8 px-2 py-3 shrink-0">
+                        {% if page.video %}
+                            <video
+                                src="{{ page.video.url }}"
+                                width="{{ page.video.width | unlocalize }}"
+                                height="{{ page.video.height | unlocalize }}"
                                 class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md shadow-md lg:shadow-lg {% endif %}"
-                                loading="eager"
-                                width="{{ project_image_fallback.width }}"
-                                height="{{ project_image_fallback.height }}"
-                            />
-                        </picture>
-                    {% endif %}
-                </div>
-            {% endif %}
-
-            <div>
-                <div class="flex flex-row flex-wrap gap-4 items-center justify-center lg:justify-start pt-8 lg:pt-12 xl:pt-16 ">
-                    {% with button_classes="lg:font-bold lg:p-5 w-36 lg:w-48" %}
-                        {% if page.repo_url %}
-                            <div>
-                                {% #button_link href=page.repo_url extra_class=button_classes %}See the code{% /button_link %}
-                            </div>
+                                autoplay
+                                loop
+                                controlslist="nodownload nofullscreen noremoteplayback"
+                                onclick="if (this.paused) {this.play()} else {this.pause()}"
+                            >Animation of {{ page.title }}</video>
+                        {% elif page.image %}
+                            <picture>
+                                {% image page.image width-384 as project_image_fallback %}
+                                {% image_url page.image "width-384|format-webp" as project_image_384 %}
+                                {% image_url page.image "width-768|format-webp" as project_image_768 %}
+                                <source srcset="{{ project_image_384 }}, {{ project_image_768 }} 2x" type="image/webp">
+                                <img
+                                    src="{{ project_image_fallback.url }}"
+                                    alt="Screenshot of {{ page.title }}"
+                                    class="w-96 {% if page.image_shadow %} rounded-sm sm:rounded-md shadow-md lg:shadow-lg {% endif %}"
+                                    loading="eager"
+                                    width="{{ project_image_fallback.width }}"
+                                    height="{{ project_image_fallback.height }}"
+                                />
+                            </picture>
                         {% endif %}
-                        {% if page.demo_url %}
-                            <div>
-                                {% #button_link href=page.demo_url extra_class=button_classes %}See it live{% /button_link %}
-                            </div>
-                        {% endif %}
-                    {% endwith %}
-                </div>
+                    </div>
+                {% endif %}
 
-                <div class="pt-12 flex flex-row justify-center">
-                    {% #prose extra_class="text-neutral-500" %}
-                    {{ page.description|richtext }}
-                    {% /prose %}
+                <div>
+                    <div class="flex flex-row flex-wrap gap-4 items-center justify-center lg:justify-start pt-8 lg:pt-12 xl:pt-16 ">
+                        {% with button_classes="lg:font-bold lg:p-5 w-36 lg:w-48" %}
+                            {% if page.repo_url %}
+                                <div>
+                                    {% #button_link href=page.repo_url extra_class=button_classes %}See the code{% /button_link %}
+                                </div>
+                            {% endif %}
+                            {% if page.demo_url %}
+                                <div>
+                                    {% #button_link href=page.demo_url extra_class=button_classes %}See it live{% /button_link %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+
+                    <div class="pt-12 flex flex-row justify-center">
+                        {% #prose extra_class="text-neutral-500" %}
+                        {{ page.description|richtext }}
+                        {% /prose %}
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="h-16 xl:h-24"></div>
+            <div class="h-16 xl:h-24"></div>
 
-        <div class="flex flex-wrap gap-2">
-            {% for tech in page.related_technologies.all %}
-                {% pill label=tech.technology.name %}
-            {% endfor %}
-        </div>
-    </section>
+            <div class="flex flex-wrap gap-2">
+                {% for tech in page.related_technologies.all %}
+                    {% pill label=tech.technology.name %}
+                {% endfor %}
+            </div>
+        </section>
+    {% /content_full %}
 {% endblock content %}
