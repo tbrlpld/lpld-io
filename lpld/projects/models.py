@@ -11,7 +11,7 @@ from lpld.core import models as core_models
 
 
 class ProjectPage(core_models.BasePage):
-    parent_page_types = ["home.HomePage"]
+    parent_page_types = ["home.HomePage", "index.IndexPage"]
     template = "pages/project-page/project-page.html"
 
     image = models.ForeignKey(
