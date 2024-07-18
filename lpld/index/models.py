@@ -18,8 +18,8 @@ class IndexPage(core_models.BasePage):
         for child in self.get_children().live().public():
             index_entries.append(
                 {
-                    "title": child.title,
-                    "url": child.get_url(),
+                    "text": child.title,
+                    "href": child.get_url(),
                 }
             )
         return tuple(index_entries)

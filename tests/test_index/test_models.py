@@ -31,8 +31,8 @@ class TestIndexPage:
         assert page.get_index_entries() == tuple(
             [
                 {
-                    "title": child_page.title,
-                    "url": child_page.get_url(),
+                    "text": child_page.title,
+                    "href": child_page.get_url(),
                 },
             ]
         )
@@ -47,8 +47,8 @@ class TestIndexPage:
         assert entries == tuple(
             [
                 {
-                    "title": published_post.title,
-                    "url": published_post.get_url(),
+                    "text": published_post.title,
+                    "href": published_post.get_url(),
                 },
             ]
         )
@@ -67,8 +67,8 @@ class TestIndexPage:
         assert entries == tuple(
             [
                 {
-                    "title": public_post.title,
-                    "url": public_post.get_url(),
+                    "text": public_post.title,
+                    "href": public_post.get_url(),
                 },
             ]
         )
