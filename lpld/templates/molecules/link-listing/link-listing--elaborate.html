@@ -1,0 +1,7 @@
+<ul class="divide-y divide-neutral-200">
+    {% for link in links %}
+        <li class="py-5">
+            {% include "atoms/chevron-link/chevron-link.html" with text=link.text href=link.href extra_class="block" %}
+        </li>
+    {% endfor %}
+</ul>
