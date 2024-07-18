@@ -15,7 +15,7 @@ class IndexPage(core_models.BasePage):
 
     def get_index_entries(self) -> tuple[dict[str, Any], ...]:
         index_entries = []
-        for child in self.get_children().live().public():
+        for child in self.get_children().live().public().order_by("title"):
             index_entries.append(
                 {
                     "text": child.title,
