@@ -32,7 +32,7 @@ ENV PATH=${POETRY_HOME}/bin:$PATH \
 RUN env
 
 # Install litestream (https://litestream.io/install/debian/)
-ARG PLATFORM=amd64
+ARG PLATFORM=uname -m
 RUN wget https://github.com/benbjohnson/litestream/releases/download/v0.3.9/litestream-v0.3.9-linux-$PLATFORM.deb
 RUN dpkg -i litestream-v0.3.9-linux-$PLATFORM.deb
 
