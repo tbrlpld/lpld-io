@@ -1,5 +1,6 @@
 from wagtail import blocks
 from wagtail.admin import panels
+from wagtail.templatetags import wagtailcore_tags
 
 
 class HeadingBlock(blocks.StructBlock):
@@ -103,10 +104,10 @@ class SimpleProseRichtext(blocks.RichTextBlock):
         super().__init__(*args, **kwargs)
 
     class Meta:
-        template = "organisms/prose/prose-richtext.html"
+        template = "organisms/prose/prose.html"
 
     def get_context(self, value, parent_context=None) -> dict[str, str]:
-        return {"richtext_value": value}
+        return {"children": wagtailcore_tags.richtext(value)}
 
 
 class SectionBlock(blocks.StructBlock):
