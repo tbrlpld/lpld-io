@@ -16,6 +16,7 @@ module.exports = {
         sans: [
           [
             'InterVariable',
+            'Inter',
             'Helvetica',
             'Helvetica Neue',
             'Arial',
