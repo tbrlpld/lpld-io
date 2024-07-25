@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
     :root {
-        font-family: "Inter", sans-serif;
+        @apply font-sans;
     }
     @supports (font-variation-settings: normal) {
         :root {
-            font-family: "InterVariable", sans-serif;
+            @apply font-sans-var;
             font-optical-sizing: auto;
         }
     }

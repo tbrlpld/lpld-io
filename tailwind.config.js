@@ -13,14 +13,26 @@ module.exports = {
         ...defaultTheme.screens
       },
       fontFamily: {
-        sans: [
+        'sans-var': [
           [
             'InterVariable',
+            'Helvetica',
+            'Helvetica Neue',
+            'Arial',
+            ...defaultTheme.fontFamily.sans,
+          ],
+          {
+            fontFeatureSettings: '"cv11", "ss01"',
+            fontVariationSettings: '"opsz" 32'
+          },
+        ],
+        sans: [
+          [
             'Inter',
             'Helvetica',
             'Helvetica Neue',
             'Arial',
-            ...defaultTheme.fontFamily.sans
+            ...defaultTheme.fontFamily.sans,
           ],
           {
             fontFeatureSettings: '"cv11", "ss01"',
