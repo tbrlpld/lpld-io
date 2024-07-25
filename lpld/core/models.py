@@ -39,10 +39,6 @@ class BasePage(wagtail_models.Page):
     def get_meta_description(self):
         return self.search_description or ""
 
-    def get_context(self, request):
-        context = super().get_context(request)
-        return context
-
 
 class AbstractLink(models.Model):
     page = models.ForeignKey(
