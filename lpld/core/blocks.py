@@ -15,7 +15,6 @@ class HeadingBlock(blocks.StructBlock):
     def get_context(self, value, parent_context=None):
         return {
             "level": 2,
-            "size": "md",
             "children": value.get("text"),
         }
 
@@ -32,7 +31,6 @@ class SubheadingBlock(blocks.StructBlock):
     def get_context(self, value, parent_context=None):
         return {
             "level": 3,
-            "size": "sm",
             "children": value.get("text"),
         }
 
