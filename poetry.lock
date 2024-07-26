@@ -604,13 +604,13 @@ tornado = ["tornado (>=0.2)"]
 
 [[package]]
 name = "heroicons"
-version = "1.8.0"
+version = "2.6.0"
 description = "Use heroicons in your Django and Jinja templates."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "heroicons-1.8.0-py3-none-any.whl", hash = "sha256:69a7111bf7890de392f5af8aac29fa6f163e2d246e1bf03cbd2b1bed5e4ed1e2"},
-    {file = "heroicons-1.8.0.tar.gz", hash = "sha256:14745dde459390d6690e0927aa9c68f70b24b31eab026b10313ebf500df88a21"},
+    {file = "heroicons-2.6.0-py3-none-any.whl", hash = "sha256:17a2b5c726768f3caacd2b6d5006d9047ba4690ed1f396d2f71617eea3efda81"},
+    {file = "heroicons-2.6.0.tar.gz", hash = "sha256:fd2408c7fa058b35eb1f821aab485ecd0261d7f5ec6544f1dddcb7cb591427bd"},
 ]
 
 [package.dependencies]
@@ -1493,4 +1493,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "black (==22.3.0)", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "5301be2061ce87030c584170e6befdddc198eedf77e5290867ca138192e8b899"
+content-hash = "8b613d1c428e16761141853c255e946e56ec047e4c66a9e56b50f84dd752489a"

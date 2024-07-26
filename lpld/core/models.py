@@ -4,8 +4,6 @@ from django.utils import functional as func_utils
 from wagtail import models as wagtail_models
 from wagtail.admin import panels
 
-from lpld.navigation import utils as nav_utils
-
 
 class BasePage(wagtail_models.Page):
     class Meta(wagtail_models.Page.Meta):
@@ -15,10 +13,22 @@ class BasePage(wagtail_models.Page):
     def title_tag_content(self):
         return self.get_title_tag_content()
 
-    def get_title_tag_content(self):
-        title_text = self.seo_title or self.title
-        title_text = f"{ title_text } · lpld.io"
-        return title_text
+    def get_title_tag_content(self) -> str:
+        parts = self.get_title_tag_parts()
+        sep = self.get_title_separator()
+        return sep.join(parts)
+
+    def get_title_tag_parts(self) -> list[str]:
+        title = self.seo_title or self.title
+        last = self.get_title_tag_last_part()
+        return [title, last]
+
+    def get_title_tag_last_part(self) -> str:
+        """Return the last part for the title tag."""
+        return "lpld.io"
+
+    def get_title_separator(self) -> str:
+        return " · "
 
     @func_utils.cached_property
     def meta_description(self):
@@ -26,13 +36,6 @@ class BasePage(wagtail_models.Page):
 
     def get_meta_description(self):
         return self.search_description or ""
-
-    def get_context(self, request):
-        context = super().get_context(request)
-        context["primary_navigation_links"] = nav_utils.get_primary_navigation_links(
-            request
-        )
-        return context
 
 
 class AbstractLink(models.Model):

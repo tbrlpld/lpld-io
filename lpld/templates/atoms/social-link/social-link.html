@@ -1,4 +1,25 @@
-{% load static %}
-<a class="block border-0 fill-neutral-800 hover:fill-neutral-700 active:fill-neutral-900 h-12" href="{{ href }}"  rel="noreferrer noopener" aria-label="{{ alt }}">
-    {% include icon %}
+{% load static heroicons %}
+<a
+    class="
+        flex
+        justify-center
+        items-center
+        border-0 border-b-2
+        border-transparent hover:border-neutral-600 active:border-neutral-900
+        fill-neutral-300 hover:fill-neutral-600 active:fill-neutral-900
+        text-neutral-300 hover:text-neutral-600 active:text-neutral-900
+        h-12
+        w-12
+        p-3
+    "
+    href="{{ href }}"
+    rel="noreferrer noopener"
+    aria-label="{{ alt }}"
+>
+    {% if icon %}
+        {% include icon %}
+    {% endif %}
+    {% if heroicon %}
+        {% heroicon_solid heroicon size=42 %}
+    {% endif %}
 </a>
