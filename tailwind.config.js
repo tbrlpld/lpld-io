@@ -19,12 +19,12 @@ module.exports = {
             'Helvetica',
             'Helvetica Neue',
             'Arial',
-            ...defaultTheme.fontFamily.sans,
+            ...defaultTheme.fontFamily.sans
           ],
           {
             fontFeatureSettings: '"cv11", "ss01"',
             fontVariationSettings: '"opsz" 32'
-          },
+          }
         ],
         sans: [
           [
@@ -32,12 +32,12 @@ module.exports = {
             'Helvetica',
             'Helvetica Neue',
             'Arial',
-            ...defaultTheme.fontFamily.sans,
+            ...defaultTheme.fontFamily.sans
           ],
           {
             fontFeatureSettings: '"cv11", "ss01"',
             fontVariationSettings: '"opsz" 32'
-          },
+          }
         ]
       },
       textDecorationThickness: {
