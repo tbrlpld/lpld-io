@@ -4,8 +4,6 @@ from django.utils import functional as func_utils
 from wagtail import models as wagtail_models
 from wagtail.admin import panels
 
-from lpld.navigation import utils as nav_utils
-
 
 class BasePage(wagtail_models.Page):
     class Meta(wagtail_models.Page.Meta):

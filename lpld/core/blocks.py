@@ -41,7 +41,7 @@ class PageLinkBlock(blocks.StructBlock):
     page = blocks.PageChooserBlock(required=True)
     text = blocks.CharBlock(
         required=False,
-        help_text = "Text for the link. Defaults to page title.",
+        help_text="Text for the link. Defaults to page title.",
     )
 
     class Meta:
@@ -64,6 +64,7 @@ class LinkStream(blocks.StreamBlock):
     Each item should return context objects containing the keys `"text"` and `"href"`
     from their `get_context` method.
     """
+
     page_link = PageLinkBlock()
 
     class Meta:
@@ -72,10 +73,7 @@ class LinkStream(blocks.StreamBlock):
         min_num = 1
 
     def get_context(self, value, parent_context=None):
-        links = [
-            bb.block.get_context(bb.value)
-            for bb in value
-        ]
+        links = [bb.block.get_context(bb.value) for bb in value]
         return {"links": links}
 
 
@@ -115,7 +113,7 @@ class SectionBlock(blocks.StructBlock):
     body = blocks.StreamBlock(
         local_blocks=[
             ("paragraph", SimpleProseRichtext()),
-            ("link_list", LinkStream())
+            ("link_list", LinkStream()),
         ],
         min_rum=1,
         required=False,

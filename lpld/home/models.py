@@ -5,8 +5,8 @@ from wagtail import fields
 from wagtail import images as wagtail_images
 from wagtail.admin import panels
 
-from lpld.core import models as core_models
 from lpld.core import blocks as core_blocks
+from lpld.core import models as core_models
 
 
 class HomePage(core_models.BasePage):
@@ -35,7 +35,6 @@ class HomePage(core_models.BasePage):
         blank=True,
         use_json_field=True,
     )
-
 
     content_panels = core_models.BasePage.content_panels + [
         panels.FieldPanel("subtitle"),
