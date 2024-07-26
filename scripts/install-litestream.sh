@@ -8,6 +8,8 @@ platform=$(arch)
 if [[ $platform == "aarch64" ]]; then
     # Inside of docker on M1 that architecture comes out as aarch64 while locally is arm64
     platform="arm64"
+elif [[ $platform == "x86_64" ]]; then
+    platform="amd64"
 fi
 package="litestream-$version-linux-$platform.deb"
 echo "Installing Litestream..."
