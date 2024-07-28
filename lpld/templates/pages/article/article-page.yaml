@@ -1,6 +1,6 @@
 context:
   page:
-    title: 'My long article post title that wraps'
+    title: 'My long article post title that is really really long'
     introduction: |
       This is the introduction to this amazing post.
       It is so amazing that it needs to be on two lines.
@@ -10,6 +10,9 @@ context:
       - block_type: "markdown"
 
 tags:
+  primary_navigation:
+    "":
+      raw: ""
   include_block:
     "block":
       template_name: "organisms/prose/prose-markdown.html"

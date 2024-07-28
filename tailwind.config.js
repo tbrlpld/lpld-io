@@ -13,11 +13,31 @@ module.exports = {
         ...defaultTheme.screens
       },
       fontFamily: {
+        'sans-var': [
+          [
+            'InterVariable',
+            'Helvetica',
+            'Helvetica Neue',
+            'Arial',
+            ...defaultTheme.fontFamily.sans
+          ],
+          {
+            fontFeatureSettings: '"cv11", "ss01"',
+            fontVariationSettings: '"opsz" 32'
+          }
+        ],
         sans: [
-          'Helvetica',
-          'Helvetica Neue',
-          'Arial',
-          ...defaultTheme.fontFamily.sans
+          [
+            'Inter',
+            'Helvetica',
+            'Helvetica Neue',
+            'Arial',
+            ...defaultTheme.fontFamily.sans
+          ],
+          {
+            fontFeatureSettings: '"cv11", "ss01"',
+            fontVariationSettings: '"opsz" 32'
+          }
         ]
       },
       textDecorationThickness: {
@@ -32,6 +52,7 @@ module.exports = {
         'neutral-500': {
           css: {
             '--tw-prose-body': theme('colors.neutral.500'),
+            '--tw-prose-headings': theme('colors.neutral.600'),
             ...theme('css')
           }
         }

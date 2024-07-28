@@ -134,11 +134,11 @@ Once your app is working, and you have TLS in place, you also configure:
 
 This project is using SQLite as it's database -- even in production 😱.
 Using SQLite is often discouraged to be used in production.
-Those concerns a usually based on the abilitiy to handle multiple writes and how to backup the database.
+Those concerns a usually based on the ability to handle multiple writes and how to backup the database.
 For container deployments on a platform as a service (such as Heroku) there is also the problem of persisting the database between container restarts.
 
 The write ability is not really an issue for this application.
-Since this app is mainly a content site with few editors working simulaneously (if ever) it is much more read-heavy than write-heavy.
+Since this app is mainly a content site with few editors working simultaneously (if ever), it is much more read-heavy than write-heavy.
 Reads are easy for SQLite to handle.
 
 The persistence problem does apply to this app though.

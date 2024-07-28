@@ -3,9 +3,12 @@ components:
   button_link: "atoms/button-link/button-link.html"
   heading: "atoms/heading/heading.html"
   social_link: "atoms/social-link/social-link.html"
-  tech_pill: "atoms/tech-pill/tech-pill.html"
+  pill: "atoms/pill/pill.html"
   # Molecules
   # Organisms
   heading_with_intro: "organisms/heading-with-intro/heading-with-intro.html"
   prose: "organisms/prose/prose.html"
+  content_centered: "organisms/layout/content-centered.html"
+  content_full: "organisms/layout/content-full.html"
+  content_vertical_spacing: "organisms/layout/content-vertical-spacing.html"
 

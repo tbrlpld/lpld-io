@@ -6,12 +6,13 @@
         antialiased
         bg-neutral-50
         text-neutral-500
+        font-[450]
         {% block extra_html_class %}{% endblock extra_html_class %}
     "
 >
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width; initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% sentry_meta %}
         {% if page.meta_description %}
             <meta name="description" content="{{ page.meta_description }}">
@@ -20,7 +21,8 @@
         <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
         <link rel="icon" type="image/png" href="{% static 'favicon/favicon.png' %}">
-        <script src="{% static "main.js" %}" async defer></script>
+        <link rel="stylesheet" href="{% static 'fonts/inter/inter.css' %}">
+        <script src="{% static 'main.js' %}" async defer></script>
         {% if plausible_settings.PLAUSIBLE_DOMAIN %}
             {% plausible domain=plausible_settings.PLAUSIBLE_DOMAIN script="script.js" %}
         {% endif %}

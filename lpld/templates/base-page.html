@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block body %}
-    <div class="w-full max-w-screen-lg mx-auto px-4 sm:px-8 md:px-12">
+    <div class="flex flex-col min-h-screen w-full max-w-screen-lg mx-auto px-8 pt-8">
         {% block header %}
             {% include "organisms/header/header.html" with links=primary_navigation_links %}
         {% endblock header %}
@@ -10,11 +10,13 @@
             {% block content %}
             {% endblock content %}
         </main>
-        {% block contact %}
-            {% include "organisms/contact/contact.html" with id="contact" class="mt-16 pt-24 md:pt-44 pb-44" %}
-        {% endblock contact %}
+        {% block footer  %}
+            <div class="grow"></div>
+            <div>
+                <hr class="mb-20 border-neutral-200">
+                {% include "organisms/contact/contact.html" with id="contact" class="my-20" %}
+                {% include "organisms/footer/footer.html" with extra_class="mb-10" %}
+            </div>
+        {% endblock footer %}
     </div>
-    {% block footer  %}
-        {% include "organisms/footer/footer.html" %}
-    {% endblock footer %}
 {% endblock body %}

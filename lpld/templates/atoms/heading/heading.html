@@ -1,19 +1,11 @@
 {% load slippers %}
 {% var level=level|default:"1" %}
-{% var size=size|default:"lg" %}
 {% spaceless %}
     <h{{ level }}
        class="
               font-bold
-              {% if size == 'lg' %}
-                  heading-lg
-              {% elif size == 'md' %}
-                  heading-md
-              {% elif size == 'sm' %}
-                  heading-sm
-              {% elif size == 'xs' %}
-                  heading-xs
-              {% endif %}
+              text-neutral-600
+              tracking-tight
               {{ extra_class }}
              "
     >

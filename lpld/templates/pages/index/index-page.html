@@ -1,14 +1,16 @@
 {% extends "base-page.html" %}
-{% load slippers %}
+{% load slippers wagtailcore_tags %}
 
 {% block content %}
-    <section class="pt-32 xl:pt-48">
-        {% #heading level="1" size="lg" extra_class="max-w-lg xl:max-w-3xl" %}{{ page.title }}{% /heading %}
+    {% #content_centered %}
+        <section>
+            {% heading_with_intro heading=page.title introduction=page.introduction|richtext %}
 
-        {% if index_entries %}
-            <div class="mt-20 md:mt-32 max-w-xl">
-                {% include "molecules/link-listing/link-listing.html" with links=index_entries %}
-            </div>
-        {% endif %}
-    </section>
+            {% if index_entries %}
+                <div class="mt-16">
+                    {% include "molecules/link-listing/link-listing--elaborate.html" with links=index_entries %}
+                </div>
+            {% endif %}
+        </section>
+    {% /content_centered %}
 {% endblock %}

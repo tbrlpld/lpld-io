@@ -3,8 +3,6 @@ services:
     build:
       context: .
       target: backend-development
-      args:
-        - PLATFORM=arm64
     command: ["tail", "-f", "/dev/null"]
     env_file:
       - .env

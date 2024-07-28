@@ -32,7 +32,7 @@ urlpatterns = [
         serve.ServeView.as_view(action="redirect"),
         name="wagtailimages_serve",
     ),
-    urls.path("lpld-admin/", urls.include(wagtail_admin_urls)),
+    urls.path("admin/", urls.include(wagtail_admin_urls)),
     urls.path("robots.txt", core_views.RobotsView.as_view()),
     urls.path("sitemap.xml", sitemap_views.sitemap),
 ]

@@ -31,10 +31,9 @@ ENV PATH=${POETRY_HOME}/bin:$PATH \
     PORT=8000
 RUN env
 
-# Install litestream (https://litestream.io/install/debian/)
-ARG PLATFORM=amd64
-RUN wget https://github.com/benbjohnson/litestream/releases/download/v0.3.9/litestream-v0.3.9-linux-$PLATFORM.deb
-RUN dpkg -i litestream-v0.3.9-linux-$PLATFORM.deb
+# Install litestream
+COPY ./scripts/install-litestream.sh ./scripts/
+RUN ./scripts/install-litestream.sh
 
 # Install poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -

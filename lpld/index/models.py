@@ -1,12 +1,21 @@
 from typing import Any
 
+from wagtail import fields as wagtail_fields
+from wagtail.admin import panels
+
 from lpld.core import models as core_models
 
 
 class IndexPage(core_models.BasePage):
     template = "pages/index/index-page.html"
     parent_page_types = ["home.HomePage"]
-    subpage_types = ["articles.ArticlePage"]
+    subpage_types = ["articles.ArticlePage", "projects.ProjectPage"]
+
+    introduction = wagtail_fields.RichTextField(max_length=500, null=False, blank=True)
+
+    content_panels = tuple(core_models.BasePage.content_panels) + (
+        panels.FieldPanel("introduction"),
+    )
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
@@ -18,8 +27,8 @@ class IndexPage(core_models.BasePage):
         for child in self.get_children().live().public():
             index_entries.append(
                 {
-                    "title": child.title,
-                    "url": child.get_url(),
+                    "text": child.title,
+                    "href": child.get_url(),
                 }
             )
         return tuple(index_entries)
