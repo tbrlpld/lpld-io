@@ -6,9 +6,8 @@
                 {{ word }}
             {% else %}
                 {# Span wrapper to avoid line-break between icon and last word. #}
-                <span class="inline-flex items-center underline decoration-1 group-hover:decoration-2">
-                    {{ word }}
-                    {% heroicon_mini "chevron-right" class="transition ease-linear group-hover:translate-x-0.5 delay-[10] duration-[10]" %}
+                <span class="inline-block nowrap underline decoration-1 group-hover:decoration-2">
+                    {{ word }}{% heroicon_mini "chevron-right" class="inline-block transition ease-linear group-hover:translate-x-0.5 delay-[10] duration-[10]" %}
                 </span>
             {% endif %}
         {% endfor %}
