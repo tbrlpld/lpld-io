@@ -18,7 +18,7 @@ gunicorn = "^22.0.0"
 heroicons = {extras = ["django"], version = "^2"}
 psycopg2 = "^2.9.6"
 python = "^3.11"
-sentry-sdk = "^1"
+sentry-sdk = "^2"
 slippers = "^0.6.0"
 wagtail = "~5.0"
 wagtailmedia = "^0.14.4"
